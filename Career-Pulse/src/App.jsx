@@ -1,6 +1,7 @@
 
 import './App.css'
 import Body from './Components/BodyContent/Body'
+import Footer from './Components/FooterContent/Footer'
 import Header from './Components/HeaderContent/Header'
 
 function App() {
@@ -13,6 +14,7 @@ function App() {
         <Body>
           <h3 className='home'>Home</h3>
         </Body>
+        <Footer />
       </div>
     </>
   )
