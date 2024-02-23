@@ -1,8 +1,19 @@
 
-function MenuLink() {
+import PropTypes from 'prop-types';
+import './MenuLink.css';
+import { Link } from "react-router-dom";
+
+function MenuLink(props) {
   return (
-    <div>MenuLink</div>
-  )
+    <>
+      <Link className="navgateLinks " to={props.url}>{props.linkname}</Link>
+    </>
+  );
 }
 
-export default MenuLink
+MenuLink.propTypes = {
+  url: PropTypes.string.isRequired,
+  linkname: PropTypes.string.isRequired,
+};
+
+export default MenuLink;

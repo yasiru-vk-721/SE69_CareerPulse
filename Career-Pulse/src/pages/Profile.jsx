@@ -1,7 +1,14 @@
+import Header from "../Components/HeaderContent/Header"
+import Body from "../Components/BodyContent/Body"
 
 function Profile() {
   return (
-    <div>Profile</div>
+    <>
+      <Header/>
+      <Body>
+      <h3 className='profile'>Profile</h3>
+      </Body>
+    </>
   )
 }
 

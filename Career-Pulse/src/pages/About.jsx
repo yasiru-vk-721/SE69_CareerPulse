@@ -1,7 +1,13 @@
-
+import Header from '../Components/HeaderContent/Header'
+import Body from '../Components/BodyContent/Body'
 function About() {
   return (
-    <div>About</div>
+    <>
+    <Header/>
+    <Body>
+      <h3 className='about'>About Us</h3>
+      </Body>
+    </>
   )
 }
 
