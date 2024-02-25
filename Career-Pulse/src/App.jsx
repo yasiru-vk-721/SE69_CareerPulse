@@ -3,6 +3,7 @@ import './App.css'
 import Body from './Components/BodyContent/Body'
 import Footer from './Components/FooterContent/Footer'
 import Header from './Components/HeaderContent/Header'
+import HomeAni from './Components/HomeAni'
 
 function App() {
 
@@ -12,7 +13,8 @@ function App() {
       <Header />
       <div id="wrapper">
         <Body>
-          <h3 className='home'>Home</h3>
+          <HomeAni />
+          {/* <h3 className='home'>Home</h3> */}
         </Body>
         <Footer />
       </div>
