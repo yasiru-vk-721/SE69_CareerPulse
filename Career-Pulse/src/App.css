@@ -1,0 +1,8 @@
+.home, .about, .vacancy, .contact,.profile{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 90vh;
+    font-size: 3rem;
+  
+  }
