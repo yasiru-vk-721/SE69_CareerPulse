@@ -6,6 +6,7 @@ import Vacancy from './pages/Vacancy.jsx'
 import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
 import Profile from './pages/Profile.jsx'
+import CVStatus from './pages/CVStatus.jsx'
 import {
   createBrowserRouter,
   RouterProvider,
@@ -32,6 +33,11 @@ const router = createBrowserRouter([
     path: "/profile",
     element: <Profile />,
   },
+  {
+    path: "/cvstatus",
+    element: <CVStatus />,
+  },
+
   
 ]);
 
