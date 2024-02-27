@@ -9,7 +9,7 @@
     border: 2px solid #ccc;
     border-radius: 20px;
     outline: none;
-    background-color: lightgray;
+    background-color: white;
   }
   
   .search-input {
@@ -19,7 +19,7 @@
 
     border-radius: 20px;
     outline: none;
-    background-color: lightgray;
+    background-color: white;
   }
   
   .search-icon {
