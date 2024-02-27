@@ -52,4 +52,4 @@ const CVTable = () => {
   );
 };
 
-export default CVTable;
+export default CVTable; 
