@@ -1,15 +1,12 @@
-import Header from "../Components/HeaderContent/Header"
-import Body from "../Components/BodyContent/Body"
-import Footer from "../Components/FooterContent/Footer"
-import "./Profile.css"
-import ProfilePic from "../images/cvstatus.jpg"
+import React from "react";
 
-function Profile() {
+import "./vismal.css";
+// import ProfilePic from "https://a.storyblok.com/f/191576/1200x800/faa88c639f/round_profil_picture_before_.webp";
+import ProfilePic from "./download.jpg"
+
+const Vismal = () => {
   return (
-    <>
-      {/* <Header/> */}
-      <div>
-        <Header/>
+    <div>
       {/* <Navbar /> */}
       <div className="userProfileCont">
         <div className="userProfile profileCont">
@@ -71,9 +68,8 @@ function Profile() {
         </div>
       </div>
     </div>
-      <Footer/>
-    </>
-  )
-}
+  );
+};
 
-export default Profile
+export default Vismal;
+
