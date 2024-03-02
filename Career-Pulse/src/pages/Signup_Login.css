@@ -1,0 +1,112 @@
+/* Signup_Login.css */
+.signup-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  .switch-buttons {
+    display: flex;
+    margin-bottom: 20px;
+  }
+  
+  .switch-buttons button {
+    flex: 1;
+    padding: 10px;
+    border: none;
+    cursor: pointer;
+    background-color: #3498db;
+    color: #fff;
+    font-size: 14px;
+  }
+  
+  .switch-buttons button:hover {
+    background-color: #2980b9;
+  }
+  
+  .switch-buttons button.active {
+    background-color: #b8b9b9;
+    color: black;
+  }
+  
+  .signup-form {
+    width: 300px;
+    padding: 20px;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+  }
+  .signup-form-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    height: 100vh;
+  }
+  
+  
+  label {
+    display: block;
+    
+    margin-bottom: 8px;
+  }
+  
+  input {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 16px;
+    box-sizing: border-box;
+    background-color:rgb(224, 219, 219) ;
+  }
+  
+  .error {
+    color: red;
+    margin-top: -8px;
+    margin-bottom: 8px;
+    font-size: 12px;
+  }
+  
+    button.submitbutton{
+    width: 100%;
+    padding: 10px;
+    background-color: black;
+    color: #fff;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+    margin-right: 8px;
+  }
+  
+  button:hover {
+    background-color: #2980b9;
+  }
+  .google-signin-container {
+    margin-top: 16px;
+  }
+  
+  .google-signin-button {
+    width: 100%;
+    padding: 10px;
+    background-color: #b8b9b9;
+    color: black;
+    border: none;
+    border-radius: 50px;
+    cursor: pointer;
+  }
+  .google-signin-icon {
+    width: 20px; 
+    height: 20px; 
+    margin-right: 10px; 
+    
+  }
+  
+  .google-signin-button:hover {
+    background-color: #acacac;
+  }
+  
+  @media screen and (max-width: 786px) {
+    .signup-form {
+      width: 80%;
+    }
+  }
+  

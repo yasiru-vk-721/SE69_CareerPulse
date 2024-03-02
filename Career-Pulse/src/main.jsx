@@ -7,10 +7,14 @@ import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
 import Profile from './pages/Profile.jsx'
 import CVStatus from './pages/CVStatus.jsx'
+import Login from './pages/Login.jsx'
+
+
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import SignupForm from './Components/Team_files/Chathuvi-fe/SignupForm.jsx'
 
 const router = createBrowserRouter([
   { path: "/", 
@@ -38,6 +42,20 @@ const router = createBrowserRouter([
     element: <CVStatus />,
   },
 
+{
+  path: '/login',
+  element: <Login/>,
+},
+{
+  path: '/companysignup',
+  element: <SignupForm/>
+},
+{
+  path: '/signup',
+  element: <SignupForm/>
+},
+  
+  
   
 ]);
 
