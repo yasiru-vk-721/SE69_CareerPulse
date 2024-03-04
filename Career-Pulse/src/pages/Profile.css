@@ -1,21 +1,16 @@
-.userProfileCont *{
-    margin: 0;
-    padding: 0;
-    box-sizing: border-box;
-}
 .userProfileCont {
     width: 100%;
-    height: 100svh;
+    height: 80svh;
     display: flex;
     justify-content: center;
     align-items: center;
     padding: 4vw;
-    margin-bottom: 100px;
+    margin-bottom: 200px;
 }
 
 .profileCont {
     height: 70svh;
-    /* margin-top: 13vh; */
+    margin-top: 13vh;
     border: 2px solid rgb(200, 200, 200);
     border-radius: 10px;
 }
@@ -50,6 +45,7 @@
 
 .userProfileImg h1 {
     font-size: 22px;
+    color: black;
 
 }
 

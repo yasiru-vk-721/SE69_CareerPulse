@@ -2,16 +2,16 @@ import Header from "../Components/HeaderContent/Header"
 import Body from "../Components/BodyContent/Body"
 import Footer from "../Components/FooterContent/Footer"
 import "./Profile.css"
-import ProfilePic from "../images/cvstatus.jpg"
+import ProfilePic from '../images/download.jpg'
 
 function Profile() {
   return (
     <>
-      {/* <Header/> */}
+      <Header/>
+      <Body>
       <div>
-        <Header/>
       {/* <Navbar /> */}
-      <div className="userProfileCont">
+      <div className="userProfileCont ">
         <div className="userProfile profileCont">
           <div className="userProfileImg">
             <img src={ProfilePic} className="profilePic" alt="profilePic" />
@@ -71,6 +71,8 @@ function Profile() {
         </div>
       </div>
     </div>
+
+      </Body>
       <Footer/>
     </>
   )
