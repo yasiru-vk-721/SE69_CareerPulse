@@ -5,7 +5,8 @@ import image from '../images/Google_Icon1.png'
 
 function Signup({ switchForm }) {
     const [formData, setFormData] = useState({
-        fullName: '',
+        firstName: '',
+        lastName: '',
         email: '',
         password: '',
         jobStatus: '',
@@ -35,8 +36,11 @@ function Signup({ switchForm }) {
     
         // Validate the form
         const newErrors = {};
-        if (!formData.fullName.trim() && switchForm !== 'user') {
-          newErrors.fullName = '*Full Name is required';
+        if (!formData.firstName.trim() && switchForm !== 'user') {
+          newErrors.firstName = '*First Name is required';
+        }
+        if (!formData.lastName.trim()) {
+          newErrors.lastName = '*Last Name is required';
         }
     
         if (!formData.email.trim()) {
@@ -75,15 +79,25 @@ function Signup({ switchForm }) {
           </button>
           <button type="button" onClick={() => switchForm('company')}>Company</button>
         </div>
-        <label htmlFor="fullName">Full Name:</label>
+        <label htmlFor="firstName">First Name:</label>
         <input
           type="text"
-          id="fullName"
-          name="fullName"
-          value={formData.fullName}
+          id="firstName"
+          name="firstName"
+          value={formData.firstName}
           onChange={handleChange}
         />
-        {errors.fullName && <p className="error">{errors.fullName}</p>}
+        {errors.firstName && <p className="error">{errors.firstName}</p>}
+
+        <label htmlFor="lastName">Last Name:</label>
+        <input
+          type="text"
+          id="lastName"
+          name="lastName"
+          value={formData.lastName}
+          onChange={handleChange}
+        />
+        {errors.lastName && <p className="error">{errors.lastName}</p>}
 
         <label htmlFor="email">Email:</label>
         <input
