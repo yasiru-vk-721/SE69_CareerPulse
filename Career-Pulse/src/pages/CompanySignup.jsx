@@ -77,6 +77,7 @@ function CompanySignup({ switchForm }) {
           type="text"
           id="companyName"
           name="companyName"
+          placeholder='Enter company name'
           value={formData.companyName}
           onChange={handleChange}
         />
@@ -87,6 +88,7 @@ function CompanySignup({ switchForm }) {
           type="email"
           id="email"
           name="email"
+          placeholder='Enter email'
           value={formData.email}
           onChange={handleChange}
           onBlur={handleChange}
@@ -98,6 +100,7 @@ function CompanySignup({ switchForm }) {
           type="password"
           id="password"
           name="password"
+          placeholder='Enter password'
           value={formData.password}
           onChange={handleChange}
         />

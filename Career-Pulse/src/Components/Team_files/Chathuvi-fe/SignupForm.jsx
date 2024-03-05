@@ -4,26 +4,29 @@ import Signup from '../../../pages/Signup';
 import CompanySignup from '../../../pages/CompanySignup';
 
 
-function SignupForm() {
-
-  const [currentForm, setCurrentForm] = useState('user');
-  const navigate = useNavigate();
-
-  const switchForm = (formType) => {
-    setCurrentForm(formType);
-    // Update the URL path based on the form type
-    navigate(`/${formType === 'user' ? 'signup' : 'companysignup'}`);
+const SignupForm = () => {
+    const [currentForm, setCurrentForm] = useState('user','company');
+    const navigate = useNavigate();
+  
+    const switchForm = (formType) => {
+      setCurrentForm(formType);
+      // Update the URL path based on the form type
+      if (formType === 'user') {
+        navigate('/signup');
+      } else if (formType === 'company') {
+        navigate('/companysignup');
+      }
+    };
+  
+    return (
+      <div>
+        {currentForm === 'user' ? (
+          <Signup switchForm={() => switchForm('company')} />
+        ) : (
+          <CompanySignup switchForm={() => switchForm('user')} />
+        )}
+      </div>
+    );
   };
-
-  return (
-    <div>
-      {currentForm === 'user' ? (
-        <Signup switchForm={() => switchForm('company')} />
-      ) : (
-        <CompanySignup switchForm={() => switchForm('user')} />
-      )}
-    </div>
-  )
-}
 
 export default SignupForm

@@ -84,6 +84,7 @@ function Signup({ switchForm }) {
           type="text"
           id="firstName"
           name="firstName"
+          placeholder='Enter first name'
           value={formData.firstName}
           onChange={handleChange}
         />
@@ -94,6 +95,7 @@ function Signup({ switchForm }) {
           type="text"
           id="lastName"
           name="lastName"
+          placeholder='Enter last name'
           value={formData.lastName}
           onChange={handleChange}
         />
@@ -104,6 +106,7 @@ function Signup({ switchForm }) {
           type="email"
           id="email"
           name="email"
+          placeholder='Enter email'
           value={formData.email}
           onChange={handleChange}
           onBlur={handleChange} // Add onBlur event for email field
@@ -115,6 +118,7 @@ function Signup({ switchForm }) {
           type="password"
           id="password"
           name="password"
+          placeholder='Enter password'
           value={formData.password}
           onChange={handleChange}
         />
@@ -125,6 +129,7 @@ function Signup({ switchForm }) {
           type="text"
           id="jobStatus"
           name="jobStatus"
+          placeholder='Enter job status'
           value={formData.jobStatus}
           onChange={handleChange}
         />

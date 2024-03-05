@@ -68,6 +68,7 @@ function Login() {
           type="email"
           id="email"
           name="email"
+          placeholder='Enter email'
           value={formData.email}
           onChange={handleChange}
           onBlur={handleChange}
@@ -79,6 +80,7 @@ function Login() {
           type="password"
           id="password"
           name="password"
+          placeholder='Enter password'
           value={formData.password}
           onChange={handleChange}
         />
