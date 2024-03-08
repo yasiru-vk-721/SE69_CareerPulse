@@ -11,6 +11,7 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import CompanyProfile from './Components/Team_files/Yasiru-FE/CompanyProfileContent/CompanyProfile.jsx'
 
 const router = createBrowserRouter([
   { path: "/", 
@@ -37,6 +38,10 @@ const router = createBrowserRouter([
     path: "/cvstatus",
     element: <CVStatus />,
   },
+  {
+    path: "company-profile",
+    element: <CompanyProfile/>
+  }
 
   
 ]);
