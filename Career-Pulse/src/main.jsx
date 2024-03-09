@@ -46,7 +46,7 @@ const router = createBrowserRouter([
   {
     path: "/company-profile",
     element: <CompanyProfile/>
-  }
+  },
 
 {
   path: '/login',
