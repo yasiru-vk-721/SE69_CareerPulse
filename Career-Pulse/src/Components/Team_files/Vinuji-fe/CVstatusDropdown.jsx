@@ -18,7 +18,14 @@ function CVstatusDropdown({ cv, onStatusChange, onDownloadCV }) {
         </select>
       </td>
       <td>
-        <button onClick={() => onDownloadCV(cv.cvUrl, `${cv.name}_CV.pdf`)}>Download CV</button>
+      <button onClick={() => onDownloadCV(cv.cvUrl, cv.name)}>
+          <ion-icon name="download-outline"></ion-icon>
+          
+
+          Download
+
+        </button>
+        
       </td>
     </tr>
   )
