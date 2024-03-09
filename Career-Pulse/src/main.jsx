@@ -7,10 +7,15 @@ import About from './pages/About.jsx'
 import Contact from './pages/Contact.jsx'
 import Profile from './pages/Profile.jsx'
 import CVStatus from './pages/CVStatus.jsx'
+import Login from './pages/Login.jsx'
+
+
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
+import CompanySignup from './pages/CompanySignup.jsx'
+import Signup from './pages/Signup.jsx'
 
 const router = createBrowserRouter([
   { path: "/", 
@@ -38,6 +43,20 @@ const router = createBrowserRouter([
     element: <CVStatus />,
   },
 
+{
+  path: '/login',
+  element: <Login/>,
+},
+{
+  path: '/companysignup',
+  element: <CompanySignup/>
+},
+{
+  path: '/signup',
+  element: <Signup/>
+},
+  
+  
   
 ]);
 
