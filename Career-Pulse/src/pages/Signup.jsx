@@ -3,7 +3,7 @@ import './Signup_Login.css'
 import { Link } from 'react-router-dom';
 import image from '../images/Google_Icon1.png'
 
-function Signup({ switchForm }) {
+function Signup() {
     const [formData, setFormData] = useState({
         firstName: '',
         lastName: '',
@@ -36,7 +36,7 @@ function Signup({ switchForm }) {
     
         // Validate the form
         const newErrors = {};
-        if (!formData.firstName.trim() && switchForm !== 'user') {
+        if (!formData.firstName.trim() ) {
           newErrors.firstName = '*First Name is required';
         }
         if (!formData.lastName.trim()) {
@@ -74,10 +74,12 @@ function Signup({ switchForm }) {
         
         <h2>Sign Up</h2>
         <div className="switch-buttons">
-          <button type="button" onClick={() => switchForm('user')} className="active">
+        <button type="button" className="active">
             User
           </button>
-          <button type="button" onClick={() => switchForm('company')}>Company</button>
+          <Link to = "/companysignup">
+          <button type="button">Company</button>
+          </Link>
         </div>
         <label htmlFor="firstName">First Name:</label>
         <input

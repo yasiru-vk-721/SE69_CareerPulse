@@ -3,7 +3,7 @@ import './Signup_Login.css';
 import { Link } from 'react-router-dom';
 import image from "../images/Google_Icon1.png"
 
-function CompanySignup({ switchForm }) {
+function CompanySignup() {
     const [formData, setFormData] = useState({
         companyName: '',
         email: '',
@@ -67,8 +67,10 @@ function CompanySignup({ switchForm }) {
       <form className="signup-form" onSubmit={handleSubmit}>
         <h2>Sign Up</h2>
         <div className="switch-buttons">
-          <button type="button" onClick={() => switchForm('user')}>User</button>
-          <button type="button" onClick={() => switchForm('company')} className="active">
+        <Link to = "/signup">
+          <button type="button">User</button>
+          </Link>
+          <button type="button" className="active">
             Company
           </button>
         </div>

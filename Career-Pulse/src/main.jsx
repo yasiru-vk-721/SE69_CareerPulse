@@ -14,7 +14,8 @@ import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
-import SignupForm from './Components/Team_files/Chathuvi-fe/SignupForm.jsx'
+import CompanySignup from './pages/CompanySignup.jsx'
+import Signup from './pages/Signup.jsx'
 
 const router = createBrowserRouter([
   { path: "/", 
@@ -48,11 +49,11 @@ const router = createBrowserRouter([
 },
 {
   path: '/companysignup',
-  element: <SignupForm/>
+  element: <CompanySignup/>
 },
 {
   path: '/signup',
-  element: <SignupForm/>
+  element: <Signup/>
 },
   
   
