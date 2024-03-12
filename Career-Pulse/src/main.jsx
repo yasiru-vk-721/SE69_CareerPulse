@@ -8,7 +8,7 @@ import Contact from './pages/Contact.jsx'
 import Profile from './pages/Profile.jsx'
 import CVStatus from './pages/CVStatus.jsx'
 import Login from './pages/Login.jsx'
-
+import CompanyProfile from './Components/Team_files/Yasiru-FE/CompanyProfileContent/CompanyProfile.jsx'
 
 import {
   createBrowserRouter,
@@ -16,6 +16,7 @@ import {
 } from "react-router-dom";
 import CompanySignup from './pages/CompanySignup.jsx'
 import Signup from './pages/Signup.jsx'
+
 
 const router = createBrowserRouter([
   { path: "/", 
@@ -41,6 +42,10 @@ const router = createBrowserRouter([
   {
     path: "/cvstatus",
     element: <CVStatus />,
+  },
+  {
+    path: "/company-profile",
+    element: <CompanyProfile/>
   },
 
 {
