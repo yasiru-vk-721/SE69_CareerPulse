@@ -1,0 +1,91 @@
+
+
+body.active-modal {
+    overflow-y: hidden;
+  }
+  
+  .btn-modal {
+    padding: 10px 20px;
+    display: block;
+    margin: 100px auto 0;
+    font-size: 18px;
+  }
+  
+  .modal, .overlay {
+    width: 100vw;
+    height: 100vh;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    position: fixed;
+  }
+  
+  .overlay {
+    background: rgba(49,49,49,0.8);
+  }
+  .modal-content {
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    line-height: 1.4;
+    background: #f1f1f1;
+    padding: 14px 28px;
+    border-radius: 3px;
+    max-width: 1000px;
+    min-width: 500px;
+    max-height: 95vh; /* Adjust height as needed */
+    overflow-y: auto; /* Add scrolling when content exceeds the height */
+}
+  
+  .close-modal {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    padding: 5px 7px;
+  }
+
+  .form-group {
+    margin-bottom: 20px;
+    margin-top: 20px;
+}
+
+.form-group label {
+    display: block;
+    font-weight: bold;
+    margin-bottom: 5px;
+}
+
+.form-group input,
+.form-group textarea {
+    width: 100%;
+    padding: 8px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+.form-group input[type="file"] {
+    width: auto;
+}
+
+/* button[type="submit"],
+.close-modal {
+    background-color: #b10d5f;
+    color: white;
+    font-weight: bold;
+    margin-top: px;
+    padding: 5px 10px 5px 10px;
+    border: none;
+    border-radius: 4px;
+    cursor: pointer;
+} */
+
+button[type="submit"]:hover,
+.close-modal:hover {
+    background-color: #635ce3;
+}
+
+  
+  /* Other styles remain the same */
+  
