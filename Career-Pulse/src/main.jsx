@@ -10,16 +10,21 @@ import CVStatus from './pages/CVStatus.jsx'
 import Login from './pages/Login.jsx'
 import CompanyProfile from './Components/Team_files/Yasiru-FE/CompanyProfileContent/CompanyProfile.jsx'
 
+
 import {
   createBrowserRouter,
   RouterProvider,
 } from "react-router-dom";
 import CompanySignup from './pages/CompanySignup.jsx'
 import Signup from './pages/Signup.jsx'
+import PageNotFound from './pages/PageNotFound.jsx'
 
 
 const router = createBrowserRouter([
-  { path: "/", 
+  { path: "*", 
+  element: <PageNotFound/> 
+  },
+  { path: "/home", 
   element: <App /> 
   },
   {
@@ -49,7 +54,7 @@ const router = createBrowserRouter([
   },
 
 {
-  path: '/login',
+  path: '/',
   element: <Login/>,
 },
 {
