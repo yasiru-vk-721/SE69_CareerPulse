@@ -58,7 +58,7 @@ const router = createBrowserRouter([
   element: <Login/>,
 },
 {
-  path: '/companysignup',
+  path: '/company-register',
   element: <CompanySignup/>
 },
 {
