@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import './Signup_Login.css';
 import { Link } from 'react-router-dom';
 import axios from "axios";
@@ -39,7 +39,7 @@ function Login() {
       .then(result => {
         console.log(result)
         if (result.data === "Success") {
-          navigate("/");
+          navigate("/home");
         } else {
           // Handle invalid credentials
           setErrors({ ...errors, credentials: '*Invalid email or password' });
@@ -83,7 +83,7 @@ function Login() {
 
         <button className="submitbutton" type="submit">Login</button>
         <p>
-          Don't have an account yet?
+          If you are a new to Career Pulse, please 
           <Link to="/signup">Sign Up</Link>
         </p>
       </form>

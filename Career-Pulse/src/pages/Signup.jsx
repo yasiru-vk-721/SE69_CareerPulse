@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import  { useState } from 'react';
 import './Signup_Login.css'
 import { Link } from 'react-router-dom';
 import image from '../images/Google_Icon1.png'
@@ -88,7 +88,7 @@ function Signup() {
                     <button type="button" className="active">
                         User
                     </button>
-                    <Link to="/companysignup">
+                    <Link to="/company-register">
                         <button type="button">Company</button>
                     </Link>
                 </div>
@@ -157,7 +157,7 @@ function Signup() {
                     </button>
                 </div>
 
-                <p>Already have an account?<Link to="/login">Login</Link></p>
+                <p>Already have an account?<Link to="/">Login</Link></p>
             </form>
         </div>
     );
