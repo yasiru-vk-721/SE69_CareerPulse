@@ -88,7 +88,7 @@ function Signup() {
                     <button type="button" className="active">
                         User
                     </button>
-                    <Link to="/companysignup">
+                    <Link to="/company-register">
                         <button type="button">Company</button>
                     </Link>
                 </div>
