@@ -4,7 +4,7 @@ const Product = require("./Models/productModel")
 const app = express()
 const cors = require("cors")
 const employeeModel = require("./Models/employee")
-
+const companyModel = require("./Models/company")
 
 
 app.use(express.json())
@@ -14,51 +14,16 @@ app.use(express.urlencoded( { extended: false } ))
 const PORT = process.env.PORT || 3000
 
 //routes
-app.get('/', (req, res) => {
-    res.send('hello node api')
-})
 
-app.get('/blog', (req, res) => {
-    res.send("Hello")
-})
-
-app.get('/products', async( req, res) => {
-    try{
-        const products = await Product.find({});
-        res.status(200).json(products);
-
-    }catch(error) {
-        console.log(error.message);
-        res.status(500).json({message: error.message});
-    }
-})
-
-app.get('/products/:id', async( req, res) => {
-    try{
-        const {id} = req.params;
-        const product = await Product.findById(id);
-        res.status(200).json(product);
-
-    }catch(error) {
-        console.log(error.message);
-        res.status(500).json({message: error.message});
-    }
-})
-
-app.post('/product', async(req, res) =>{
-    try{
-        const product = await Product.create(req.body)
-        res.status(200).json(product);
-
-    }catch(error) {
-        console.log(error.message);
-        res.status(500).json({message: error.message});
-    }
-
-})
 
 app.post('/register', (req, res) => {
     employeeModel.create(req.body)
+    .then(employees => res.json(employees))
+    .catch(err => res.json(err))
+})
+
+app.post('/company-register', (req, res) => {
+    companyModel.create(req.body)
     .then(employees => res.json(employees))
     .catch(err => res.json(err))
 })
@@ -84,37 +49,37 @@ app.post('/login', (req, res) => {
 
 
 //update a product
-app.put('/products/:id', async( req, res) => {
-    try{
-        const {id} = req.params;
-        const product = await Product.findByIdAndUpdate(id, req.body);
-        if(!product){
-            res.status(404).json({message: `cannot find any product ID ${id}`});
-        }
-        const updateProdcut = await Product.findById(id);
-        res.status(200).json(updateProdcut);
+// app.put('/products/:id', async( req, res) => {
+//     try{
+//         const {id} = req.params;
+//         const product = await Product.findByIdAndUpdate(id, req.body);
+//         if(!product){
+//             res.status(404).json({message: `cannot find any product ID ${id}`});
+//         }
+//         const updateProdcut = await Product.findById(id);
+//         res.status(200).json(updateProdcut);
 
-    }catch(error) {
-        console.log(error.message);
-        res.status(500).json({message: error.message});
-    }
-})
+//     }catch(error) {
+//         console.log(error.message);
+//         res.status(500).json({message: error.message});
+//     }
+// })
 
-//delete a product
-app.delete('/products/:id', async( req, res) => {
-    try{
-        const {id} = req.params;
-        const product = await Product.findByIdAndDelete(id);
-        if(!product){
-            res.status(404).json({message: `cannot find any product ID ${id}`});
-        }
-        res.status(200).json(prodcut);
+// //delete a product
+// app.delete('/products/:id', async( req, res) => {
+//     try{
+//         const {id} = req.params;
+//         const product = await Product.findByIdAndDelete(id);
+//         if(!product){
+//             res.status(404).json({message: `cannot find any product ID ${id}`});
+//         }
+//         res.status(200).json(prodcut);
 
-    }catch(error) {
-        console.log(error.message);
-        res.status(500).json({message: error.message});
-    }
-})
+//     }catch(error) {
+//         console.log(error.message);
+//         res.status(500).json({message: error.message});
+//     }
+// })
 
 
 mongoose.set("strictQuery", false)

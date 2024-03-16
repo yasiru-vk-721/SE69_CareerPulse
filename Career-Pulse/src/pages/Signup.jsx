@@ -10,6 +10,7 @@ function Signup() {
     const [lastName, setLName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmpassword, setComfirmPassword] = useState('');
     const [jobStatus, setJobStatus] = useState('');
     const navigate = useNavigate();
 
@@ -21,25 +22,29 @@ function Signup() {
         setErrors({ ...errors, [name]: '' }); // Clear validation errors on change
 
         if (name === 'email' && value.trim() !== '') {
-            const emailError = !/\S+@\S+\.\S+/.test(value) ? 'Invalid email address' : '';
+            const emailError = !/\S+@\S+\.\S+/.test(value) ? '*Invalid email address' : '';
             setErrors({ ...errors, [name]: emailError });
         }
 
         if (name === 'password') {
-            const passwordError = value.length < 8 ? 'Password needs at least 8 characters' : '';
+            const passwordError = value.length < 8 ? '*Password needs at least 8 characters' : '';
             setErrors({ ...errors, [name]: passwordError });
+        }
+        if (name === 'confirmpassword') {
+            const confirmpasswordError = value.length < 8 ? '*Password needs at least 8 characters' : '';
+            setErrors({ ...errors, [name]: confirmpasswordError });
         }
 
         if (name === 'firstName' && value.trim() === '') {
-            setErrors({ ...errors, [name]: 'First name is required' });
+            setErrors({ ...errors, [name]: '*First name is required' });
         }
 
         if (name === 'lastName' && value.trim() === '') {
-            setErrors({ ...errors, [name]: 'Last name is required' });
+            setErrors({ ...errors, [name]: '*Last name is required' });
         }
 
         if (name === 'jobStatus' && value.trim() === '') {
-            setErrors({ ...errors, [name]: 'Job status is required' });
+            setErrors({ ...errors, [name]: '*Job status is required' });
         }
     };
 
@@ -48,23 +53,28 @@ function Signup() {
 
         const newErrors = {};
         if (!firstName.trim()) {
-            newErrors.firstName = 'First name is required';
+            newErrors.firstName = '*First name is required';
         }
         if (!lastName.trim()) {
-            newErrors.lastName = 'Last name is required';
+            newErrors.lastName = '*Last name is required';
         }
         if (!email.trim()) {
-            newErrors.email = 'Email is required';
+            newErrors.email = '*Email is required';
         } else if (!/\S+@\S+\.\S+/.test(email)) {
-            newErrors.email = 'Invalid email address';
+            newErrors.email = '*Invalid email address';
         }
         if (!password.trim()) {
-            newErrors.password = 'Password is required';
+            newErrors.password = '*Password is required';
         } else if (password.length < 8) {
-            newErrors.password = 'Password needs at least 8 characters';
+            newErrors.password = '*Password needs at least 8 characters';
+        }
+        if (!confirmpassword.trim()) {
+            newErrors.confirmpassword = '*Confirm Password is required';
+        } else if (confirmpassword.length < 8) {
+            newErrors.confirmpassword = '*Password needs at least 8 characters';
         }
         if (!jobStatus.trim()) {
-            newErrors.jobStatus = 'Job status is required';
+            newErrors.jobStatus = '*Job status is required';
         }
 
         if (Object.keys(newErrors).length > 0) {
@@ -72,7 +82,7 @@ function Signup() {
             return;
         }
 
-        axios.post('http://localhost:3000/register', { firstName, lastName, email, password, jobStatus })
+        axios.post('http://localhost:3000/register', { firstName, lastName, email, password, confirmpassword, jobStatus })
             .then(result => {
                 console.log(result)
                 navigate("/")
@@ -88,7 +98,7 @@ function Signup() {
                     <button type="button" className="active">
                         User
                     </button>
-                    <Link to="/companysignup">
+                    <Link to="/company-register">
                         <button type="button">Company</button>
                     </Link>
                 </div>
@@ -136,6 +146,17 @@ function Signup() {
                     onBlur={handleChange}
                 />
                 {errors.password && <p className="error">{errors.password}</p>}
+
+                <label htmlFor="confirmpassword">Confirm Password:</label>
+                <input
+                    type="password"
+                    id="confirmpassword"
+                    name="confirmpassword"
+                    placeholder='Enter confirm password'
+                    onChange={(e) => setComfirmPassword(e.target.value)}
+                    onBlur={handleChange}
+                />
+                {errors.confirmpassword && <p className="error">{errors.confirmpassword}</p>}
 
                 <label htmlFor="jobStatus">Job Status:</label>
                 <input
