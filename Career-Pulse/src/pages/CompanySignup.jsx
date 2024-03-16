@@ -9,6 +9,8 @@ function CompanySignup() {
     const [companyName, setCompanyName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
+    const [confirmpassword, setComfirmPassword] = useState('');
+    const [location, setLocation] = useState('');
     const navigate = useNavigate();
 
     const [errors, setErrors] = useState({});
@@ -27,9 +29,16 @@ function CompanySignup() {
             const passwordError = value.length < 8 ? 'Password needs at least 8 characters' : '';
             setErrors({ ...errors, [name]: passwordError });
         }
+        if (name === 'confirmpassword') {
+            const confirmpasswordError = value.length < 8 ? 'Password needs at least 8 characters' : '';
+            setErrors({ ...errors, [name]: confirmpasswordError });
+        }
 
         if (name === 'companyName' && value.trim() === '') {
             setErrors({ ...errors, [name]: 'Company name is required' });
+        }
+        if (name === 'location' && value.trim() === '') {
+            setErrors({ ...errors, [name]: 'Company Location is required' });
         }
     };
 
@@ -48,13 +57,24 @@ function CompanySignup() {
         } else if (password.length < 8) {
             newErrors.password = 'Password needs at least 8 characters';
         }
+        if (!confirmpassword.trim()) {
+            newErrors.confirmpassword = 'Confirm Password is required';
+        } else if (confirmpassword.length < 8) {
+            newErrors.confirmpassword = 'Password needs at least 8 characters';
+        }
+        if (!companyName.trim()) {
+            newErrors.companyName = 'Company name is required';
+        }
+        if (!location.trim()) {
+            newErrors.location = 'location is required';
+        }
 
         if (Object.keys(newErrors).length > 0) {
             setErrors(newErrors);
             return;
         }
 
-        axios.post('http://localhost:3000/company-register', { companyName, email, password })
+        axios.post('http://localhost:3000/company-register', { companyName, email, password, confirmpassword, location })
             .then(result => {
                 console.log(result)
                 navigate("/")
@@ -108,6 +128,28 @@ function CompanySignup() {
                     onBlur={handleChange}
                 />
                 {errors.password && <p className="error">{errors.password}</p>}
+
+                <label htmlFor="confirmpassword">Confirm Password:</label>
+                <input
+                    type="password"
+                    id="confirmpassword"
+                    name="confirmpassword"
+                    placeholder='Enter confirm password'
+                    onChange={(e) => setComfirmPassword(e.target.value)}
+                    onBlur={handleChange}
+                />
+                {errors.confirmpassword && <p className="error">{errors.confirmpassword}</p>}
+
+                <label htmlFor="location">Location:</label>
+                <input
+                    type="text"
+                    id="location"
+                    name="location"
+                    placeholder='Enter location'
+                    onChange={(e) => setLocation(e.target.value)}
+                    onBlur={handleChange}
+                />
+                {errors.location && <p className="error">{errors.location}</p>}
 
                 <button className="submitbutton" type="submit">Sign Up</button>
 
