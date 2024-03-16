@@ -1,0 +1,13 @@
+.hero{
+    width: 100%;
+    height: 100vh;
+    position: relative;
+    background-image: url("../images/cvstatus.jpg");
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-attachment:fixed;
+}
+
+.table{
+    margin-bottom: 20px;
+}

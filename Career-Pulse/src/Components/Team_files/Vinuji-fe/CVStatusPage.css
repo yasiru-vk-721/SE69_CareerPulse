@@ -1,0 +1,36 @@
+table {
+width: 50%;
+margin: auto;
+border-collapse: collapse;
+margin-top: 20px;
+}
+
+th, td {
+padding: 12px;
+border: 2px solid black;
+}
+
+th {
+background-color: #f2f2f2;
+}
+
+select {
+padding: 15px;
+font-size: 14px;
+width: 250px;
+border: 2px solid black;
+}
+
+button {
+padding: 8px;
+font-size: 14px;
+cursor: pointer;
+border: 2px solid black;
+color:blue;
+}
+
+
+
+  
+
+
