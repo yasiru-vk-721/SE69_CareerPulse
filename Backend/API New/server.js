@@ -11,6 +11,8 @@ app.use(express.json())
 app.use(cors())
 app.use(express.urlencoded( { extended: false } ))
 
+const PORT = process.env.PORT || 3000
+
 //routes
 app.get('/', (req, res) => {
     res.send('hello node api')
@@ -119,8 +121,8 @@ mongoose.set("strictQuery", false)
 mongoose.connect("mongodb+srv://careerpulse-69:careerpulse69@cluster0.63umrql.mongodb.net/Node-API?retryWrites=true&w=majority&appName=Cluster0")
 .then(() => {
     console.log("connected to mongoDB")
-    app.listen(3000, ()=>{
-        console.log("App is running on port 3000")
+    app.listen(PORT, ()=>{
+        console.log(`App is running on port ${PORT}`)
     })
     
 
