@@ -1,14 +1,9 @@
-import Header from "../Components/HeaderContent/Header"
-import Body from "../Components/BodyContent/Body"
-import Footer from "../Components/FooterContent/Footer"
 import "./Profile.css"
 import ProfilePic from '../images/download.jpg'
 
 function Profile() {
   return (
     <>
-      <Header/>
-      <Body>
       <div>
       {/* <Navbar /> */}
       <div className="userProfileCont ">
@@ -71,9 +66,6 @@ function Profile() {
         </div>
       </div>
     </div>
-
-      </Body>
-      <Footer/>
     </>
   )
 }
