@@ -4,6 +4,8 @@ const companySchema = new mongoose.Schema({
     companyName: String,
     email: String,
     password: String,
+    confirmpassword: String,
+    location: String
     
 })
 
