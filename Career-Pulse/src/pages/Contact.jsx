@@ -1,6 +1,6 @@
-import Header from "../Components/HeaderContent/Header"
-import Body from "../Components/BodyContent/Body"
-import Footer from "../Components/FooterContent/Footer"
+// import Header from "../Components/HeaderContent/Header"
+// import Body from "../Components/BodyContent/Body"
+// import Footer from "../Components/FooterContent/Footer"
 import {useState} from 'react'
 
 function Contact() {
@@ -53,8 +53,8 @@ function Contact() {
 
   return (
     <>
-      <Header/>
-      <Body>
+      {/* <Header/>
+      <Body> */}
       <div className="antialiased mt-5 mb-20">
           <div className="flex w-full min-h-screen justify-center items-center">
             <div className=" flex flex-col md:flex-row md:space-x-6 md:space-y-0 space-y-6  bg-purple-950 w-full max-w-4xl p-8 sn:p-12 rounded-xl   shadow-lg text-white overflow-hidden">
@@ -196,8 +196,8 @@ function Contact() {
           </div>
         </div>
       
-      </Body>
-      <Footer/>
+      {/* </Body>
+      <Footer/> */}
     </>
   );
 }
