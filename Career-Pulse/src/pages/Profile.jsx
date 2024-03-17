@@ -1,7 +1,10 @@
 import "./Profile.css"
 import ProfilePic from '../images/download.jpg'
+import { UserContext } from '../../context/userContext';
+import { useContext } from 'react';
 
 function Profile() {
+  const {user} = useContext(UserContext);
   return (
     <>
       <div>
@@ -10,8 +13,8 @@ function Profile() {
         <div className="userProfile profileCont">
           <div className="userProfileImg">
             <img src={ProfilePic} className="profilePic" alt="profilePic" />
-            <h1>Name</h1>
-            <p>Role</p>
+            {!!user && (<h1>Welcome {user.firstName}</h1>)}
+            <p className="text-2xl">Role</p>
           </div>
           <div className="userProfileBio">
             <p>

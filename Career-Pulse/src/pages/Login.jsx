@@ -1,12 +1,13 @@
 import  { useState } from 'react';
 import './Signup_Login.css';
 import { Link } from 'react-router-dom';
-// import axios from "axios";
-// import { useNavigate } from 'react-router-dom';
+import axios from "axios";
+import { useNavigate } from 'react-router-dom';
 import { FaEyeSlash, FaEye } from "react-icons/fa";
+import {toast} from 'react-hot-toast';
 
 function Login() {
-  // const navigate = useNavigate();
+  const navigate = useNavigate();
   const  [showPassword, setShowPassword] = useState(false);
 
   const [data, setData] = useState({
@@ -14,8 +15,25 @@ function Login() {
     password: "",
   });
 
-  const loginUser = (e) => {
+  const loginUser = async (e) => {
     e.preventDefault();
+    const { email, password } = data;
+    try{
+      const {data} = await axios.post('/login',{
+        email,
+        password
+      });
+      if(data.error){
+        toast.error(data.error);
+      }else{
+        setData({})
+        toast.success("Login Successfull")
+        navigate('/');
+        window.location.reload();
+      }
+    }catch(error){
+      console.log(error)
+    }
   };
 
   return (

@@ -1,6 +1,8 @@
 import './App.css'
 import Footer from './Components/FooterContent/Footer'
 import Header from './Components/HeaderContent/Header'
+import {Toaster} from 'react-hot-toast'
+import axios from 'axios';
 import { Routes ,Route } from 'react-router-dom';
 import Home from './pages/Home'
 import About from './pages/About'
@@ -13,13 +15,19 @@ import Login from './pages/Login'
 import CompanySignup from './pages/CompanySignup'
 import Signup from './pages/Signup'
 import PageNotFound from './pages/PageNotFound'
+import { UserContextProvider } from '../context/userContext';
+
+
+axios.defaults.baseURL = 'http://localhost:8000';
+axios.defaults.withCredentials = true; 
 
 function App() {
 
 
   return (
-    <>
+    <UserContextProvider>
       <Header />
+      <Toaster  position='bottom-right' toastOptions={{duration : 2000}}/>
       <Routes>
         <Route path="/" element={<Home />} />
         <Route path="/about" element={<About />} />
@@ -41,7 +49,7 @@ function App() {
         {/* </Body> */} */
         <Footer />
       {/* </div> */}
-    </>
+    </UserContextProvider>
   )
 }
 
