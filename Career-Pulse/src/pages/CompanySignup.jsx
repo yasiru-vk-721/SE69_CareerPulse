@@ -1,7 +1,6 @@
-import  { useState } from 'react';
-import './Signup_Login.css'
+import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import image from '../images/Google_Icon1.png'
+import image from '../images/Google_Icon1.png';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 
@@ -9,7 +8,7 @@ function CompanySignup() {
     const [companyName, setCompanyName] = useState('');
     const [email, setEmail] = useState('');
     const [password, setPassword] = useState('');
-    const [confirmpassword, setComfirmPassword] = useState('');
+    const [confirmpassword, setConfirmPassword] = useState('');
     const [location, setLocation] = useState('');
     const navigate = useNavigate();
 
@@ -61,12 +60,14 @@ function CompanySignup() {
             newErrors.confirmpassword = 'Confirm Password is required';
         } else if (confirmpassword.length < 8) {
             newErrors.confirmpassword = 'Password needs at least 8 characters';
+        } else if (password !== confirmpassword) {
+            newErrors.confirmpassword = 'Passwords do not match';
         }
         if (!companyName.trim()) {
             newErrors.companyName = 'Company name is required';
         }
         if (!location.trim()) {
-            newErrors.location = 'location is required';
+            newErrors.location = 'Location is required';
         }
 
         if (Object.keys(newErrors).length > 0) {
@@ -76,91 +77,104 @@ function CompanySignup() {
 
         axios.post('http://localhost:3000/company-register', { companyName, email, password, confirmpassword, location })
             .then(result => {
-                console.log(result)
-                navigate("/")
+                console.log(result);
+                navigate("/");
             })
-            .catch(err => console.log(err))
+            .catch(err => console.log(err));
     };
 
     return (
-        <div className="signup-container">
-            <form className="signup-form" onSubmit={handleSubmit}>
-                <h2>Company Sign Up</h2>
-                <div className="switch-buttons">
-                <Link to="/signup">
-                        <button type="button">User</button>
+        <div className="min-h-screen bg-gray-100 flex justify-center items-center">
+            <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-lg" onSubmit={handleSubmit}>
+                <h2 className="text-2xl mb-4 font-bold text-center">Company Sign Up</h2>
+                <div className="flex justify-center mb-4">
+                    <Link to="/signup">
+                        <button type="button" className="mr-4 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline">
+                            User
+                        </button>
                     </Link>
-                    <button type="button" className="active">
+                    <button type="button" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline">
                         Company
                     </button>
-
                 </div>
 
-                <label htmlFor="companyName">Company Name:</label>
-                <input
-                    type="text"
-                    id="companyName"
-                    name="companyName"
-                    placeholder='Enter first name'
-                    onChange={(e) => setCompanyName(e.target.value)}
-                    onBlur={handleChange}
-                />
-                {errors.companyName && <p className="error">{errors.companyName}</p>}
+                <div className="flex flex-wrap -mx-3 mb-6">
+                    <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
+                        <label htmlFor="companyName" className="block text-gray-700 text-sm font-bold mb-2">Company Name:</label>
+                        <input
+                            type="text"
+                            id="companyName"
+                            name="companyName"
+                            placeholder='Enter company name'
+                            onChange={(e) => setCompanyName(e.target.value)}
+                            onBlur={handleChange}
+                            className="w-full border rounded-md py-2 px-3 mt-1 mb-3"
+                        />
+                        {errors.companyName && <p className="text-red-500 mb-2">{errors.companyName}</p>}
 
-                <label htmlFor="email">Email:</label>
-                <input
-                    type="email"
-                    id="email"
-                    name="email"
-                    placeholder='Enter email'
-                    onChange={(e) => setEmail(e.target.value)}
-                    onBlur={handleChange}
-                />
-                {errors.email && <p className="error">{errors.email}</p>}
+                        <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                        <input
+                            type="email"
+                            id="email"
+                            name="email"
+                            placeholder='Enter email'
+                            onChange={(e) => setEmail(e.target.value)}
+                            onBlur={handleChange}
+                            className="w-full border rounded-md py-2 px-3 mt-1 mb-3"
+                        />
+                        {errors.email && <p className="text-red-500 mb-2">{errors.email}</p>}
 
-                <label htmlFor="password">Password:</label>
-                <input
-                    type="password"
-                    id="password"
-                    name="password"
-                    placeholder='Enter password'
-                    onChange={(e) => setPassword(e.target.value)}
-                    onBlur={handleChange}
-                />
-                {errors.password && <p className="error">{errors.password}</p>}
+                        <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">Password:</label>
+                        <input
+                            type="password"
+                            id="password"
+                            name="password"
+                            placeholder='Enter password'
+                            onChange={(e) => setPassword(e.target.value)}
+                            onBlur={handleChange}
+                            className="w-full border rounded-md py-2 px-3 mt-1 mb-3"
+                        />
+                        {errors.password && <p className="text-red-500 mb-2">{errors.password}</p>}
+                    </div>
+                    <div className="w-full md:w-1/2 px-3">
+                        <label htmlFor="confirmpassword" className="block text-gray-700 text-sm font-bold mb-2">Confirm Password:</label>
+                        <input
+                            type="password"
+                            id="confirmpassword"
+                            name="confirmpassword"
+                            placeholder='Enter confirm password'
+                            onChange={(e) => setConfirmPassword(e.target.value)}
+                            onBlur={handleChange}
+                            className="w-full border rounded-md py-2 px-3 mt-1 mb-3"
+                        />
+                        {errors.confirmpassword && <p className="text-red-500 mb-2">{errors.confirmpassword}</p>}
 
-                <label htmlFor="confirmpassword">Confirm Password:</label>
-                <input
-                    type="password"
-                    id="confirmpassword"
-                    name="confirmpassword"
-                    placeholder='Enter confirm password'
-                    onChange={(e) => setComfirmPassword(e.target.value)}
-                    onBlur={handleChange}
-                />
-                {errors.confirmpassword && <p className="error">{errors.confirmpassword}</p>}
+                        <label htmlFor="location" className="block text-gray-700 text-sm font-bold mb-2">Location:</label>
+                        <input
+                            type="text"
+                            id="location"
+                            name="location"
+                            placeholder='Enter location'
+                            onChange={(e) => setLocation(e.target.value)}
+                            onBlur={handleChange}
+                            className="w-full border rounded-md py-2 px-3 mt-1 mb-3"
+                        />
+                        {errors.location && <p className="text-red-500 mb-2">{errors.location}</p>}
+                    </div>
+                </div>
 
-                <label htmlFor="location">Location:</label>
-                <input
-                    type="text"
-                    id="location"
-                    name="location"
-                    placeholder='Enter location'
-                    onChange={(e) => setLocation(e.target.value)}
-                    onBlur={handleChange}
-                />
-                {errors.location && <p className="error">{errors.location}</p>}
+                <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded w-full mt-4" type="submit">
+                    Sign Up
+                </button>
 
-                <button className="submitbutton" type="submit">Sign Up</button>
-
-                <div className="google-signin-container">
-                    <button type="button" className="google-signin-button">
-                        <img className="google-signin-icon" src={image} alt="Google Icon" />
+                <div className="mt-6 text-center">
+                    <button type="button" className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
+                        <img className="h-6 w-6 inline-block mr-2" src={image} alt="Google Icon" />
                         Sign Up with Google
                     </button>
                 </div>
 
-                <p>Already have an account?<Link to="/">Login</Link></p>
+                <p className="text-center mt-4">Already have an account?<Link to="/" className="text-blue-500 hover:text-blue-700">Login</Link></p>
             </form>
         </div>
     );
