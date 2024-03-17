@@ -1,6 +1,3 @@
-import Body from "../Components/BodyContent/Body"
-import Footer from "../Components/FooterContent/Footer"
-import Header from "../Components/HeaderContent/Header"
 import { useState} from "react"
 import jobsData from '../Components/Team_files/Vinuji-fe/JobData'
 import JobList from '../Components/Team_files/Vinuji-fe/JobList'
@@ -23,16 +20,11 @@ function Vacancy() {
   };
   return (
     <div id ="wrapper" className="hero2">
-      <Header/>
-      <Body>
-      <div class = 'text-center mb-20'>
+      <div className = 'text-center mb-20'>
       <h1 className='text-6xl mt-20'>Your ideal jobs await, Start the search...</h1>
       <SearchBar onSearch={handleSearch} />
       <JobList jobs={filteredJobs} />
       </div>
-      
-      </Body>
-      <Footer/>
     </div>
   )
 }
