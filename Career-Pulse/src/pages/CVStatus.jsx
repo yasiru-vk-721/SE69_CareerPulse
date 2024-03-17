@@ -1,9 +1,7 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import CVStatusDropdown from '../Components/Team_files/Vinuji-fe/CVstatusDropdown';
 import '../Components/Team_files/Vinuji-fe/CVStatusPage.css'
 import './CVStatus.css'
-import Header from '../Components/HeaderContent/Header';
-import Footer from '../Components/FooterContent/Footer';
 
 
 const initialCVs = [
@@ -31,7 +29,6 @@ const CVTable = () => {
 
   return (
     <div className="hero">
-        <Header/>
     <table className='mb-64'>
       <thead>
         <tr>
@@ -47,7 +44,6 @@ const CVTable = () => {
         ))}
       </tbody>
     </table>
-    <Footer/>
     </div>
   );
 };

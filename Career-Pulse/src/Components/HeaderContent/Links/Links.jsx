@@ -34,7 +34,7 @@ function Links() {
   return (
     <nav className='navigationbar'>
         {/* <a href=""><img className="logo" src={logo} alt="Logo for career pulse" /></a> */}
-        <Link to = '/home' 
+        <Link to = '/' 
             className='navbar-logo'>
             Career Pulse <i className="fas fa-briefcase"></i>
             {/* <img src={Logo} alt="Career Pulse" className="logo"/> */}
@@ -46,7 +46,7 @@ function Links() {
         <ul className={click ? 'navMenu active': 'navMenu'}>
 
           <li className="navigateItem">
-            <MenuLink className="navgateLinks" onClick={closeMobileMenu} linkname="Home" url="/home"/>
+            <MenuLink className="navgateLinks" onClick={closeMobileMenu} linkname="Home" url="/"/>
           </li>
           <li className="navigateItem">
             <MenuLink className="navgateLinks" onClick={closeMobileMenu} linkname="Vacancy" url="/vacancy"/>
