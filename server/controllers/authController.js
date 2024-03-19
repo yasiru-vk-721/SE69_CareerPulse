@@ -2,6 +2,8 @@ const User = require('../models/user.js');
 const Company = require('../models/company.js');
 const { hashPassword, hashConfirmpassword,  comparePassword,hashCompanyPassword,
     hashComapnyConfirmPassword } = require('../helpers/auth.js');
+const Vacancy = require('../models/vacancy.js');
+const { hashPassword, hashedconfirmpassword,  comparePassword } = require('../helpers/auth.js');
 const jwt = require('jsonwebtoken');
 
 const test = (req, res) => {
@@ -123,6 +125,41 @@ const getProfile = async (req, res) => {
     }
 
 };
+// post job
+const postJob = async (req, res) => {
+    try{
+        const {companyName, jobRole, skills} = req.body;
+        // check is name was entered
+        if(!companyName){
+            return res.json({
+                error: "Company Name is required"
+            })
+        };
+        // check if job role was entered
+        if(!jobRole){
+            return res.json({
+                error: "Job Role is required"
+            })
+        }
+        if(!skills){
+            return res.json({
+                error: "Skills are required"
+            })
+        }
+        // create vacancy
+        const vacancy = await Vacancy.create({
+            companyName,
+            jobRole,
+            skills
+        });
+
+        return res.json(vacancy)
+
+    }catch (error){
+        console.log(error);
+    }   
+};
+
 
 //register company
 const registerCompany = async (req, res) => {
@@ -187,4 +224,5 @@ module.exports = {
     loginUser,
     getProfile,
     registerCompany
+    postJob,
 }
