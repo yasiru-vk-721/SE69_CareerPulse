@@ -5,13 +5,13 @@ function Footer() {
   return (
     <>
     <footer id='footercontent'>
-        <div className="waves">
+        {/* <div className="waves">
             <div className="wave" id="wave1"></div>
             <div className="wave" id="wave2"></div>
             <div className="wave" id="wave3"></div>
             <div className="wave" id="wave4"></div>
 
-        </div>
+        </div> */}
     <div className='abolute top-0 left-0 w-full overflow-hidden line bg-slate-300  rounded-3xl'>
     <div className='grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8 p-20 text-[18px] font-mono'>
         <div className='flex flex-col'>
