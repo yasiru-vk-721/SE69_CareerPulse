@@ -1,7 +1,4 @@
-// src/JobList.js
-import React from 'react';
 import './JobList.css'; 
-
 
 const JobList = ({ jobs }) => {
   return (
