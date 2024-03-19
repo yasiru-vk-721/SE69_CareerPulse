@@ -111,6 +111,17 @@ const loginUser = async (req,res)=> {
 
 }
 
+//logout user
+const logOut = async (req,res) =>{
+    try{
+        res.clearCookie('token');
+        res.json("Logged Out")
+    }catch(error){
+        console.log(error);
+        res.json('Error Logging out')
+    }
+}
+
 const getProfile = async (req, res) => {
     const {token} = req.cookies;
     if(token) {
@@ -186,5 +197,6 @@ module.exports = {
     registerUser,
     loginUser,
     getProfile,
-    registerCompany
+    registerCompany,
+    logOut
 }
