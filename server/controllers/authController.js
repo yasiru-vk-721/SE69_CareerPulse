@@ -3,7 +3,6 @@ const Company = require('../models/company.js');
 const { hashPassword, hashConfirmpassword,  comparePassword,hashCompanyPassword,
     hashComapnyConfirmPassword } = require('../helpers/auth.js');
 const Vacancy = require('../models/vacancy.js');
-const { hashPassword, hashedconfirmpassword,  comparePassword } = require('../helpers/auth.js');
 const jwt = require('jsonwebtoken');
 
 const test = (req, res) => {
