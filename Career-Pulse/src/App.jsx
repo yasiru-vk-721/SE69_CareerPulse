@@ -16,6 +16,7 @@ import CompanySignup from './pages/CompanySignup'
 import Signup from './pages/Signup'
 import PageNotFound from './pages/PageNotFound'
 import { UserContextProvider } from '../context/userContext';
+import JobPosting from './pages/JobPosting';
 
 
 axios.defaults.baseURL = 'http://localhost:8000';
@@ -39,6 +40,7 @@ function App() {
         <Route path="/login" element={<Login />} />
         <Route path="/company-register" element={<CompanySignup />} />
         <Route path="/signup" element={<Signup />} />
+        <Route path="/jobposting" element={<JobPosting />} />
         <Route path="*" element={<PageNotFound />} />
       </Routes>
       
