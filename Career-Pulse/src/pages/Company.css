@@ -1,0 +1,155 @@
+
+.companyProfileCont {
+    width: 100%;
+    height: 100svh;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 4vw;
+}
+
+.profileCont {
+    height: 70svh;
+    margin-top: 13vh;
+    border: 2px solid rgb(200, 200, 200);
+    border-radius: 10px;
+}
+
+
+.companyProfile {
+    width: 30%;
+    margin-right: 10px;
+}
+
+.companyInformation {
+    width: 70%;
+    margin-left : 10px;
+    display: flex;
+    flex-direction: column;
+}
+
+.companyProfileImg {
+    position: relative;
+    width: 100%;
+    height: 40%;
+    padding: 20px;
+}
+
+.companyprofilePic {
+    position: relative;
+    width: 6vw;
+    height: 6vw;
+    object-fit: cover;
+    border-radius: 50%;
+}
+
+.companyProfileImg h1 {
+    font-size: 22px;
+
+}
+
+.companyProfileImg p {
+    color: gray;
+
+}
+
+.companyProfileBio {
+    height: 30%;
+    text-align: center;
+    padding: 5px 20px;
+}
+
+/* .CVDownload {
+    height: 30%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+} */
+
+/* .CVDownload button {
+    padding: 10px 20px;
+    background-color: #4964ff;
+    border-radius: 7px;
+    border: none;
+    color: white;
+} */
+
+.companyInformationCont {
+    width: 100%;
+    height: 80%;
+    display: grid;
+    grid-template-columns: auto auto;
+}
+.updateButtonCont {
+    position: relative;
+    width: 100%;
+    height: 20%;
+    display: flex;
+    justify-content: flex-start;
+    align-items: center;
+    padding-left: 30px;
+}
+
+.updateButton {
+    padding: 10px 20px;
+    height: auto;
+    background-color: #4964ff;
+    border-radius: 7px;
+    border: none;
+    color: white;
+
+}
+
+.infoTextCont {
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    padding: 20px;
+    /* border: 1px solid black; */
+}
+
+/* .largebox{
+    height: 100px;
+} */
+
+.infoTextCont input, select {
+    margin-top: 10px;
+    width: 100%;
+    padding: 7px;
+    border: 2px solid rgb(200, 200, 200);
+    border-radius: 5px;
+    background-color: transparent;
+}
+
+@media screen and (max-width: 768px) {
+    .companyProfileCont {
+        height: auto;
+        margin-top: 13svh;
+        flex-direction: column;
+    }
+
+    .companyprofileCont {
+        width: 100%;
+        margin: 10px 0;
+    }
+
+    .companyProfileImg, .companyProfileBio, .CVDownload, .companyInformation {
+        height: auto;
+        margin: 20px 0;
+    }
+
+    .profilePic {
+        width: 40%;
+        height: auto;
+    }
+
+    .companyInformationCont {
+        grid-template-columns: auto;
+        height: auto;
+    }
+
+    .updateButtonCont {
+        padding: 20px;
+    }
+}
