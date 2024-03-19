@@ -1,4 +1,7 @@
 const User = require('../models/user.js');
+const Company = require('../models/company.js');
+const { hashPassword, hashConfirmpassword,  comparePassword,hashCompanyPassword,
+    hashComapnyConfirmPassword } = require('../helpers/auth.js');
 const Vacancy = require('../models/vacancy.js');
 const { hashPassword, hashedconfirmpassword,  comparePassword } = require('../helpers/auth.js');
 const jwt = require('jsonwebtoken');
@@ -58,7 +61,7 @@ const registerUser = async (req, res) => {
         // hash password
         const hashedPassword = await hashPassword(password);
         // hash confirm password
-        const hashedconfirmpassword = await hashPassword(confirmpassword);
+        const hashedconfirmpassword = await hashConfirmpassword(confirmpassword);
 
         // create user
         const user = await User.create({
@@ -93,7 +96,7 @@ const loginUser = async (req,res)=> {
         //check password
         const isMatch = await comparePassword(password, user.password);
         if(isMatch){
-            jwt.sign({email: user.email, id: user._id, firstName:user.firstName, lastName:user}, process.env.JWT_SECRET, {}, (err, token) => {
+            jwt.sign({email: user.email, id: user._id, firstName:user.firstName, lastName:user.lastName}, process.env.JWT_SECRET, {}, (err, token) => {
                 if(err) throw err;
                 res.cookie('token', token).json(user)
             });
@@ -158,12 +161,68 @@ const postJob = async (req, res) => {
 };
 
 
+//register company
+const registerCompany = async (req, res) => {
+    try{
+        const {companyName, companyEmail, companyPassword, companyConfirmPassword, companyLocation} = req.body;
+        // check is name was entered
+        if(!companyName){
+            return res.json({
+                error: "Company Name is required"
+            })
+        };
+        // check if email was entered
+        const exist = await Company.findOne({companyEmail});
+        if(exist){
+            return res.json({
+                error: "Email already exists"
+            })
+        };
+        // check if companyPassword was entered
+        if(!companyPassword || companyPassword.length < 8){
+            return res.json({
+                error: "Password is required and must be at least 8 characters long"
+            })
+        };
+        // check if confirm companyPassword was entered
+        if(!companyConfirmPassword || companyConfirmPassword !== companyPassword){
+            return res.json({
+                error: "Confirm Password is required"
+            })
+        };
+        // check if location  was entered
+        if(!companyLocation){
+            return res.json({
+                error: "Location is required"
+            })
+        };
+
+        // hash companyPassword
+        const hashedCompanyPassword = await hashCompanyPassword(companyPassword);
+        // hash confirm password
+        const hashedComapnyconfirmPassword = await hashCompanyPassword(companyConfirmPassword);
+
+        // create companyRegister
+        const company = await Company.create({
+            companyName,
+            companyEmail,
+            companyPassword : hashedCompanyPassword,
+            companyConfirmPassword : hashedComapnyconfirmPassword,
+            companyLocation
+        });
+
+        return res.json(company)
+
+    }catch (error){
+        console.log(error);
+    }
+};
+
 module.exports = {
     test,
     registerUser,
     loginUser,
     getProfile,
+    registerCompany
     postJob,
-    
-
 }
