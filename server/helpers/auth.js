@@ -16,7 +16,7 @@ const hashPassword = (password) => {
     })
 }
 
-const hashedconfirmpassword = (confirmpassword) => {
+const hashConfirmpassword = (confirmpassword) => {
     return new Promise((resolve, reject) => {
         bcrypt.genSalt(12,(err, salt) => {
             if(err){
@@ -36,8 +36,44 @@ const comparePassword = (password, hashed) => {
     return bcrypt.compare(password, hashed)
 }
 
+//hased companyPassword
+const hashCompanyPassword = (companyPassword) => {
+    return new Promise((resolve, reject) => {
+        bcrypt.genSalt(12,(err, salt) => {
+            if(err){
+                reject(err)
+            }
+            bcrypt.hash(companyPassword, salt, (err, hash) => {
+                if(err){
+                    reject(err)
+                }
+                resolve(hash)
+            })
+        })
+    })
+}
+
+//hased companyConfirmPassword
+const hashCompanyConfirmPassword = (companyConfirmPassword) => {
+    return new Promise((resolve, reject) => {
+        bcrypt.genSalt(12,(err, salt) => {
+            if(err){
+                reject(err)
+            }
+            bcrypt.hash(companyConfirmPassword, salt, (err, hash) => {
+                if(err){
+                    reject(err)
+                }
+                resolve(hash)
+            })
+        })
+    })
+}
+
 module.exports = {
     hashPassword,
     comparePassword,
-    hashedconfirmpassword
+    hashConfirmpassword,
+    hashCompanyPassword,
+    hashCompanyConfirmPassword
 }
