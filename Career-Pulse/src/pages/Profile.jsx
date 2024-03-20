@@ -13,8 +13,8 @@ function Profile() {
         <div className="userProfile profileCont">
           <div className="userProfileImg">
             <img src={ProfilePic} className="profilePic" alt="profilePic" />
-            {!!user && (<h1>Welcome {user.firstName}</h1>)}
-            <p className="text-2xl">Role</p>
+            {!!user && (<h1>Welcome {user.firstName}  !</h1>)}
+            
           </div>
           <div className="userProfileBio">
             <p>
@@ -29,29 +29,35 @@ function Profile() {
         <div className="userInformation profileCont">
           <div className="userInformationCont">
             <div className="infoTextCont">
+            
               First Name
-              <input className="infoTextBox" placeholder="Vismal"></input>
+              {/* {!!user && (<h1>{user.firstName}</h1>)} */}
+              {!!user && (<h1 className="text-red-500">{user.firstName}</h1>)}
+              {/* <input className="infoTextBox" placeholder="Vismal"></input> */}
             </div>
             <div className="infoTextCont">
               Last Name
-              <input className="infoTextBox" placeholder="De Silva"></input>
+              {/* <input className="infoTextBox" placeholder="De Silva"></input> */}
+              {!!user && (<h1 className="text-red-500">{user.lastName}</h1>)}
             </div>
-            <div className="infoTextCont">
+            {/* <div className="infoTextCont">
               Phone Number
               <input className="infoTextBox" placeholder="07XXXXXXXX"></input>
-            </div>
+            </div> */}
             <div className="infoTextCont">
               Email Address
-              <input
+              {/* <input
                 className="infoTextBox"
                 placeholder="minidu.20XXXXXX@iit.ac.lk"
-              ></input>
+              ></input> */}
+              {!!user && (<h1 className="text-red-500">{user.email}</h1>)}
             </div>
             <div className="infoTextCont">
-              City
-              <input className="infodropDownMenu" placeholder="Kottawa"></input>
+              Job Status
+              {!!user && (<h1 className="text-red-500">{user.jobStatus}</h1>)}
+              
             </div>
-            <div className="infoTextCont">
+            {/* <div className="infoTextCont">
               Country
               <select className="infoTextBox" placeholder="Sri Lanka">
                 <option value="notSelected">Srilanka</option>
@@ -61,7 +67,7 @@ function Profile() {
                 <option value="Advertisement">USA</option>
                 <option value="Other">Other</option>
               </select>
-            </div>
+            </div> */}
           </div>
           <div className="updateButtonCont">
             <button className="updateButton">Update</button>

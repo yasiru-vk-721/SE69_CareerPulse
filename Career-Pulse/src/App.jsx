@@ -10,14 +10,14 @@ import Contact from './pages/Contact'
 import Vacancy from './pages/Vacancy'
 import Profile from './pages/Profile'
 import CVStatus from './pages/CVStatus'
-import CompanyProfile from './Components/Team_files/Yasiru-FE/CompanyProfileContent/CompanyProfile'
+// import CompanyProfile from './Components/Team_files/Yasiru-FE/CompanyProfileContent/CompanyProfile'
 import Login from './pages/Login'
 import CompanySignup from './pages/CompanySignup'
 import Signup from './pages/Signup'
 import PageNotFound from './pages/PageNotFound'
 import { UserContextProvider } from '../context/userContext';
 import JobPosting from './pages/JobPosting';
-
+import CompanyProfile from './pages/CompanyProfile';
 
 axios.defaults.baseURL = 'http://localhost:8000';
 axios.defaults.withCredentials = true; 
