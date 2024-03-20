@@ -1,5 +1,5 @@
-import  { useState, useContext, useEffect} from 'react';
-import { UserContext } from '../../context/userContext';
+import  { useState} from 'react';
+// import { UserContext } from '../../context/userContext';
 import './Signup_Login.css';
 import { Link } from 'react-router-dom';
 import axios from "axios";
@@ -10,22 +10,22 @@ import userImage from '../images/userLogin.jpg';
 
 function Login() {
   const navigate = useNavigate();
-  const {user} = useContext(UserContext);
-  const [loadedUser, setLoadedUser] = useState(false);
+//   const {user} = useContext(UserContext);
+//   const [loadedCompany, setLoadedCompany] = useState(false);
   const  [showPassword, setShowPassword] = useState(false);
 
   const [data, setData] = useState({
-    email: "",
-    password: "",
+    companyEmail: "",
+    companyPassword: "",
   });
 
-  const loginUser = async (e) => {
+  const companyLogin = async (e) => {
     e.preventDefault();
-    const { email, password } = data;
+    const { companyEmail, companyPassword } = data;
     try{
-      const {data} = await axios.post('/login',{
-        email,
-        password
+      const {data} = await axios.post('/company-login',{
+        companyEmail,
+        companyPassword
       });
       if(data.error){
         toast.error(data.error);
@@ -40,39 +40,39 @@ function Login() {
       console.log(error)
     }};
 
-    useEffect(() => {
-      const getUser = async () => {
-      try{
-        if(user){
-          setLoadedUser(true);
-        }
-        }catch(error){
-          console.log(error);
-        }
-      }
-      getUser();
-    });
+    // useEffect(() => {
+    //   const getCompany = async () => {
+    //   try{
+    //     if(company){
+    //       setLoadedCompany(true);
+    //     }
+    //     }catch(error){
+    //       console.log(error);
+    //     }
+    //   }
+    //   getCompany();
+    // });
   
 
   return (
     <div>
-      {!loadedUser ? (
+      {/* {!loadedCompany ? ( */}
       <div className="signup-container min-h-screen flex justify-center items-center mt-10 bg-gray-700">
         <div className='max-w-screen-xl w-full flex'>
         <div className="w-1/2 bg-green-600 p-8">
             <img src={userImage} alt="Login Image" className="w-full h-full object-cover rounded-lg shadow-lg" />
           </div>
           <div className="w-1/2 bg-purple-400 p-8">
-              <form>
-                <h2 className='text-3xl font-semibold text-center text-gray-800 mb-6'>Login</h2>
+              <form onSubmit={companyLogin}>
+                <h2 className='text-3xl font-semibold text-center text-gray-800 mb-6'>Company Login</h2>
 
                 <label htmlFor="email" className='block text-sm font-medium text-gray-700'>Email:</label>
                 <input
-                  type="email"
-                  name="email"
+                  type="companyEmail"
+                  name="emaicompanyEmaill"
                   placeholder='Enter email'
-                  value={data.email}
-                  onChange={(e) => setData({ ...data, email: e.target.value })}
+                  value={data.companyEmail}
+                  onChange={(e) => setData({ ...data, companyEmail: e.target.value })}
                   className="mt-1 block w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
                 />
 
@@ -81,8 +81,8 @@ function Login() {
                 <input
                   type={showPassword ? "text":"password"}
                   placeholder='Enter password'
-                  value={data.password}
-                  onChange={(e) => setData({ ...data, password: e.target.value })}
+                  value={data.companyPassword}
+                  onChange={(e) => setData({ ...data, companyPassword: e.target.value })}
                   className="mt-1 block w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500 "
                 />
                 {showPassword ? (
@@ -103,7 +103,7 @@ function Login() {
 
                   
 
-                <button className="mt-6 w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" onClick={loginUser}>Login</button>
+                <button className="mt-6 w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Login</button>
 
                 <div className="mt-6 text-center">
                 <hr className="border-gray-300" />
@@ -113,16 +113,17 @@ function Login() {
                 <p className="mt-6 text-center">
                   If you are a new to Career Pulse, please 
                 </p>
-                <button className='mt-6 w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'>
-                  <Link to="/signup">Sign Up</Link>
-                </button>
+                
               </form>
+              <button className='mt-6 w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'>
+                  <Link to="/company-register">Sign Up</Link>
+                </button>
               </div>
           </div>
       </div>
-      ) : (
+      {/* ) : (
         <h2>Loading...</h2>
-      )}
+      )}  */}
     </div>
   )
 }
