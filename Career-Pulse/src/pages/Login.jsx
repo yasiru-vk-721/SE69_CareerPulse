@@ -63,7 +63,7 @@ function Login() {
             <img src={userImage} alt="Login Image" className="w-full h-full object-cover rounded-lg shadow-lg" />
           </div>
           <div className="w-1/2 bg-purple-400 p-8">
-              <form onSubmit={loginUser}>
+              <form>
                 <h2 className='text-3xl font-semibold text-center text-gray-800 mb-6'>Login</h2>
 
                 <label htmlFor="email" className='block text-sm font-medium text-gray-700'>Email:</label>
@@ -103,7 +103,7 @@ function Login() {
 
                   
 
-                <button className="mt-6 w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Login</button>
+                <button className="mt-6 w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" onClick={loginUser}>Login</button>
 
                 <div className="mt-6 text-center">
                 <hr className="border-gray-300" />
