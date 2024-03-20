@@ -1,14 +1,17 @@
 import MenuLink from "../MenuLink/MenuLink"
-// import logo from '../../assets/react.svg'
 import './Links.css'
 import { Link } from "react-router-dom";
-import { useState } from 'react';
+import { useState,useEffect } from 'react';
+import { useNavigate } from "react-router-dom";
 import Dropdown from '../Dropdown';
 import { Button } from "./Button";
-// import Logo from "../Links/logo2.png"
+import axios from "axios";
+import toast from "react-hot-toast";
 
 
 function Links() {
+  const navigate = useNavigate();
+  const [auth, setAuth] = useState(false);
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
 
@@ -23,13 +26,32 @@ function Links() {
     }
   };
 
-  const onMouseLeave = () => {
+  const onMouseLeave = async () => {
     if (window.innerWidth < 960) {
       setDropdown(false);
     } else {
       setDropdown(false);
     }
   };
+
+  useEffect(() => {
+    const authStatus = localStorage.getItem('user');
+    if(authStatus === 'true'){
+      setAuth(true);
+    }
+  }, []);
+
+  const logOutUser =async () =>{
+    try{
+      await axios.get('/logout');
+      toast.success("Logout Successfull")
+      localStorage.removeItem('user');
+      navigate('/login');
+      window.location.reload();
+    }catch(error){
+      console.log(error);
+    }
+  }
 
   return (
     <nav className='navigationbar'>
@@ -66,16 +88,27 @@ function Links() {
                     </Link>
                     {dropdown && <Dropdown
                     />}   
-                </li>
+          </li>
+          {auth ? (<>
+            <li className="navgateLinks">
+            <button onClick={logOutUser}>LogOut</button>
+          </li>
+          
+          </>) : (
+            <>
+            <Button/>
+            </>
+          )}
+          
 
           <li>
-            <Link className="navigateLinksMobile" onClick={closeMobileMenu} linkname="Sign Up" to="/sign-up"/>
+            <Link className="navigateLinksMobile" onClick={closeMobileMenu} linkname="Sign Up" to="/signup"/>
           </li>
         </ul>
         <div className="hidden lg:block">
           {}
         </div>
-        <Button/>
+        
     </nav>
   )
 }
