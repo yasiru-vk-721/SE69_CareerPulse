@@ -1,7 +1,7 @@
 const User = require('../models/user.js');
 const Company = require('../models/company.js');
 const { hashPassword, hashConfirmpassword,  comparePassword,hashCompanyPassword,
-    hashComapnyConfirmPassword } = require('../helpers/auth.js');
+    hashComapnyConfirmPassword,compareCompanyPassword } = require('../helpers/auth.js');
 const Vacancy = require('../models/vacancy.js');
 const jwt = require('jsonwebtoken');
 
@@ -228,6 +228,39 @@ const registerCompany = async (req, res) => {
     }
 };
 
+//comaapny login
+const companyLogin = async (req,res)=> {
+    try{
+        const {companyEmail, companyPassword} = req.body;
+
+        //check if user exits
+        const company = await Company.findOne({companyEmail});
+        if(!company){
+            return res.json({
+                error: "No Company Found"
+            })
+        }
+
+        //check password
+        const isMatch = await compareCompanyPassword(companyPassword, company.companyPassword);
+        if(isMatch){
+            jwt.sign({companyEmail: company.companyEmail, id: company._id, companyName:company.companyName, companyLocation:company.companyLocation}, process.env.JWT_SECRET, {}, (err, token) => {
+                if(err) throw err;
+                res.cookie('token', token).json(company)
+            });
+        }
+        if(!isMatch){
+            return res.json({
+                error: "Password Do not match"
+            })
+        }
+
+    }catch(error){
+        console.log(error);
+    }
+
+}
+
 module.exports = {
     test,
     registerUser,
@@ -235,6 +268,7 @@ module.exports = {
     getProfile,
     postJob,
     registerCompany,
-    logOut
+    logOut,
+    companyLogin
 }
 
