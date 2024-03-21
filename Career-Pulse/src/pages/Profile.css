@@ -13,7 +13,9 @@
     margin-top: 13vh;
     border: 2px solid rgb(200, 200, 200);
     border-radius: 10px;
+    background-color:rgb(182, 131, 230);
 }
+
 
 
 .userProfile {
@@ -78,11 +80,10 @@
 .userInformationCont {
     width: 100%;
     height: 80%;
-    border-bottom: 2px solid rgb(200, 200, 200);
     display: grid;
     grid-template-columns: auto auto;
 }
-.updateButtonCont {
+.editButtonCont {
     position: relative;
     width: 100%;
     height: 20%;

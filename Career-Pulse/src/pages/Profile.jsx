@@ -29,27 +29,19 @@ function Profile() {
         <div className="userInformation profileCont">
           <div className="userInformationCont">
             <div className="infoTextCont">
-            
+          
               First Name
-              {/* {!!user && (<h1>{user.firstName}</h1>)} */}
               {!!user && (<h1 className="text-red-500">{user.firstName}</h1>)}
-              {/* <input className="infoTextBox" placeholder="Vismal"></input> */}
+              
             </div>
             <div className="infoTextCont">
               Last Name
-              {/* <input className="infoTextBox" placeholder="De Silva"></input> */}
+              
               {!!user && (<h1 className="text-red-500">{user.lastName}</h1>)}
             </div>
-            {/* <div className="infoTextCont">
-              Phone Number
-              <input className="infoTextBox" placeholder="07XXXXXXXX"></input>
-            </div> */}
             <div className="infoTextCont">
               Email Address
-              {/* <input
-                className="infoTextBox"
-                placeholder="minidu.20XXXXXX@iit.ac.lk"
-              ></input> */}
+              {}
               {!!user && (<h1 className="text-red-500">{user.email}</h1>)}
             </div>
             <div className="infoTextCont">
@@ -57,20 +49,9 @@ function Profile() {
               {!!user && (<h1 className="text-red-500">{user.jobStatus}</h1>)}
               
             </div>
-            {/* <div className="infoTextCont">
-              Country
-              <select className="infoTextBox" placeholder="Sri Lanka">
-                <option value="notSelected">Srilanka</option>
-                <option value="Email">China</option>
-                <option value="Friends">Japan</option>
-                <option value="SocialMedia">Russia</option>
-                <option value="Advertisement">USA</option>
-                <option value="Other">Other</option>
-              </select>
-            </div> */}
           </div>
-          <div className="updateButtonCont">
-            <button className="updateButton">Update</button>
+          <div className="editButtonCont">
+            <button className="editButton">Edit</button>
           </div>
         </div>
       </div>
