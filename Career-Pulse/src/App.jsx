@@ -19,6 +19,7 @@ import { UserContextProvider } from '../context/userContext';
 import { CompanyContextProvider } from '../context/companyContext';
 import JobPosting from './pages/JobPosting';
 import CompanyLogin from './pages/CompanyLogin'
+import Notification from './pages/MailNotification';
 
 
 axios.defaults.baseURL = 'http://localhost:8000';
@@ -46,6 +47,7 @@ function App() {
         <Route path="/jobposting" element={<JobPosting />} />
         <Route path="*" element={<PageNotFound />} />
         <Route path='/companyLogin' element={<CompanyLogin/>}/>
+        <Route path="/Notification" element={<Notification />} />
       </Routes>
       
       {/* <div id="wrapper"> */}
