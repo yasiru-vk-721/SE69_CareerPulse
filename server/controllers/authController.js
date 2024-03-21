@@ -135,6 +135,25 @@ const getProfile = async (req, res) => {
     }
 
 };
+
+
+const getCompanyProfile = async (req, res) => {
+    const {token} = req.cookies;
+    if(token) {
+        jwt.verify(token, process.env.JWT_SECRET, {}, (err, company) => {
+            if(err) throw err;
+            res.json(company);
+        });
+    }else {
+         res.json(null)
+    }
+
+};
+
+
+
+
+
 // post job
 const postJob = async (req, res) => {
     try{
@@ -269,6 +288,7 @@ module.exports = {
     postJob,
     registerCompany,
     logOut,
-    companyLogin
+    companyLogin, 
+    getCompanyProfile
 }
 
