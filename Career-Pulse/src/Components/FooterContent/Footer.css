@@ -14,7 +14,7 @@ footer{
 } */
 
 .social_icons  a:hover{
-    transform: translateY(-10px);
+    transform: translateY(-5px);
 }
 
 .wave{
