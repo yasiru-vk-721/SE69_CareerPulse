@@ -116,7 +116,7 @@ function CompanySignup() {
                     </button>
                 </div>
 
-                <p className="text-center mt-4">Already have an account?<Link to="/" className="text-blue-500 hover:text-blue-700">Login</Link></p>
+                <p className="text-center mt-4">Already have an account?<Link to="/companyLogin  " className="text-blue-500 hover:text-blue-700">Login</Link></p>
             </form>
         </div>
     );

@@ -1,12 +1,21 @@
-// CompanyProfile.js
+
 
 import { useState } from 'react';
 import JobCard from './JobCard';
 import Modal from './Modal';
+import { UserContext } from '../../../../../context/userContext';
+import { CompanyContext } from '../../../../../context/companyContext';
+import { useContext } from 'react';
+
+
 
 export default function CompanyProfile() {
+    const {company } = useContext(CompanyContext);
+    
 
-    const company = "Creative Software(pvt)Ltd.";
+    // Check if company data is loaded before accessing companyName
+    // const companyName = company ? company.companyName : '';
+    
     const location = "Colombo";
     const email = "adcd@gmail.com";
 
@@ -37,7 +46,9 @@ export default function CompanyProfile() {
             <div className='ml-20 '>
                 <div className="container mx-auto">
                     <div className="flex flex-col items-start justify-center right-2 mt-20  py-12 px-4">
-                        <h1 style={{ marginTop: "-5rem" }} className="text-2xl lg:text-4xl mb-4 mt-4 text-center text-blue-900">Welcome! {company}</h1>
+                    <h1 style={{ marginTop: "-5rem", display: "flex", alignItems: "center", justifyContent: "center" }} className="text-2xl lg:text-4xl mb-4 mt-4 text-center text-blue-900">
+                     Welcome! {!!company && (<p style={{ marginLeft: "1rem", marginBottom: "0.6rem" }}>{company.companyName}</p>)}
+                    </h1>
                         
                         <button
                             style={{ marginRight: "6rem", marginTop: "5rem" }}
@@ -51,6 +62,7 @@ export default function CompanyProfile() {
                         {/* Render Modal component when openModal is true */}
                         
                         <p className="text-lg mb-2">Location - {location}</p>
+                        
                         <p className="text-lg mb-8">Email Address - {email}</p>
                         <div className="mb-8">
                             <input
