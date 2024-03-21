@@ -16,6 +16,7 @@ import CompanySignup from './pages/CompanySignup'
 import Signup from './pages/Signup'
 import PageNotFound from './pages/PageNotFound'
 import { UserContextProvider } from '../context/userContext';
+import { CompanyContextProvider } from '../context/companyContext';
 import JobPosting from './pages/JobPosting';
 import CompanyLogin from './pages/CompanyLogin'
 
@@ -28,6 +29,7 @@ function App() {
 
   return (
     <UserContextProvider>
+      <CompanyContextProvider>
       <Header />
       <Toaster  position='bottom-right' toastOptions={{duration : 2000}}/>
       <Routes>
@@ -53,7 +55,10 @@ function App() {
         {/* </Body> */} */
         <Footer />
       {/* </div> */}
+      </CompanyContextProvider>
     </UserContextProvider>
+
+    
   )
 }
 
