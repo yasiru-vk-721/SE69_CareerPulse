@@ -10,7 +10,7 @@ import Contact from './pages/Contact'
 import Vacancy from './pages/Vacancy'
 import Profile from './pages/Profile'
 import CVStatus from './pages/CVStatus'
-import CompanyProfile from './Components/Team_files/Yasiru-FE/CompanyProfileContent/CompanyProfile'
+// import CompanyProfile from './Components/Team_files/Yasiru-FE/CompanyProfileContent/CompanyProfile'
 import Login from './pages/Login'
 import CompanySignup from './pages/CompanySignup'
 import Signup from './pages/Signup'
@@ -19,6 +19,7 @@ import { UserContextProvider } from '../context/userContext';
 import { CompanyContextProvider } from '../context/companyContext';
 import JobPosting from './pages/JobPosting';
 import CompanyLogin from './pages/CompanyLogin'
+import CompanyProfile from './pages/CompanyProfile';
 
 
 axios.defaults.baseURL = 'http://localhost:8000';
