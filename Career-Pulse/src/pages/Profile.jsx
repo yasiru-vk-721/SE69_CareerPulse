@@ -69,8 +69,8 @@ function Profile() {
               </select>
             </div> */}
           </div>
-          <div className="updateButtonCont">
-            <button className="updateButton">Update</button>
+          <div className="editButtonCont">
+            <button className="editButton">Edit</button>
           </div>
         </div>
       </div>
