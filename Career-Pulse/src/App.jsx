@@ -19,6 +19,7 @@ import { UserContextProvider } from '../context/userContext';
 import JobPosting from './pages/JobPosting';
 
 
+
 axios.defaults.baseURL = 'http://localhost:8000';
 axios.defaults.withCredentials = true; 
 
