@@ -123,6 +123,20 @@ const logOut = async (req,res) =>{
     }
 }
 
+const getAllUsers = async (req, res) => {
+    try {
+        const vacancy = await Vacancy.find();
+        res.json(vacancy);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
+module.exports = {
+    getAllUsers,
+};
+
 const getProfile = async (req, res) => {
     const {token} = req.cookies;
     if(token) {
@@ -289,6 +303,7 @@ module.exports = {
     registerCompany,
     logOut,
     companyLogin, 
-    getCompanyProfile
+    getCompanyProfile,
+    getAllUsers
 }
 

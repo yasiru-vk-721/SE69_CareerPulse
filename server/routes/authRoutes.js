@@ -2,7 +2,7 @@ const express = require('express');
 const router = express.Router();
 const cors = require('cors');
 
-const {test, registerUser, loginUser, getProfile, registerCompany, postJob,logOut,companyLogin, getCompanyProfile}  = require('../controllers/authController.js'); //importing the test function from the authController
+const {test, registerUser, loginUser, getProfile, registerCompany, postJob,logOut,companyLogin, getCompanyProfile, getAllUsers}  = require('../controllers/authController.js'); //importing the test function from the authController
 
 
 
@@ -22,6 +22,7 @@ router.post('/company-register',registerCompany)
 router.get('/company-profile', getCompanyProfile)
 router.post('/posting', postJob)
 router.get('/logout',logOut)
-router.post('/company-login',companyLogin)
+router.post('/company-login',companyLogin),
+router.get('/users', getAllUsers)
 
 module.exports = router;
