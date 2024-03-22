@@ -23,6 +23,7 @@ import Notification from './pages/MailNotification';
 import { VacancyContextProvider } from '../context/vacancyContext';
 
 
+
 axios.defaults.baseURL = 'http://localhost:8000';
 axios.defaults.withCredentials = true; 
 
