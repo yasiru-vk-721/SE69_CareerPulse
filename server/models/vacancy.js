@@ -3,7 +3,9 @@ const {Schema} = mongoose;
 
 const vacancySchema = new Schema({
     companyName: String,
+    jobType: String,
     jobRole: String,
+    location: String,
     // email:{
     //     type: String,
     //     unique: true
