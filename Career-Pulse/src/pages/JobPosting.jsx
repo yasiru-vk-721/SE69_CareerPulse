@@ -1,26 +1,29 @@
 import  { useState } from 'react';
 import './Signup_Login.css'
-
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import {toast} from 'react-hot-toast';
 
+
 function JobPosting() {
     const navigate = useNavigate();
+    
 
     const [data, setData] = useState({
         companyName: "",
+        companyEmail: "",
         jobRole: "",
-        skills: ""
+        skills: "",
+        
         
     });
 
     const postJob = async (e) => {
         e.preventDefault();
-        const {companyName, jobRole, skills} = data;
+        const {companyName, companyEmail, jobRole, skills} = data;
         try{
             const {data} = await axios.post('/posting',{
-                companyName, jobRole, skills
+                companyName, companyEmail, jobRole, skills
             })
             if(data.error){
                 toast.error(data.error)
@@ -47,6 +50,14 @@ function JobPosting() {
                     placeholder='Enter company name'
                     value={data.companyName}
                     onChange={(e) => setData({ ...data, companyName: e.target.value })}
+                />
+                <label htmlFor="companyEmail">Company Email:</label>
+                <input
+                    type="email"
+                    name="email"
+                    placeholder='Enter company email'
+                    value={data.companyEmail}
+                    onChange={(e) => setData({ ...data, companyEmail: e.target.value })}
                 />
 
 

@@ -16,8 +16,12 @@ import CompanySignup from './pages/CompanySignup'
 import Signup from './pages/Signup'
 import PageNotFound from './pages/PageNotFound'
 import { UserContextProvider } from '../context/userContext';
+import { CompanyContextProvider } from '../context/companyContext';
 import JobPosting from './pages/JobPosting';
 import CompanyLogin from './pages/CompanyLogin'
+import Notification from './pages/MailNotification';
+import { VacancyContextProvider } from '../context/vacancyContext';
+
 
 
 axios.defaults.baseURL = 'http://localhost:8000';
@@ -28,6 +32,8 @@ function App() {
 
   return (
     <UserContextProvider>
+      <CompanyContextProvider>
+        <VacancyContextProvider>
       <Header />
       <Toaster  position='bottom-right' toastOptions={{duration : 2000}}/>
       <Routes>
@@ -44,6 +50,7 @@ function App() {
         <Route path="/jobposting" element={<JobPosting />} />
         <Route path="*" element={<PageNotFound />} />
         <Route path='/companyLogin' element={<CompanyLogin/>}/>
+        <Route path="/Notification" element={<Notification />} />
       </Routes>
       
       {/* <div id="wrapper"> */}
@@ -53,7 +60,11 @@ function App() {
         {/* </Body> */} */
         <Footer />
       {/* </div> */}
+      </VacancyContextProvider>
+      </CompanyContextProvider>
     </UserContextProvider>
+
+    
   )
 }
 
