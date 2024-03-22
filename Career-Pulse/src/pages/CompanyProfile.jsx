@@ -22,9 +22,6 @@ const CompanyProfile = () => {
               dolor blanditiis esse animi quia repudiandae.
             </p>
           </div>
-          {/* <div className="CVDownload">
-            <button>Download CV</button>
-          </div> */}
         </div>
         <div className="companyInformation profileCont">
           <div className="companyInformationCont"> 
@@ -55,8 +52,8 @@ const CompanyProfile = () => {
             </div>
             
           </div>
-          <div className="updateButtonCont">
-            <button className="updateButton">Update</button>
+          <div className="editButtonCont">
+            <button className="editButton">Edit</button>
           </div>
         </div>
       </div>

@@ -5,6 +5,7 @@ const { hashPassword, hashConfirmpassword,  comparePassword,hashCompanyPassword,
 const Vacancy = require('../models/vacancy.js');
 const jwt = require('jsonwebtoken');
 
+
 const test = (req, res) => {
     res.json('Test is Working');
 };
@@ -78,6 +79,51 @@ const registerUser = async (req, res) => {
         console.log(error);
     }
 };
+// post job
+const postJob = async (req, res) => {
+    try{
+        const {companyName, jobRole, skills} = req.body;
+        // check is name was entered
+        if(!companyName){
+            return res.json({
+                error: "Company Name is required"
+            })
+        };
+        // check if job role was entered
+        if(!jobRole){
+            return res.json({
+                error: "Job Role is required"
+            })
+        }
+        if(!skills){
+            return res.json({
+                error: "Skills are required"
+            })
+        }
+        // create vacancy
+        const vacancy = await Vacancy.create({
+            companyName,
+            jobRole,
+            skills
+        });
+
+        const isMatch = await compareCompanyPassword(password, vacancy.password);
+        if(isMatch){
+            jwt.sign({ vacancy: vacancy.companyName, vacancy: vacancy.jobRole, vacancy: vacancy.skills}, process.env.JWT_SECRET, {}, (err, token) => {
+                if(err) throw err;
+                res.cookie('token', token).json(vacancy)
+            });
+        }
+        if(!isMatch){
+            return res.json({
+                error: "Password Do not match"
+            })
+        }
+
+    }catch (error){
+        console.log(error);
+    }   
+};
 
 //login user
 const loginUser = async (req,res)=> {
@@ -88,9 +134,18 @@ const loginUser = async (req,res)=> {
         const user = await User.findOne({email});
         if(!user){
             return res.json({
-                error: "No User Found"
+                error: "No User Found Please Enter Your Email"
+            })
+        }else if(!password){
+            return res.json({
+                error: "Enter Your Password"
             })
         }
+
+
+
+        // Assuming you're inside an async function
+        
 
         //check password
         const isMatch = await comparePassword(password, user.password);
@@ -164,18 +219,42 @@ const getCompanyProfile = async (req, res) => {
 
 };
 
+const getVacancy = async (req, res) => {
+    // const {token} = req.cookies;
+    // if(token){
+    //     jwt.verify(token, process.env.JWT_SECRET, {}, (err, vacancy) => {
+    //         if(err) throw err;
+    //         res.json(vacancy);
+    //     });
+    // }
+    try{
+        const vacancy = await Vacancy.find();
+        res.json({vacancy});
+    }catch (error){
+        console.log(error);
+        res.status(500).json({error: "Internal server error"})
+    }
 
 
 
+};
 
+
+=======
 // post job
 const postJob = async (req, res) => {
     try{
-        const {companyName, jobRole, skills} = req.body;
+        const {companyName, companyEmail, jobRole, skills} = req.body;
         // check is name was entered
         if(!companyName){
             return res.json({
                 error: "Company Name is required"
+            })
+        };
+        // check is name was entered
+        if(!companyEmail){
+            return res.json({
+                error: "company email is required"
             })
         };
         // check if job role was entered
@@ -192,16 +271,13 @@ const postJob = async (req, res) => {
         // create vacancy
         const vacancy = await Vacancy.create({
             companyName,
+            companyEmail,
             jobRole,
             skills
         });
 
-        return res.json(vacancy)
 
-    }catch (error){
-        console.log(error);
-    }   
-};
+
 
 
 //register company
@@ -261,6 +337,7 @@ const registerCompany = async (req, res) => {
     }
 };
 
+
 //comaapny login
 const companyLogin = async (req,res)=> {
     try{
@@ -294,16 +371,23 @@ const companyLogin = async (req,res)=> {
 
 }
 
+
 module.exports = {
     test,
     registerUser,
     loginUser,
     getProfile,
+    registerCompany,
     postJob,
     registerCompany,
     logOut,
     companyLogin, 
     getCompanyProfile,
+<<<<<<< HEAD
     getAllUsers
+=======
+    getVacancy
+
+>>>>>>> 8dd759185b6ac4740e9f5815fa22e923cbdecb65
 }
 
