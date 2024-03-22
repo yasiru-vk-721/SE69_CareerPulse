@@ -10,13 +10,20 @@ import Contact from './pages/Contact'
 import Vacancy from './pages/Vacancy'
 import Profile from './pages/Profile'
 import CVStatus from './pages/CVStatus'
-import CompanyProfile from './Components/Team_files/Yasiru-FE/CompanyProfileContent/CompanyProfile'
+// import CompanyProfile from './Components/Team_files/Yasiru-FE/CompanyProfileContent/CompanyProfile'
 import Login from './pages/Login'
 import CompanySignup from './pages/CompanySignup'
 import Signup from './pages/Signup'
 import PageNotFound from './pages/PageNotFound'
 import { UserContextProvider } from '../context/userContext';
+import { CompanyContextProvider } from '../context/companyContext';
 import JobPosting from './pages/JobPosting';
+import CompanyLogin from './pages/CompanyLogin'
+
+import Notification from './pages/MailNotification';
+
+import CompanyProfile from './pages/CompanyProfile';
+
 
 
 
@@ -28,6 +35,7 @@ function App() {
 
   return (
     <UserContextProvider>
+      <CompanyContextProvider>
       <Header />
       <Toaster  position='bottom-right' toastOptions={{duration : 2000}}/>
       <Routes>
@@ -43,6 +51,8 @@ function App() {
         <Route path="/signup" element={<Signup />} />
         <Route path="/jobposting" element={<JobPosting />} />
         <Route path="*" element={<PageNotFound />} />
+        <Route path='/companyLogin' element={<CompanyLogin/>}/>
+        <Route path="/Notification" element={<Notification />} />
       </Routes>
       
       {/* <div id="wrapper"> */}
@@ -52,7 +62,10 @@ function App() {
         {/* </Body> */} */
         <Footer />
       {/* </div> */}
+      </CompanyContextProvider>
     </UserContextProvider>
+
+    
   )
 }
 

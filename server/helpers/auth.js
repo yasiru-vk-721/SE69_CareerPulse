@@ -35,6 +35,9 @@ const hashConfirmpassword = (confirmpassword) => {
 const comparePassword = (password, hashed) => {
     return bcrypt.compare(password, hashed)
 }
+const compareCompanyPassword = (companyPassword, hashed) => {
+    return bcrypt.compare(companyPassword, hashed)
+}
 
 //hased companyPassword
 const hashCompanyPassword = (companyPassword) => {
@@ -75,5 +78,6 @@ module.exports = {
     comparePassword,
     hashConfirmpassword,
     hashCompanyPassword,
-    hashCompanyConfirmPassword
+    hashCompanyConfirmPassword,
+    compareCompanyPassword
 }
