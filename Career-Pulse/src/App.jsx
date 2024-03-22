@@ -10,7 +10,7 @@ import Contact from './pages/Contact'
 import Vacancy from './pages/Vacancy'
 import Profile from './pages/Profile'
 import CVStatus from './pages/CVStatus'
-// import CompanyProfile from './Components/Team_files/Yasiru-FE/CompanyProfileContent/CompanyProfile'
+import CompanyProfile from './Components/Team_files/Yasiru-FE/CompanyProfileContent/CompanyProfile'
 import Login from './pages/Login'
 import CompanySignup from './pages/CompanySignup'
 import Signup from './pages/Signup'
@@ -19,11 +19,8 @@ import { UserContextProvider } from '../context/userContext';
 import { CompanyContextProvider } from '../context/companyContext';
 import JobPosting from './pages/JobPosting';
 import CompanyLogin from './pages/CompanyLogin'
-
 import Notification from './pages/MailNotification';
-
-import CompanyProfile from './pages/CompanyProfile';
-
+import { VacancyContextProvider } from '../context/vacancyContext';
 
 
 axios.defaults.baseURL = 'http://localhost:8000';
@@ -35,6 +32,7 @@ function App() {
   return (
     <UserContextProvider>
       <CompanyContextProvider>
+        <VacancyContextProvider>
       <Header />
       <Toaster  position='bottom-right' toastOptions={{duration : 2000}}/>
       <Routes>
@@ -61,6 +59,7 @@ function App() {
         {/* </Body> */} */
         <Footer />
       {/* </div> */}
+      </VacancyContextProvider>
       </CompanyContextProvider>
     </UserContextProvider>
 
