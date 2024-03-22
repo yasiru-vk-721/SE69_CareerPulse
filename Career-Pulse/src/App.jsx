@@ -26,6 +26,7 @@ import CompanyProfile from './pages/CompanyProfile';
 
 
 
+
 axios.defaults.baseURL = 'http://localhost:8000';
 axios.defaults.withCredentials = true; 
 
