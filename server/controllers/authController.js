@@ -134,7 +134,11 @@ const loginUser = async (req,res)=> {
         const user = await User.findOne({email});
         if(!user){
             return res.json({
-                error: "No User Found"
+                error: "No User Found Please Enter Your Email"
+            })
+        }else if(!password){
+            return res.json({
+                error: "Enter Your Password"
             })
         }
 
