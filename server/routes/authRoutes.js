@@ -2,6 +2,7 @@ const express = require('express');
 const router = express.Router();
 const cors = require('cors');
 const {test, registerUser, loginUser, getProfile, registerCompany, postJob,logOut,companyLogin}  = require('../controllers/authController.js'); //importing the test function from the authController
+const { testMail } = require('../controllers/authMailController.js'); //importing the testMail function from the authMailController
 
 //middlware to use cors
 router.use(
@@ -18,5 +19,7 @@ router.post('/company-register',registerCompany)
 router.post('/posting', postJob)
 router.get('/logout',logOut)
 router.post('/company-login',companyLogin)
+
+router.post('/testMail', testMail)
 
 module.exports = router;
