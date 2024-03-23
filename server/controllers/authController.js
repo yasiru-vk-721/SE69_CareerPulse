@@ -190,7 +190,7 @@ const postJob = async (req, res) => {
                 error: "Requirements are required"
             })
         }
-        // create vacancy
+        //create vacancy
         const vacancy = await Vacancy.create({
             companyName,
             companyEmail,
@@ -198,6 +198,14 @@ const postJob = async (req, res) => {
             jobType,
             requirements
         });
+        return res.json (vacancy)
+
+
+    }
+    catch (error){
+        console.log(error)
+    }
+}
     }catch (error){
         console.log(error);
     }
@@ -260,7 +268,6 @@ const registerCompany = async (req, res) => {
     }
 };
 
-
 //comaapny login
 const companyLogin = async (req,res)=> {
     try{
@@ -287,13 +294,10 @@ const companyLogin = async (req,res)=> {
                 error: "Password Do not match"
             })
         }
-
     }catch(error){
         console.log(error);
     }
-
 }
-
 
 module.exports = {
     test,
@@ -307,5 +311,5 @@ module.exports = {
     companyLogin,
     getCompanyProfile,
     getVacancy
-
 };
+

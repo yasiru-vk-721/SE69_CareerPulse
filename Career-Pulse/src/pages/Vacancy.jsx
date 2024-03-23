@@ -47,6 +47,7 @@ function Vacancy() {
     <div id ="wrapper" className="hero2">
       <div className = 'text-center mb-20'>
       <h1 className='text-6xl mt-20'>Your ideal jobs await, Start the search.. </h1>
+            
         
       
       <SearchBar onSearch={handleSearch} />

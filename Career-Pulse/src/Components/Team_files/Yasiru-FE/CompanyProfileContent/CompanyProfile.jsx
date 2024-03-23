@@ -1,11 +1,11 @@
-
-
 import { useState } from 'react';
 import JobCard from './JobCard';
 import Modal from './Modal';
 import { UserContext } from '../../../../../context/userContext';
 import { CompanyContext } from '../../../../../context/companyContext';
 import { useContext } from 'react';
+import { Link } from 'react-router-dom';
+
 
 
 
@@ -29,9 +29,6 @@ export default function CompanyProfile() {
     const [isLoading, setIsLoading] = useState(false); // Add loading state
     const [searchQuery, setSearchQuery] = useState('');
 
-    const handleUploadJobClick = () => {
-        setOpenModal(true);
-    };
 
     const handleSearchChange = (event) => {
         setSearchQuery(event.target.value);
@@ -50,13 +47,17 @@ export default function CompanyProfile() {
                      Welcome! {!!company && (<p style={{ marginLeft: "1rem", marginBottom: "0.6rem" }}>{company.companyName}</p>)}
                     </h1>
                         
+
+
+                        <Link to="/jobposting">
                         <button
                             style={{ marginRight: "6rem", marginTop: "5rem" }}
                             className="absolute top-12 right-2 m-4 px-4 py-2 bg-blue-500 text-white rounded"
-                            onClick={handleUploadJobClick} // Use handleUploadJobClick function
+                            // Use handleUploadJobClick function
                         >
                             Upload Job
                         </button>
+                        </Link>
 
                         {openModal && <Modal closeModal={() => setOpenModal(false)} />}
                         {/* Render Modal component when openModal is true */}
