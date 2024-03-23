@@ -244,28 +244,33 @@ const getVacancy = async (req, res) => {
 // post job
 const postJob = async (req, res) => {
     try{
-        const {companyName, companyEmail, jobRole, skills} = req.body;
+        const {companyName, companyEmail, jobRole, jobType, requirements} = req.body;
         // check is name was entered
-        if(!companyName){
-            return res.json({
-                error: "Company Name is required"
-            })
-        };
-        // check is name was entered
-        if(!companyEmail){
-            return res.json({
-                error: "company email is required"
-            })
-        };
+        // if(!companyName){
+        //     return res.json({
+        //         error: "Company Name is required"
+        //     })
+        // };
+        // // check is name was entered
+        // if(!companyEmail){
+        //     return res.json({
+        //         error: "company email is required"
+        //     })
+        // };
         // check if job role was entered
         if(!jobRole){
             return res.json({
                 error: "Job Role is required"
             })
         }
-        if(!skills){
+        if(!jobType){
             return res.json({
-                error: "Skills are required"
+                error: "Job Type is required"
+            })
+        }
+        if(!requirements){
+            return res.json({
+                error: "Requirements are required"
             })
         }
         // create vacancy
@@ -273,7 +278,8 @@ const postJob = async (req, res) => {
             companyName,
             companyEmail,
             jobRole,
-            skills
+            jobType,
+            requirements
         });
 
 
@@ -372,6 +378,7 @@ const companyLogin = async (req,res)=> {
 }
 
 
+
 module.exports = {
     test,
     registerUser,
@@ -381,7 +388,7 @@ module.exports = {
     postJob,
     registerCompany,
     logOut,
-    companyLogin, 
+    companyLogin,
     getCompanyProfile,
 <<<<<<< HEAD
     getAllUsers
