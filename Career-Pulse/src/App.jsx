@@ -20,9 +20,7 @@ import { CompanyContextProvider } from '../context/companyContext';
 import JobPosting from './pages/JobPosting';
 import CompanyLogin from './pages/CompanyLogin'
 import Notification from './pages/MailNotification';
-import { VacancyContextProvider } from '../context/vacancyContext';
-
-
+// import { VacancyContextProvider } from '../context/vacancyContext';
 
 axios.defaults.baseURL = 'http://localhost:8000';
 axios.defaults.withCredentials = true; 
@@ -33,7 +31,7 @@ function App() {
   return (
     <UserContextProvider>
       <CompanyContextProvider>
-        <VacancyContextProvider>
+        {/* <VacancyContextProvider> */}
       <Header />
       <Toaster  position='bottom-right' toastOptions={{duration : 2000}}/>
       <Routes>
@@ -57,14 +55,13 @@ function App() {
         {/* <Body>
           <HomeAni />
           {/* <h3 className='home'>Home</h3> */}
-        {/* </Body> */} */
+        {/* </Body> */} 
         <Footer />
       {/* </div> */}
         </VacancyContextProvider>
+      {/* </VacancyContextProvider> */}
       </CompanyContextProvider>
     </UserContextProvider>
-
-    
   )
 }
 

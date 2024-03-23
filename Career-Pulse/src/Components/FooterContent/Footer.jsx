@@ -12,16 +12,16 @@ function Footer() {
             <div className="wave" id="wave4"></div>
 
         </div> */}
-    <div className='abolute top-0 left-0 w-full overflow-hidden line bg-slate-300  rounded-3xl'>
+    <div className='abolute top-0 left-0 w-full overflow-hidden line  bg-black'>
     <div className='grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8 p-20 text-[18px] font-mono'>
         <div className='flex flex-col'>
-          <h2 className='text-purple-1100 font-serif uppercase mb-0 '>Career Pulse</h2>
-          <p className='text-black-950 font-serif mt-20px'>Empower your hiring process with our comprehensive employment marketplace and application monitoring system. Streamline candidate management, track application progress, and make informed hiring decisions with ease.</p>
+          <h2 className='text-purple-1100 font-serif uppercase mb-0 text-white'>Career Pulse</h2>
+          <p className='text-black-950 font-serif mt-20px text-white'>Empower your hiring process with our comprehensive employment marketplace and application monitoring system. Streamline candidate management, track application progress, and make informed hiring decisions with ease.</p>
         </div>
 
         <div className='flex flex-col'>
-          <ul className='text-black'>
-            <li className=' tex-[22px] list-none font-serif text-purple-950 py-2 uppercase'>WEB</li>
+          <ul className='text-white'>
+            <li className=' tex-[22px] list-none font-serif  py-2 uppercase'>WEB</li>
             <li className='my-4 list-none font-serif'>Vacancy</li>
             <li className='my-4 list-none font-serif'>Profile</li>
             <li className='my-4 list-none font-serif'></li>
@@ -29,8 +29,8 @@ function Footer() {
         </div>
 
         <div className='flex flex-col'>
-          <ul className='text-black'>
-            <li className=' tex-[22px] list-none font-serif text-purple-950 py-2 uppercase'>About us</li>
+          <ul className='text-white'>
+            <li className=' tex-[22px] list-none font-serif  py-2 uppercase'>About us</li>
             <li className='my-4 list-none font-serif'>Contact Us</li>
             <li className='my-4 list-none font-serif'>About Us</li>
             <li className='my-4 list-none font-serif'></li>
@@ -38,8 +38,8 @@ function Footer() {
         </div>
         
         <div className='flex flex-col'>
-          <ul className='text-black'>
-            <li className=' tex-[22px] list-none font-serif text-purple-950 py-2 uppercase'>Contact us</li>
+          <ul className='text-white'>
+            <li className=' tex-[22px] list-none font-serif  py-2 uppercase'>Contact us</li>
             <li className='my-4 list-none '><a href='/contact'>Con</a></li>
             <li className='my-4 list-none font-serif'>tips and trics</li>
             <li className='my-4 list-none font-serif'>Bye</li>
