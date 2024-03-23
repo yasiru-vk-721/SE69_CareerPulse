@@ -1,5 +1,5 @@
-// import axios from 'axios';
-// import  { createContext, useState, useEffect } from 'react';
+//import axios from 'axios';
+//import  { createContext, useState, useEffect } from 'react';
 
 // export const VacancyContext = createContext({});
 // import PropTypes from 'prop-types';

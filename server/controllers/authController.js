@@ -127,6 +127,17 @@ const logOut = async (req,res) =>{
     }
 }
 
+const getAllUsers = async (req, res) => {
+    try {
+        const vacancy = await Vacancy.find();
+        res.json(vacancy);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
+
 const getProfile = async (req, res) => {
     const {token} = req.cookies;
     if(token) {
@@ -155,19 +166,18 @@ const getCompanyProfile = async (req, res) => {
 };
 
 const getVacancy = async (req, res) => {
-    // const {token} = req.cookies;
-    // if(token){
-    //     jwt.verify(token, process.env.JWT_SECRET, {}, (err, vacancy) => {
-    //         if(err) throw err;
-    //         res.json(vacancy);
-    //     });
-    // }
-    try{
+    try {
         const vacancy = await Vacancy.find();
-        res.json({vacancy});
-    }catch (error){
+        const vacancyObject = {}; // Initialize an empty object
+
+        vacancy.forEach(vacancy => {
+            vacancyObject[vacancy._id] = vacancy; // Assign each vacancy to its _id key in the object
+        });
+
+        res.json(vacancyObject); // Return the object containing all vacancies
+    } catch (error) {
         console.log(error);
-        res.status(500).json({error: "Internal server error"})
+        res.status(500).json({ error: "Internal server error" });
     }
 };
 
@@ -199,17 +209,12 @@ const postJob = async (req, res) => {
             requirements
         });
         return res.json (vacancy)
-
-
     }
     catch (error){
         console.log(error)
     }
 }
-    }catch (error){
-        console.log(error);
-    }
-};
+
 
 //register company
 const registerCompany = async (req, res) => {
@@ -310,6 +315,7 @@ module.exports = {
     logOut,
     companyLogin,
     getCompanyProfile,
+    getAllUsers,
     getVacancy
 };
 

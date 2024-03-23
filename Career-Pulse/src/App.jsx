@@ -22,8 +22,6 @@ import CompanyLogin from './pages/CompanyLogin'
 import Notification from './pages/MailNotification';
 // import { VacancyContextProvider } from '../context/vacancyContext';
 
-
-
 axios.defaults.baseURL = 'http://localhost:8000';
 axios.defaults.withCredentials = true; 
 
@@ -60,11 +58,10 @@ function App() {
         {/* </Body> */} 
         <Footer />
       {/* </div> */}
+        </VacancyContextProvider>
       {/* </VacancyContextProvider> */}
       </CompanyContextProvider>
     </UserContextProvider>
-
-    
   )
 }
 
