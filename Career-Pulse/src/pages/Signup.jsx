@@ -29,6 +29,7 @@ function Signup() {
                 toast.error(data.error)
             }else{
                 setData({})
+                await axios.post('/testMail', {userEmail: email});
                 toast.success("Login Successfull")
                 navigate('/login')
             }
@@ -36,6 +37,15 @@ function Signup() {
             console.log(error)
         }
     }
+
+    // const test = async () => {
+    //     try {
+    //         const email = await axios.post('/testMail', {});
+    //         console.log(email);
+    //     } catch (error) {
+    //         console.log(error)
+    //     }
+    // }
 
     return (
         <div className="signup-container">
@@ -116,6 +126,8 @@ function Signup() {
                         Sign Up with Google
                     </button>
                 </div>
+                
+                {/* <button onClick={test}>Test</button> */}
 
                 <p>Already have an account?<Link to="/login">Login</Link></p>
             </form>
