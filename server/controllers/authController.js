@@ -257,6 +257,7 @@ const getVacancy = async (req, res) => {
 // post job
 
 
+
 //register company
 const registerCompany = async (req, res) => {
     try{
@@ -349,6 +350,7 @@ const companyLogin = async (req,res)=> {
 }
 
 
+
 module.exports = {
     test,
     registerUser,
@@ -358,7 +360,7 @@ module.exports = {
     postJob,
     registerCompany,
     logOut,
-    companyLogin, 
+    companyLogin,
     getCompanyProfile,
 
     getAllUsers,

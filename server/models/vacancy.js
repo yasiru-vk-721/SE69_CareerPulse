@@ -1,6 +1,4 @@
 const mongoose = require('mongoose');
-// const User = require ('./user');
-// const Company =require('./company');
 const {Schema} = mongoose;
 
 const vacancySchema = new Schema({
