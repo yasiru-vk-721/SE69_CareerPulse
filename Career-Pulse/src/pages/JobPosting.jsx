@@ -64,9 +64,10 @@ function JobPosting() {
                         onChange={(e) => setData({ ...data, jobType: e.target.value })}
                     >
                         <option value="">Select Job Type</option>
-                        <option value="Type 1">Type 1</option>
-                        <option value="Type 2">Type 2</option>
-                        <option value="Type 3">Type 3</option>
+                        <option value="Full-time">Full-time</option>
+                        <option value="Part-time">Part-time</option>
+                        <option value="Hybrid">Hybrid</option>
+                        <option value="Remote">Remote</option>
                     </select>
                 </div>
 
