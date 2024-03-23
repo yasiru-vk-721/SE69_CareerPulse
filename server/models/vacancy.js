@@ -2,7 +2,7 @@ const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
 const vacancySchema = new Schema({
-    companyName: String
+    companyName: String,
     companyEmail: String,
     jobRole: String,
     jobType: String,
