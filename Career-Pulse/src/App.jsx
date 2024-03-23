@@ -58,7 +58,6 @@ function App() {
         {/* </Body> */} 
         <Footer />
       {/* </div> */}
-        </VacancyContextProvider>
       {/* </VacancyContextProvider> */}
       </CompanyContextProvider>
     </UserContextProvider>
