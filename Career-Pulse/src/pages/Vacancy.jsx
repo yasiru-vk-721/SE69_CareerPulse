@@ -1,6 +1,6 @@
 import { useState , useContext, useEffect} from "react"
 import { UserContext } from '../../context/userContext';
-import { VacancyContext } from "../../context/vacancyContext";
+// import { VacancyContext } from "../../context/vacancyContext";
 // import { CompanyContext } from "../../context/companyContext";
 import jobsData from '../Components/Team_files/Vinuji-fe/JobData'
 import JobList from '../Components/Team_files/Vinuji-fe/JobList'
@@ -12,7 +12,7 @@ import { Link } from 'react-router-dom';
 
 
 function Vacancy() {
-  const {vacancy} = useContext(VacancyContext);
+  // const {vacancy} = useContext(VacancyContext);
   // const {company} = useContext(CompanyContext);
 
   const [filteredJobs, setFilteredJobs] = useState(jobsData);
@@ -48,6 +48,7 @@ function Vacancy() {
     <div id ="wrapper" className="hero2">
       <div className = 'text-center mb-20'>
       <h1 className='text-6xl mt-20'>Your ideal jobs await, Start the search.. </h1>
+            
         
       
       <SearchBar onSearch={handleSearch} />

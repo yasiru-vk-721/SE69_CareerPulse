@@ -20,7 +20,7 @@ import { CompanyContextProvider } from '../context/companyContext';
 import JobPosting from './pages/JobPosting';
 import CompanyLogin from './pages/CompanyLogin'
 import Notification from './pages/MailNotification';
-import { VacancyContextProvider } from '../context/vacancyContext';
+// import { VacancyContextProvider } from '../context/vacancyContext';
 
 
 
@@ -33,7 +33,7 @@ function App() {
   return (
     <UserContextProvider>
       <CompanyContextProvider>
-        <VacancyContextProvider>
+        {/* <VacancyContextProvider> */}
       <Header />
       <Toaster  position='bottom-right' toastOptions={{duration : 2000}}/>
       <Routes>
@@ -60,7 +60,7 @@ function App() {
         {/* </Body> */} */
         <Footer />
       {/* </div> */}
-      </VacancyContextProvider>
+      {/* </VacancyContextProvider> */}
       </CompanyContextProvider>
     </UserContextProvider>
 

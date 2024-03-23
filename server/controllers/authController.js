@@ -79,51 +79,6 @@ const registerUser = async (req, res) => {
         console.log(error);
     }
 };
-// post job
-const postJob = async (req, res) => {
-    try{
-        const {companyName, jobRole, skills} = req.body;
-        // check is name was entered
-        if(!companyName){
-            return res.json({
-                error: "Company Name is required"
-            })
-        };
-        // check if job role was entered
-        if(!jobRole){
-            return res.json({
-                error: "Job Role is required"
-            })
-        }
-        if(!skills){
-            return res.json({
-                error: "Skills are required"
-            })
-        }
-        // create vacancy
-        const vacancy = await Vacancy.create({
-            companyName,
-            jobRole,
-            skills
-        });
-
-        const isMatch = await compareCompanyPassword(password, vacancy.password);
-        if(isMatch){
-            jwt.sign({ vacancy: vacancy.companyName, vacancy: vacancy.jobRole, vacancy: vacancy.skills}, process.env.JWT_SECRET, {}, (err, token) => {
-                if(err) throw err;
-                res.cookie('token', token).json(vacancy)
-            });
-        }
-        if(!isMatch){
-            return res.json({
-                error: "Password Do not match"
-            })
-        }
-
-    }catch (error){
-        console.log(error);
-    }   
-};
 
 //login user
 const loginUser = async (req,res)=> {
@@ -226,24 +181,11 @@ const getVacancy = async (req, res) => {
 };
 
 
-=======
+
 // post job
 const postJob = async (req, res) => {
     try{
         const {companyName, companyEmail, jobRole, jobType, requirements} = req.body;
-        // check is name was entered
-        // if(!companyName){
-        //     return res.json({
-        //         error: "Company Name is required"
-        //     })
-        // };
-        // // check is name was entered
-        // if(!companyEmail){
-        //     return res.json({
-        //         error: "company email is required"
-        //     })
-        // };
-        // check if job role was entered
         if(!jobRole){
             return res.json({
                 error: "Job Role is required"
@@ -259,7 +201,7 @@ const postJob = async (req, res) => {
                 error: "Requirements are required"
             })
         }
-        // create vacancy
+        //create vacancy
         const vacancy = await Vacancy.create({
             companyName,
             companyEmail,
@@ -267,10 +209,15 @@ const postJob = async (req, res) => {
             jobType,
             requirements
         });
+        
+        return res.json (vacancy)
 
 
-
-
+    }
+    catch (error){
+        console.log(error)
+    }
+}
 
 //register company
 const registerCompany = async (req, res) => {
@@ -379,4 +326,4 @@ module.exports = {
     getVacancy
 
 }
-
+    
