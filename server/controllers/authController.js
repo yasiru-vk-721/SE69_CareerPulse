@@ -79,37 +79,6 @@ const registerUser = async (req, res) => {
         console.log(error);
     }
 };
-// post job
-const postJob = async (req, res) => {
-    try{
-        const {companyName, jobRole, skills} = req.body;
-        // check is name was entered
-        if(!companyName){
-            return res.json({
-                error: "Company Name is required"
-            })
-        };
-        // check if job role was entered
-        if(!jobRole){
-            return res.json({
-                error: "Job Role is required"
-            })
-        }
-        if(!skills){
-            return res.json({
-                error: "Skills are required"
-            })
-        }
-        // create vacancy
-        const vacancy = await Vacancy.create({
-            companyName,
-            jobRole,
-            skills
-        });
-    }catch (error){
-        console.log(error);
-    }   
-};
 
 //login user
 const loginUser = async (req,res)=> {
@@ -229,6 +198,10 @@ const postJob = async (req, res) => {
             jobType,
             requirements
         });
+    }catch (error){
+        console.log(error);
+    }
+};
 
 //register company
 const registerCompany = async (req, res) => {
@@ -335,5 +308,4 @@ module.exports = {
     getCompanyProfile,
     getVacancy
 
-}
-
+};
