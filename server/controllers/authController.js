@@ -106,20 +106,6 @@ const postJob = async (req, res) => {
             jobRole,
             skills
         });
-
-        const isMatch = await compareCompanyPassword(password, vacancy.password);
-        if(isMatch){
-            jwt.sign({ vacancy: vacancy.companyName, vacancy: vacancy.jobRole, vacancy: vacancy.skills}, process.env.JWT_SECRET, {}, (err, token) => {
-                if(err) throw err;
-                res.cookie('token', token).json(vacancy)
-            });
-        }
-        if(!isMatch){
-            return res.json({
-                error: "Password Do not match"
-            })
-        }
-
     }catch (error){
         console.log(error);
     }   
@@ -141,12 +127,6 @@ const loginUser = async (req,res)=> {
                 error: "Enter Your Password"
             })
         }
-
-
-
-        // Assuming you're inside an async function
-        
-
         //check password
         const isMatch = await comparePassword(password, user.password);
         if(isMatch){
@@ -220,51 +200,7 @@ const getVacancy = async (req, res) => {
         console.log(error);
         res.status(500).json({error: "Internal server error"})
     }
-
-
-
 };
-
-
-=======
-// post job
-const postJob = async (req, res) => {
-    try{
-        const {companyName, companyEmail, jobRole, skills} = req.body;
-        // check is name was entered
-        if(!companyName){
-            return res.json({
-                error: "Company Name is required"
-            })
-        };
-        // check is name was entered
-        if(!companyEmail){
-            return res.json({
-                error: "company email is required"
-            })
-        };
-        // check if job role was entered
-        if(!jobRole){
-            return res.json({
-                error: "Job Role is required"
-            })
-        }
-        if(!skills){
-            return res.json({
-                error: "Skills are required"
-            })
-        }
-        // create vacancy
-        const vacancy = await Vacancy.create({
-            companyName,
-            companyEmail,
-            jobRole,
-            skills
-        });
-
-
-
-
 
 //register company
 const registerCompany = async (req, res) => {

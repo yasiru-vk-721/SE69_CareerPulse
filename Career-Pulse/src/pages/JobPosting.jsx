@@ -13,9 +13,7 @@ function JobPosting() {
         companyName: "",
         companyEmail: "",
         jobRole: "",
-        skills: "",
-        
-        
+        skills: ""
     });
 
     const postJob = async (e) => {
