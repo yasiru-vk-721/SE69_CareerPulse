@@ -6,12 +6,15 @@ import Modal from './Modal';
 import { UserContext } from '../../../../../context/userContext';
 import { CompanyContext } from '../../../../../context/companyContext';
 
+
 import { useContext } from 'react';
+import { VacancyContext } from '../../../../../context/vacancyContext';
 
 
 
 export default function CompanyProfile() {
     const {vacancy } = useContext(VacancyContext);
+    const {user } = useContext(UserContext);
     
 
     // Check if company data is loaded before accessing companyName
@@ -42,7 +45,7 @@ export default function CompanyProfile() {
     // );
     
     const UserDataseting = () =>{
-        const userName = vacancy;
+        const userName = user;
         setUserData([userName]); // Set userData as an array containing userName
         userdata.map(name =>{
            console.log(name); 
@@ -70,8 +73,7 @@ export default function CompanyProfile() {
                         {openModal && <Modal closeModal={() => setOpenModal(false)} />}
                         {/* Render Modal component when openModal is true */}
                         
-                        <span className="text-lg mb-1">Location - {!!user && (<span style={{ marginLeft: "1rem", marginBottom: "0.6rem" }}>{user.firstName}</span>)}</span>
-                        <span className="text-lg mb-1">Location - {!!user && (<span style={{ marginLeft: "1rem", marginBottom: "0.6rem" }}>{user.firstName}</span>)}</span>
+                        
                         
                         <div className="mb-8">
                             <input

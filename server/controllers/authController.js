@@ -188,9 +188,6 @@ const getAllUsers = async (req, res) => {
     }
 };
 
-module.exports = {
-    getAllUsers,
-};
 
 const getProfile = async (req, res) => {
     const {token} = req.cookies;
@@ -220,64 +217,44 @@ const getCompanyProfile = async (req, res) => {
 };
 
 const getVacancy = async (req, res) => {
-    // const {token} = req.cookies;
+    try {
+        const vacancy = await Vacancy.find();
+        const vacancyObject = {}; // Initialize an empty object
+
+        vacancy.forEach(vacancy => {
+            vacancyObject[vacancy._id] = vacancy; // Assign each vacancy to its _id key in the object
+        });
+
+        res.json(vacancyObject); // Return the object containing all vacancies
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+
+    // try {
+    //     const vacancy = await Vacancy.findOne(); // Use findOne() instead of find()
+    //     res.json({ vacancy }); // Return as an object
+    // } catch (error) {
+    //     console.log(error);
+    //     res.status(500).json({ error: "Internal server error" });
+    // }
+
+
+
+        // const {token} = req.cookies;
     // if(token){
     //     jwt.verify(token, process.env.JWT_SECRET, {}, (err, vacancy) => {
     //         if(err) throw err;
     //         res.json(vacancy);
     //     });
     // }
-    try{
-        const vacancy = await Vacancy.find();
-        res.json({vacancy});
-    }catch (error){
-        console.log(error);
-        res.status(500).json({error: "Internal server error"})
-    }
 
 
 
 };
 
 
-=======
 // post job
-const postJob = async (req, res) => {
-    try{
-        const {companyName, companyEmail, jobRole, skills} = req.body;
-        // check is name was entered
-        if(!companyName){
-            return res.json({
-                error: "Company Name is required"
-            })
-        };
-        // check is name was entered
-        if(!companyEmail){
-            return res.json({
-                error: "company email is required"
-            })
-        };
-        // check if job role was entered
-        if(!jobRole){
-            return res.json({
-                error: "Job Role is required"
-            })
-        }
-        if(!skills){
-            return res.json({
-                error: "Skills are required"
-            })
-        }
-        // create vacancy
-        const vacancy = await Vacancy.create({
-            companyName,
-            companyEmail,
-            jobRole,
-            skills
-        });
-
-
-
 
 
 //register company
@@ -383,11 +360,10 @@ module.exports = {
     logOut,
     companyLogin, 
     getCompanyProfile,
-<<<<<<< HEAD
-    getAllUsers
-=======
+
+    getAllUsers,
+
     getVacancy
 
->>>>>>> 8dd759185b6ac4740e9f5815fa22e923cbdecb65
 }
 

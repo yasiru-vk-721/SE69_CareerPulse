@@ -14,9 +14,12 @@ import { Link } from 'react-router-dom';
 function Vacancy() {
   const {vacancy} = useContext(VacancyContext);
   // const {company} = useContext(CompanyContext);
+  
+  console.log(vacancy)
 
   const [filteredJobs, setFilteredJobs] = useState(jobsData);
   const {user} = useContext(UserContext);
+
   const [loadedUser, setLoadedUser] = useState(false);
 
   const handleSearch = (searchTerm) => {
@@ -42,13 +45,14 @@ function Vacancy() {
     }
     getUser();
   });
+  
   return (
     <div>
       {loadedUser ? (
     <div id ="wrapper" className="hero2">
       <div className = 'text-center mb-20'>
-      <h1 className='text-6xl mt-20'>Your ideal jobs await, Start the search.. </h1>
-        
+      <h1 className='text-6xl mt-20'>Your ideal jobs await, Start the search.. </h1>{!!vacancy && (<h1>Welcome {vacancy.vacancy.companyName}!</h1>)}
+      
       
       <SearchBar onSearch={handleSearch} />
       <JobList jobs={filteredJobs} />

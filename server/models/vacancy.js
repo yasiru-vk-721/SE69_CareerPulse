@@ -18,10 +18,7 @@ const vacancySchema = new Schema({
     skills: String
     // confirmpassword: String,
     // jobStatus: String
-=======
-    companyEmail: String,
-    jobRole: String,
-    skills: String,
+
 
 
 });
