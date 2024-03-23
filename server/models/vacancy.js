@@ -1,17 +1,12 @@
 const mongoose = require('mongoose');
-// const User = require ('./user');
-// const Company =require('./company');
 const {Schema} = mongoose;
 
 const vacancySchema = new Schema({
-    companyName: String,
-    jobType: String,
-    jobRole: String,
-    location: String,
-    skills: String,
+    companyName: String
     companyEmail: String,
     jobRole: String,
-    skills: String,
+    jobType: String,
+    requirements: String
 });
 
 const VacancyModle = mongoose.model('Vacancies', vacancySchema);

@@ -202,6 +202,34 @@ const getVacancy = async (req, res) => {
     }
 };
 
+// post job
+const postJob = async (req, res) => {
+    try{
+        const {companyName, companyEmail, jobRole, jobType, requirements} = req.body;
+        if(!jobRole){
+            return res.json({
+                error: "Job Role is required"
+            })
+        }
+        if(!jobType){
+            return res.json({
+                error: "Job Type is required"
+            })
+        }
+        if(!requirements){
+            return res.json({
+                error: "Requirements are required"
+            })
+        }
+        // create vacancy
+        const vacancy = await Vacancy.create({
+            companyName,
+            companyEmail,
+            jobRole,
+            jobType,
+            requirements
+        });
+
 //register company
 const registerCompany = async (req, res) => {
     try{
@@ -303,7 +331,7 @@ module.exports = {
     postJob,
     registerCompany,
     logOut,
-    companyLogin, 
+    companyLogin,
     getCompanyProfile,
     getVacancy
 
