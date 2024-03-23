@@ -5,19 +5,15 @@ import { useNavigate } from 'react-router-dom';
 import {toast} from 'react-hot-toast';
 import { CompanyContext } from '../../context/companyContext';
 
-
 function JobPosting() {
     const navigate = useNavigate();
     const {company} = useContext(CompanyContext);
     
-
     const [data, setData] = useState({
-        
         jobRole: "",
+        skills: "",
         jobType: "",
         requirements: "",
-        
-        
     });
 
     const postJob = async (e) => {
@@ -78,12 +74,7 @@ function JobPosting() {
                     value={data.requirements}
                     onChange={(e) => setData({ ...data, requirements: e.target.value })}
                 />
-
-
-                
                 <button className="submitbutton" type="submit">Submit</button>
-
-                
             </form>
         </div>
     );
