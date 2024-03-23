@@ -41,6 +41,10 @@ function Links() {
     }
   }, []);
 
+  //if logged email is from the company de=atabase then show the company profile link
+  
+
+
   const logOutUser =async () =>{
     try{
       await axios.get('/logout');
@@ -70,15 +74,23 @@ function Links() {
           <li className="navigateItem">
             <MenuLink className="navgateLinks" onClick={closeMobileMenu} linkname="Home" url="/"/>
           </li>
+          {auth ? (<>
           <li className="navigateItem">
             <MenuLink className="navgateLinks" onClick={closeMobileMenu} linkname="Vacancy" url="/vacancy"/>
           </li>
-          <li className="navigateItem">
+          </>) : ( <></>)}
+          {/* <li className="navigateItem">
             <MenuLink className="navgateLinks" onClick={closeMobileMenu} linkname="About" url="/about"/>
-          </li>
+          </li> */}
           <li className="navigateItem">
             <MenuLink className="navgateLinks" onClick={closeMobileMenu} linkname="Contact" url="/contact"/>
           </li>
+          <li className="navigateItem">
+            <MenuLink className="navgateLinks" onClick={closeMobileMenu} linkname="Profile" url="/profile"/>
+          </li>
+          {/* <li className="navigateItem">
+            <MenuLink className="navgateLinks" onClick={closeMobileMenu} linkname="Company-Profile" url="/company-profile"/>
+          </li> */}
           <li className="navigateItem"
                     onMouseEnter={onMouseEnter}
                     onMouseLeave={onMouseLeave}

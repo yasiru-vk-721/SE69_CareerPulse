@@ -1,10 +1,5 @@
 footer{
-    position: relative;
-    width: 100%;
-    background: #b240d4;
-    min-height: 250px;
-    padding: 20px 50px;
-    color: black;
+    background-color: black;
 }
 
 /* #footercontent{

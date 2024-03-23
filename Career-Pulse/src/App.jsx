@@ -57,7 +57,7 @@ function App() {
         {/* <Body>
           <HomeAni />
           {/* <h3 className='home'>Home</h3> */}
-        {/* </Body> */} */
+        {/* </Body> */} 
         <Footer />
       {/* </div> */}
       {/* </VacancyContextProvider> */}

@@ -7,7 +7,7 @@ import { CompanyContext } from '../../context/companyContext';
 function JobPosting() {
     const navigate = useNavigate();
     const { company } = useContext(CompanyContext);
-
+    
     const [data, setData] = useState({
         jobRole: "",
         jobType: "",
@@ -84,6 +84,15 @@ function JobPosting() {
                 <div className="text-center">
                     <button className="submit-button" type="submit">Submit</button>
                 </div>
+                <label htmlFor="requirements">Requirements:</label>
+                <input
+                    type="text"
+                    name="requirements"
+                    placeholder='Enter requirements'
+                    value={data.requirements}
+                    onChange={(e) => setData({ ...data, requirements: e.target.value })}
+                />
+                <button className="submitbutton" type="submit">Submit</button>
             </form>
         </div>
     );

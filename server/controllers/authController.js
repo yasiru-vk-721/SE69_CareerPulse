@@ -96,12 +96,6 @@ const loginUser = async (req,res)=> {
                 error: "Enter Your Password"
             })
         }
-
-
-
-        // Assuming you're inside an async function
-        
-
         //check password
         const isMatch = await comparePassword(password, user.password);
         if(isMatch){
@@ -175,12 +169,7 @@ const getVacancy = async (req, res) => {
         console.log(error);
         res.status(500).json({error: "Internal server error"})
     }
-
-
-
 };
-
-
 
 // post job
 const postJob = async (req, res) => {
@@ -209,7 +198,6 @@ const postJob = async (req, res) => {
             jobType,
             requirements
         });
-        
         return res.json (vacancy)
 
 
@@ -218,6 +206,10 @@ const postJob = async (req, res) => {
         console.log(error)
     }
 }
+    }catch (error){
+        console.log(error);
+    }
+};
 
 //register company
 const registerCompany = async (req, res) => {
@@ -276,7 +268,6 @@ const registerCompany = async (req, res) => {
     }
 };
 
-
 //comaapny login
 const companyLogin = async (req,res)=> {
     try{
@@ -303,14 +294,10 @@ const companyLogin = async (req,res)=> {
                 error: "Password Do not match"
             })
         }
-
     }catch(error){
         console.log(error);
     }
-
 }
-
-
 
 module.exports = {
     test,
@@ -324,6 +311,5 @@ module.exports = {
     companyLogin,
     getCompanyProfile,
     getVacancy
+};
 
-}
-    
