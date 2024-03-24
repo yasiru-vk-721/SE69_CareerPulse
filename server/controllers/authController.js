@@ -39,12 +39,12 @@ const registerUser = async (req, res) => {
                 error: "Password is required and must be at least 8 characters long"
             })
         };
-        // const passexits = await User.findOne({password});
-        // if(passexits){
-        //     return res.json({
-        //         error: "Password already exists"
-        //     })
-        // };
+        const passexits = await User.findOne({password});
+        if(passexits){
+            return res.json({
+                error: "Password already exists"
+            })
+        };
         // check if confirm password was entered
         if(!confirmpassword || confirmpassword !== password){
             return res.json({
