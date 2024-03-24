@@ -44,19 +44,18 @@ function Profile() {
         <div className="userInformation profileCont">
           <div className="userInformationCont">
             <div className="infoTextCont">
-          
               First Name
               {!!user && (<h1 className="text-red-500">{user.firstName}</h1>)}
-              
+             
             </div>
             <div className="infoTextCont">
               Last Name
               
               {!!user && (<h1 className="text-red-500">{user.lastName}</h1>)}
             </div>
+          
             <div className="infoTextCont">
               Email Address
-              {}
               {!!user && (<h1 className="text-red-500">{user.email}</h1>)}
             </div>
             <div className="infoTextCont">
@@ -64,9 +63,10 @@ function Profile() {
               {!!user && (<h1 className="text-red-500">{user.jobStatus}</h1>)}
               
             </div>
+           
           </div>
-          <div className="editButtonCont">
-            <button className="editButton">Edit</button>
+          <div className="updateButtonCont">
+            <button className="updateButton">Update</button>
           </div>
         </div>
       </div>
