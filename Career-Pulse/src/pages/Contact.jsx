@@ -50,9 +50,9 @@ function Contact() {
 
   return (
     <>
-      <div className="antialiased mt-5 mb-20">
+      <div className="antialiased bg-gradient-to-l from-black to-slate-700">
           <div className="flex w-full min-h-screen justify-center items-center">
-            <div className=" flex flex-col md:flex-row md:space-x-6 md:space-y-0 space-y-6  bg-purple-950 w-full max-w-4xl p-8 sn:p-12 rounded-xl   shadow-lg text-white overflow-hidden">
+            <div className=" flex flex-col md:flex-row md:space-x-6 md:space-y-0 space-y-6  bg-gradient-to-t from-slate-400 to-gray-700 w-full max-w-4xl p-8 sn:p-12 rounded-xl   shadow-lg text-white overflow-hidden">
               <div className="flex flex-col space-y-8 justify-between">
 
                 <div>
@@ -105,9 +105,9 @@ function Contact() {
               <div>
                 {/* Form */}
                 <div className="relative">
-                  <div className="absolute z-0 w-40 h-40 bg-fuchsia-300 rounded-full -right-28 -top-28 ">
+                  <div className="absolute z-0 w-40 h-40 bg-zinc-800 rounded-full -right-28 -top-28 ">
                   </div>
-                  <div className="absolute z-1 w-36 h-36 bg-fuchsia-600 rounded-full -right-28 -top-28 ">
+                  <div className="absolute z-1 w-36 h-36 bg-white rounded-full -right-28 -top-28 ">
                   </div>
                 </div>
 
@@ -181,9 +181,9 @@ function Contact() {
                   )}
                 </div>
                 <div className="relative">
-                  <div className="absolute z-0 w-40 h-40 bg-fuchsia-300 rounded-full -left-21 -bottom-19 ">
+                  <div className="absolute z-0 w-40 h-40 bg-stone-700 rounded-full -left-21 -bottom-19 ">
                   </div>
-                  <div className="absolute z-1 w-36 h-36 bg-fuchsia-600 rounded-full -left-20 -bottom-19 ">
+                  <div className="absolute z-1 w-36 h-36 bg-white rounded-full -left-20 -bottom-19 ">
                   </div>
                 </div>
               </div>

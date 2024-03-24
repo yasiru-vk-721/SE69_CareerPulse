@@ -52,3 +52,7 @@
   background-color: #5a12e8;
   transform: scale(1.1);    
 }
+
+.searchBar{
+  border-radius: 9999px;
+}

@@ -1,5 +1,4 @@
 .mainImg{
-    margin-top: 75px;
     width: 100%;
     height: 100vh;
     position: relative;
@@ -11,7 +10,6 @@
 
 .heroImg h2{
     font-size: 15vh;
-    margin-top: 10vh;
     margin-bottom: 0;
     color: #ac8484;
     display: flex;
@@ -24,7 +22,7 @@
     font-size: 7vh;
     margin-top: 0;
     margin-bottom: 0;
-    color: #ff0000;
+    color: #ffffff;
     display: flex;
     text-align: center;
     justify-content: center;
