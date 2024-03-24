@@ -247,7 +247,6 @@ const postJob = async (req, res) => {
     }
 }
 
-
 //register company
 const registerCompany = async (req, res) => {
     try{
