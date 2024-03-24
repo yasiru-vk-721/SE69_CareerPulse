@@ -36,10 +36,11 @@ const CompanyProfile = () => {
   };
   return (
     <div>
+      <h1 className='text-6xl mt-12 ml-16 mb-16 '>Your Company's Vacancies...</h1>
       {vacancies.map(vacancyItem => (
         <div key={vacancyItem._id} className="bg-gray-800 shadow-md rounded-lg p-4 mb-8 mt-8 ml-20 mr-20">
-          <h3 className='text-white font-bold text-3xl text-violet-200'>{vacancyItem.jobRole}</h3>
-          <h4 className='text-white mt-4 mb-2 text-2xl text-yellow-300'>{vacancyItem.companyName}</h4>
+          <h3 className=' font-bold text-3xl text-violet-200'>{vacancyItem.jobRole}</h3>
+          <h4 className=' mt-4 mb-2 text-2xl text-yellow-300'>{vacancyItem.companyName}</h4>
           
           <p className='text-white text-justify' >{vacancyItem.requirements}</p>
           <p className='text-white mt-4'>Job Type: {vacancyItem.jobType}</p>
