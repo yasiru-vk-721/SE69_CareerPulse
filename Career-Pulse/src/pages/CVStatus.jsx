@@ -57,6 +57,14 @@ const CVTable = () => {
                   <option value="Received">Received</option>
                   <option value="Viewed">Viewed</option>
                   <option value="Rejected">Rejected</option>
+                  <option value="Under Review">Under Review</option>
+                  <option value="Short listed">Short listed</option>
+                  <option value="Interview Scheduled">Interview Scheduled</option>
+                  <option value="Pending Decision">Pending Decision</option>
+                  <option value="Offer Extended">Offer Extended</option>
+                  <option value="Hired">Hired</option>
+                  <option value="Number of vacancies finished">Number of vacancies finished</option>
+
                 </select>
               </td>
               <td>
