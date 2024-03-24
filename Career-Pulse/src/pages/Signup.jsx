@@ -1,7 +1,6 @@
 import  { useState } from 'react';
 import './Signup_Login.css'
 import { Link } from 'react-router-dom';
-import image from '../images/Google_Icon1.png'
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import {toast} from 'react-hot-toast';
@@ -118,17 +117,7 @@ function Signup() {
                     value={data.jobStatus}
                     onChange={(e) => setData({ ...data, jobStatus: e.target.value })}
                 />
-                <button className="submitbutton" type="submit">Sign Up</button>
-
-                <div className="google-signin-container">
-                    <button type="button" className="google-signin-button">
-                        <img className="google-signin-icon" src={image} alt="Google Icon" />
-                        Sign Up with Google
-                    </button>
-                </div>
-                
-                {/* <button onClick={test}>Test</button> */}
-
+                <button className="submitbutton mt-2" type="submit">Sign Up</button>
                 <p>Already have an account?<Link to="/login">Login</Link></p>
             </form>
         </div>

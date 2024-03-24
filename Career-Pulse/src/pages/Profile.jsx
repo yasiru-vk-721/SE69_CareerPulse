@@ -23,12 +23,13 @@ function Profile() {
   return (
     <>
       {loadedUser ? (
-        <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8 text-white">
-          <div className="max-w-md mx-auto bg-white rounded-lg overflow-hidden md:max-w-2xl bg-gradient-to-l from-black to-gray-700 ">
+        <div className='bg-gradient-to-l from-black to-gray-700'>
+        <div className="min-h-screen  py-12 px-4 sm:px-6 lg:px-8 text-white">
+          <div className="max-w-md mx-auto bg-black rounded-lg overflow-hidden md:max-w-2xl ">
             <div className="md:flex ">
               <div className="md:flex-shrink-0">
                 <img
-                  className="h-48 w-full object-cover md:w-48"
+                  className="h-48 w-full object-cover md:w-48 border-white border-8"
                   src={ProfilePic}
                   alt="Profile"
                 />
@@ -68,6 +69,7 @@ function Profile() {
               </div>
             </div>
           </div>
+        </div>
         </div>
       ) : (
         <div className="min-h-screen flex flex-col justify-center items-center bg-white">
