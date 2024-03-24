@@ -57,16 +57,16 @@ function Login() {
   return (
     <div>
       {!loadedUser ? (
-      <div className="signup-container min-h-screen flex justify-center items-center mt-10 bg-gray-700">
+      <div className="signup-container min-h-screen flex justify-center items-center mt-10 bg-gradient-to-l from-black to-slate-600">
         <div className='max-w-screen-xl w-full flex'>
-        <div className="w-1/2 bg-green-600 p-8">
+        <div className="w-1/2 bg-gradient-to-l from-black to-slate-600 p-8">
             <img src={userImage} alt="Login Image" className="w-full h-full object-cover rounded-lg shadow-lg" />
           </div>
-          <div className="w-1/2 bg-purple-400 p-8">
-              <form>
-                <h2 className='text-3xl font-semibold text-center text-gray-800 mb-6'>Login</h2>
+          <div className="w-1/2 bg-gradient-to-l from-black to-slate-600 p-8">
+              <form >
+                <h2 className='text-3xl font-semibold text-center text-white mb-6 '>Login</h2>
 
-                <label htmlFor="email" className='block text-sm font-medium text-gray-700'>Email:</label>
+                <label htmlFor="email" className='block text-sm font-medium text-white'>Email:</label>
                 <input
                   type="email"
                   name="email"
@@ -76,7 +76,7 @@ function Login() {
                   className="mt-1 block w-full px-3 py-2 border rounded-md focus:outline-none focus:border-blue-500"
                 />
 
-                <label htmlFor="password">Password:</label>
+                <label htmlFor="password" className='text-white'>Password:</label>
                 <div className='flex relative'>
                 <input
                   type={showPassword ? "text":"password"}
@@ -107,13 +107,13 @@ function Login() {
 
                 <div className="mt-6 text-center">
                 <hr className="border-gray-300" />
-                <p className="inline-block mx-3 text-gray-500">OR</p>
+                <p className="inline-block mx-3 text-white">OR</p>
                 <hr className="border-gray-300" />
               </div>
                 <p className="mt-6 text-center">
                   If you are a new to Career Pulse, please 
                 </p>
-                <button className='mt-6 w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'>
+                <button className='mt-6 w-full bg-black hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'>
                   <Link to="/signup">Sign Up</Link>
                 </button>
               </form>

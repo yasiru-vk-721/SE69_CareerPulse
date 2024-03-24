@@ -2,14 +2,22 @@ const mongoose = require('mongoose');
 const {Schema} = mongoose;
 
 const companySchema = new Schema({
-    companyName: String,
+    companyName:{
+        type:String,
+    },
     companyEmail:{
         type: String,
         unique: true
     },
-    companyPassword: String,
-    companyConfirmPassword: String,
-    companyLocation: String
+    companyPassword:{
+        type:String,
+    },
+    companyConfirmPassword: {
+        type:String,
+    },
+    companyLocation: {
+        type:String,
+    }
 });
 
 const CompanyModel = mongoose.model('Companies', companySchema);

@@ -3,7 +3,7 @@ const router = express.Router();
 const cors = require('cors');
 
 
-const {test, registerUser, loginUser, getProfile, registerCompany, postJob,logOut,companyLogin, getCompanyProfile, getAllUsers, getVacancy, deleteVacancy}  = require('../controllers/authController.js'); //importing the test function from the authController
+const {test, registerUser, loginUser, getProfile, registerCompany, postJob,logOut,companyLogin, getCompanyProfile, getAllUsers, getVacancy, deleteVacancy, getPostedVacancy}  = require('../controllers/authController.js'); //importing the test function from the authController
 
 const { testMail } = require('../controllers/authMailController.js'); //importing the testMail function from the authMailController
 
@@ -29,5 +29,7 @@ router.get('/users', getAllUsers)
 router.get('/vacancy', getVacancy)
 router.delete('/vacancy/:id', deleteVacancy)
 router.post('/testMail', testMail)
+router.get('/posted-vacancies/:email', getPostedVacancy); 
+
 
 module.exports = router;
