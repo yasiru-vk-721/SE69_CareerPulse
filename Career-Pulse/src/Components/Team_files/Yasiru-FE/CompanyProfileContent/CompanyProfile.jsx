@@ -2,24 +2,27 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import './JobCard.css'
 import { CompanyContext } from '../../../../../context/companyContext';
+import { Link } from 'react-router-dom';
 
 const CompanyProfile = () => {
   const [vacancies, setVacancies] = useState([]);
   const {company} = useContext(CompanyContext);
 
   useEffect(() => {
-    // Fetch vacancy data from your API or database
-    axios.get('http://localhost:8000/vacancy')
-      .then(response => {
-        const vacancyData = response.data;
-        const vacancyArray = Object.values(vacancyData); // Convert object to array
-        setVacancies(vacancyArray);
-        console.log(vacancyArray)
-      })
-      .catch(err => {
-        console.error('Error fetching vacancy data:', err);
-      });
-  }, []); // Empty dependency array to fetch data only once on component mount
+    if (company && company.companyEmail) { // Check if company and companyEmail are not null or undefined
+      // Fetch vacancies associated with the logged-in company
+      const fetchVacancies = async () => {
+        try {
+          const response = await axios.get(`http://localhost:8000/posted-vacancies/${company.companyEmail}`);
+          setVacancies(response.data);
+        } catch (error) {
+          console.error('Error fetching vacancies:', error);
+        }
+      };
+  
+      fetchVacancies();
+    }
+  }, [company]);// Empty dependency array to fetch data only once on component mount
 
   const handleDeleteVacancy = async (id) => {
     try {
@@ -45,6 +48,10 @@ const CompanyProfile = () => {
             {/* Adjusted layout for better alignment on mobile */}
             <button className="button1 mr-5" onClick={() => handleDeleteVacancy(vacancyItem._id)}>Delete Vacancy</button>
           </div>
+
+          <Link to="/jobposting" className="floating-button">
+            Upload Vacancy
+          </Link>
         </div>
       ))}
     </div>

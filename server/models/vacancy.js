@@ -6,7 +6,11 @@ const vacancySchema = new Schema({
     companyEmail: String,
     jobRole: String,
     jobType: String,
-    requirements: String
+    requirements: String,
+    jobStatus: {
+        type: String,
+        default: 'pending'
+    }
 });
 
 const VacancyModle = mongoose.model('Vacancies', vacancySchema);
