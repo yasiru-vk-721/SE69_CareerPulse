@@ -21,7 +21,7 @@ import JobPosting from './pages/JobPosting';
 import CompanyLogin from './pages/CompanyLogin'
 import Notification from './pages/MailNotification';
 // import { VacancyContextProvider } from '../context/vacancyContext';
-import CompanyProfile from './pages/CompanyProfile';
+// import CompanyProfile from './pages/CompanyProfile';
 import UserApplication from './pages/UserApplication';
 
 axios.defaults.baseURL = 'http://localhost:8000';
