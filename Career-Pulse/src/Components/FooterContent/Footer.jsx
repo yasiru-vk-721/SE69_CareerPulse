@@ -45,16 +45,16 @@ function Footer() {
             <li className='my-4 list-none font-serif'>Bye</li>
           </ul>
           <div className="flex space-x-4 social_icons">
-                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer">
-                        <ion-icon name="logo-facebook" target="_blank" rel="noopener noreferrer"></ion-icon>
+                        <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className='text-white'>
+                        <ion-icon name="logo-facebook" target="_blank" rel="noopener noreferrer" ></ion-icon>
                         </a>
-                        <a href="#">
+                        <a href="#" className='text-white'>
                         <ion-icon name="logo-twitter" target="_blank" rel="noopener noreferrer"></ion-icon>
                         </a>
-                        <a href="#">
+                        <a href="#" className='text-white'>
                         <ion-icon name="logo-linkedin" target="_blank" rel="noopener noreferrer"></ion-icon>
                         </a>
-                        <a href="#">
+                        <a href="#" className='text-white'>
                         <ion-icon name="logo-instagram" target="_blank" rel="noopener noreferrer"></ion-icon>
                         </a>
           </div>

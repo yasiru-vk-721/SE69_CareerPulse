@@ -30,7 +30,7 @@ const testMail = async (req, res) =>{
         });
         const emailContent = {
             body:{
-                name: 'Successfull Registration Email',
+                name: 'User',
                 intro: 'Welcome to Our Platform! We\'re very excited to have you on board.',
                 outro: 'Need help, or have questions? Just reply to this email, we\'d love to help.'
             }
@@ -40,7 +40,7 @@ const testMail = async (req, res) =>{
         const message = {
             from: EMAIL,
             to: userEmail,
-            subject: 'Test Email',
+            subject: 'Successfull Registration Email',
             html: mail
         };
 
