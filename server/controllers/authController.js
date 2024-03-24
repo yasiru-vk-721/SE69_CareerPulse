@@ -181,6 +181,22 @@ const getVacancy = async (req, res) => {
     }
 };
 
+const getPostedVacancy = async (req, res) => {
+    const companyEmail = req.params.email; // Assuming the email is passed as a route parameter
+
+    try {
+        // Find vacancies that match the company's email
+        const vacancies = await Vacancy.find({ companyEmail });
+
+        res.json(vacancies); // Return the vacancies
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+};
+
+
+
 const deleteVacancy = async (req, res) => {
     const vacancyId = req.params.id;
 
@@ -333,6 +349,7 @@ module.exports = {
     getCompanyProfile,
     getAllUsers,
     getVacancy,
-    deleteVacancy
+    deleteVacancy,
+    getPostedVacancy
 };
 

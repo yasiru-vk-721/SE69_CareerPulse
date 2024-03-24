@@ -84,8 +84,12 @@ function Vacancy() {
         </div>
       ))}
     </div>
-      </div>
     </div>
+    <Link to="/jobposting" className="floating-button">
+            Applied Vacancies
+          </Link>
+    </div>
+    
     ) : (
       <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-br from-black to-gray-400">
       <div className="text-center text-white">
