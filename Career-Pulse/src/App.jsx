@@ -21,8 +21,8 @@ import JobPosting from './pages/JobPosting';
 import CompanyLogin from './pages/CompanyLogin'
 import Notification from './pages/MailNotification';
 // import { VacancyContextProvider } from '../context/vacancyContext';
-
-
+import CompanyProfile from './pages/CompanyProfile';
+import UserApplication from './pages/UserApplication';
 
 axios.defaults.baseURL = 'http://localhost:8000';
 axios.defaults.withCredentials = true; 
@@ -51,6 +51,9 @@ function App() {
         <Route path="*" element={<PageNotFound />} />
         <Route path='/companyLogin' element={<CompanyLogin/>}/>
         <Route path="/Notification" element={<Notification />} />
+        <Route path="/UserApplication" element={<UserApplication />} />
+        
+
       </Routes>
       
       {/* <div id="wrapper"> */}
@@ -63,8 +66,6 @@ function App() {
       {/* </VacancyContextProvider> */}
       </CompanyContextProvider>
     </UserContextProvider>
-
-    
   )
 }
 

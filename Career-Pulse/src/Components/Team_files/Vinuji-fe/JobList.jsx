@@ -1,3 +1,4 @@
+import React from 'react';
 import './JobList.css'; 
 
 const JobList = ({ jobs }) => {
@@ -5,7 +6,7 @@ const JobList = ({ jobs }) => {
     <div className="job-list-container">
       {jobs.map((job) => (
         <div key={job.id} className="job-card">
-          <h3 className='text-white'><b>{job.title}</b></h3>
+          <h3 className='text-white'><b>{job.jobRole}</b></h3>
           <p className='text-white'>Company Name:{job.companyName}</p>
           <p className='text-white'>Job Type: {job.type}</p>
           <p className='text-white'>Location: {job.location}</p>

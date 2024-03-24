@@ -1,5 +1,6 @@
-// import axios from 'axios';
-// import  { createContext, useState, useEffect } from 'react';
+//import axios from 'axios';
+//import  { createContext, useState, useEffect } from 'react';
+
 // export const VacancyContext = createContext({});
 // import PropTypes from 'prop-types';
 // export function VacancyContextProvider({ children }) {
@@ -12,7 +13,6 @@
 //             })
 //         }
 //     }, []);
-
 //     return (
 //         <VacancyContext.Provider value={{vacancy, setVacancy}}>
 //             {children}
@@ -22,4 +22,3 @@
 // VacancyContextProvider.propTypes = {
 //     children: PropTypes.node.isRequired
 // }
-
