@@ -1,22 +1,40 @@
 import { useState , useContext, useEffect} from "react"
+import '../Components/Team_files/Vinuji-fe/JobList.css'; 
 import { UserContext } from '../../context/userContext';
 // import { VacancyContext } from "../../context/vacancyContext";
-// import { CompanyContext } from "../../context/companyContext";
+import { CompanyContext } from "../../context/companyContext";
 import jobsData from '../Components/Team_files/Vinuji-fe/JobData'
 import JobList from '../Components/Team_files/Vinuji-fe/JobList'
 import SearchBar from '../Components/Team_files/Vinuji-fe/SearchBar'
 import './VacancyHero.css'
 import { Link } from 'react-router-dom';
+import axios from "axios";
 
 function Vacancy() {
   // const {vacancy} = useContext(VacancyContext);
-  // const {company} = useContext(CompanyContext);
+  const {company} = useContext(CompanyContext);
 
 
   const [filteredJobs, setFilteredJobs] = useState(jobsData);
   const {user} = useContext(UserContext);
 
   const [loadedUser, setLoadedUser] = useState(false);
+
+  const [vacancies, setVacancies] = useState([]);
+
+  useEffect(() => {
+    // Fetch vacancy data from your API or database
+    axios.get('http://localhost:8000/vacancy')
+      .then(response => {
+        const vacancyData = response.data;
+        const vacancyArray = Object.values(vacancyData); // Convert object to array
+        setVacancies(vacancyArray);
+      })
+      .catch(err => {
+        console.error('Error fetching vacancy data:', err);
+      });
+  }, []); 
+  
 
   const handleSearch = (searchTerm) => {
     const filtered = jobsData.filter(
@@ -51,7 +69,21 @@ function Vacancy() {
 
       
       <SearchBar onSearch={handleSearch} />
-      <JobList jobs={filteredJobs} />
+      <div className="job-list-container">
+      {vacancies.map((job) => (
+        <div key={job._id} className="job-card">
+          <h3 className='text-white font-bold text-3xl text-violet-200'>{job.jobRole}</h3>
+          <h4 className='text-white mt-4 mb-2 text-2xl text-yellow-300'>{job.companyName}</h4>
+          
+          <p className='text-white text-justify' >{job.requirements}</p>
+          <p className='text-white mt-4'>Job Type: {job.jobType}</p>
+          <p className='text-white '>Location: {company.companyLocation}</p>
+          <a href={job.applyUrl} target="_blank" rel="noopener noreferrer">
+            <button className="apply-button">Apply Job</button>
+          </a>
+        </div>
+      ))}
+    </div>
       </div>
     </div>
     ) : (

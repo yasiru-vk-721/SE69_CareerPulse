@@ -181,6 +181,22 @@ const getVacancy = async (req, res) => {
     }
 };
 
+const deleteVacancy = async (req, res) => {
+    const vacancyId = req.params.id;
+
+    try {
+        // Find the vacancy by id and delete it
+        await Vacancy.findByIdAndDelete(vacancyId);
+        res.json({ message: "Vacancy deleted successfully" });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+};
+
+
+
+
 // post job
 const postJob = async (req, res) => {
     try{
@@ -316,6 +332,7 @@ module.exports = {
     companyLogin,
     getCompanyProfile,
     getAllUsers,
-    getVacancy
+    getVacancy,
+    deleteVacancy
 };
 
