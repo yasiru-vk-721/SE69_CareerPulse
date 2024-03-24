@@ -78,7 +78,7 @@ function JobPosting() {
                     <div className="mb-4">
                         <label htmlFor="requirements" className="block text-sm font-medium text-white">Requirements:</label>
                         <textarea
-                            className='input-field w-full bg-gradient-to-l from-black to-gray-700 text-white rounded-md'
+                            className='input-field w-full h-20 pb-18 pl-1 mb-4 bg-gradient-to-l from-black to-gray-700 text-white rounded-md'
                             name="requirements"
                             placeholder='Enter requirements'
                             value={data.requirements}
@@ -87,7 +87,7 @@ function JobPosting() {
                     </div>
 
                     <div className="text-center">
-                        <button className="submit-button w-full bg-black text-white" type="submit">Submit</button>
+                        <button className="submit-button w-full bg-black text-white font-bold" type="submit">Submit</button>
                     </div>
                 </form>
             </div>
