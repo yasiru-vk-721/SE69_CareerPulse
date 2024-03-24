@@ -2,6 +2,7 @@ import React, { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import './JobCard.css'
 import { CompanyContext } from '../../../../../context/companyContext';
+import { Link } from 'react-router-dom';
 
 const CompanyProfile = () => {
   const [vacancies, setVacancies] = useState([]);
@@ -45,6 +46,10 @@ const CompanyProfile = () => {
             {/* Adjusted layout for better alignment on mobile */}
             <button className="button1 mr-5" onClick={() => handleDeleteVacancy(vacancyItem._id)}>Delete Vacancy</button>
           </div>
+
+          <Link to="/jobposting" className="floating-button">
+        Upload Vacancy
+      </Link>
         </div>
       ))}
     </div>
