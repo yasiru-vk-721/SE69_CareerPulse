@@ -3,7 +3,7 @@ import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
 import { CompanyContext } from '../../context/companyContext';
-
+import postingImage from "../images/application_img.jpg"
 function JobPosting() {
     const navigate = useNavigate();
     const { company } = useContext(CompanyContext);
@@ -39,62 +39,58 @@ function JobPosting() {
     }
 
     return (
-        <div className="signup-container w-full max-w-md mx-auto bg-white rounded-lg shadow-lg overflow-hidden">
-            <form className="signup-form p-8" onSubmit={postJob}>
-                <h2 className='text-3xl text-blue-950 text-center mb-6'>Job Application</h2>
+        <div className="flex h-screen">
+            <div className="w-1/2 bg-gray-200 flex justify-center items-center bg-gradient-to-r from-black to-gray-700" >
+                <img src={postingImage} alt="Company Logo" className="object-cover h-min ml-10" />
+            </div>
+            <div className="w-3/4 flex justify-center items-center bg-gradient-to-l from-black to-gray-700 ">
+                <form className="signup-form w-full max-w-md " onSubmit={postJob}>
+                    <h2 className='text-3xl text-white text-center mb-6'>Job Application</h2>
 
-                <div className="mb-4">
-                    <label htmlFor="jobRole" className="block text-sm font-medium text-gray-700">Job Role:</label>
-                    <input
-                        className='input-field'
-                        type="text"
-                        name="jobRole"
-                        placeholder='Enter job role'
-                        value={data.jobRole}
-                        onChange={(e) => setData({ ...data, jobRole: e.target.value })}
-                    />
-                </div>
+                    <div className="mb-4">
+                        <label htmlFor="jobRole" className="block text-sm font-medium text-white ">Job Role:</label>
+                        <input
+                            className='input-field w-full bg-gradient-to-l from-black to-gray-700 rounded-md'
+                            type="text"
+                            name="jobRole"
+                            placeholder='Enter job role'
+                            value={data.jobRole}
+                            onChange={(e) => setData({ ...data, jobRole: e.target.value })}
+                        />
+                    </div>
 
-                <div className="mb-4">
-                    <label htmlFor="jobType" className="block text-sm font-medium text-gray-700">Job Type:</label>
-                    <select
-                        className='input-field'
-                        name="jobType"
-                        value={data.jobType}
-                        onChange={(e) => setData({ ...data, jobType: e.target.value })}
-                    >
-                        <option value="">Select Job Type</option>
-                        <option value="Full-time">Full-time</option>
-                        <option value="Part-time">Part-time</option>
-                        <option value="Hybrid">Hybrid</option>
-                        <option value="Remote">Remote</option>
-                    </select>
-                </div>
+                    <div className="mb-4 text-black bg-gradient-to-l from-black to-gray-700">
+                        <label htmlFor="jobType" className="block text-sm font-medium text-white">Job Type:</label>
+                        <select
+                            className='input-field w-full text-white bg-gradient-to-l from-black to-gray-700 rounded-md '
+                            name="jobType"
+                            value={data.jobType}
+                            onChange={(e) => setData({ ...data, jobType: e.target.value })}
+                        >
+                            <option value="">Select Job Type</option>
+                            <option value="Full-time">Full-time</option>
+                            <option value="Part-time">Part-time</option>
+                            <option value="Hybrid">Hybrid</option>
+                            <option value="Remote">Remote</option>
+                        </select>
+                    </div>
 
-                <div className="mb-4">
-                    <label htmlFor="requirements" className="block text-sm font-medium text-gray-700">Requirements:</label>
-                    <textarea
-                        className='input-field'
-                        name="requirements"
-                        placeholder='Enter requirements'
-                        value={data.requirements}
-                        onChange={(e) => setData({ ...data, requirements: e.target.value })}
-                    />
-                </div>
+                    <div className="mb-4">
+                        <label htmlFor="requirements" className="block text-sm font-medium text-white">Requirements:</label>
+                        <textarea
+                            className='input-field w-full bg-gradient-to-l from-black to-gray-700 text-white rounded-md'
+                            name="requirements"
+                            placeholder='Enter requirements'
+                            value={data.requirements}
+                            onChange={(e) => setData({ ...data, requirements: e.target.value })}
+                        />
+                    </div>
 
-                <div className="text-center">
-                    <button className="submit-button" type="submit">Submit</button>
-                </div>
-                <label htmlFor="requirements">Requirements:</label>
-                <input
-                    type="text"
-                    name="requirements"
-                    placeholder='Enter requirements'
-                    value={data.requirements}
-                    onChange={(e) => setData({ ...data, requirements: e.target.value })}
-                />
-                <button className="submitbutton" type="submit">Submit</button>
-            </form>
+                    <div className="text-center">
+                        <button className="submit-button w-full bg-black text-white" type="submit">Submit</button>
+                    </div>
+                </form>
+            </div>
         </div>
     );
 }
