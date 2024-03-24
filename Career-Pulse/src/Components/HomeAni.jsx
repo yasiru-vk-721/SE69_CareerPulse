@@ -1,10 +1,8 @@
-import './HomeAni.css'
-import SearchBar from './SearchBar'
+import './HomeAni.css';
 function HomeAni() {
   return (
     <div className='mainImg'>
-        <SearchBar />
-        <div className="heroImg mt-8">
+        <div className="heroImg">
             <h2 className="animation1">
                 Welcome to Our Website
             </h2>
