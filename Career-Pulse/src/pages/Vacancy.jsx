@@ -2,6 +2,7 @@ import  { useState, useContext, useEffect } from "react";
 import '../Components/Team_files/Vinuji-fe/JobList.css'; 
 import { CompanyContext } from "../../context/companyContext";
 import axios from "axios";
+import { Link } from "react-router-dom";
 
 function Vacancy() {
   const { company } = useContext(CompanyContext);
@@ -58,9 +59,11 @@ function Vacancy() {
                 <p className='text-white text-justify'>{job.requirements}</p>
                 <p className='text-white mt-4'>Job Type: {job.jobType}</p>
                 <p className='text-white'>Location: {company.companyLocation}</p>
-                <a href={job.applyUrl} target="_blank" rel="noopener noreferrer">
-                  <button className="apply-button">Apply Job</button>
-                </a>
+                <Link to='/UserApplication'>
+                <button className="apply-button">Apply Job</button>
+                </Link>
+                  
+             
               </div>
             ))}
           </div>
