@@ -5,6 +5,7 @@ const { hashPassword, hashConfirmpassword,  comparePassword,hashCompanyPassword,
 const Vacancy = require('../models/vacancy.js');
 const jwt = require('jsonwebtoken');
 
+
 const test = (req, res) => {
     res.json('Test is Working');
 };
@@ -88,10 +89,13 @@ const loginUser = async (req,res)=> {
         const user = await User.findOne({email});
         if(!user){
             return res.json({
-                error: "No User Found"
+                error: "No User Found Please Enter Your Email"
+            })
+        }else if(!password){
+            return res.json({
+                error: "Enter Your Password"
             })
         }
-
         //check password
         const isMatch = await comparePassword(password, user.password);
         if(isMatch){
@@ -123,6 +127,17 @@ const logOut = async (req,res) =>{
     }
 }
 
+const getAllUsers = async (req, res) => {
+    try {
+        const vacancy = await Vacancy.find();
+        res.json(vacancy);
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: 'Internal Server Error' });
+    }
+};
+
+
 const getProfile = async (req, res) => {
     const {token} = req.cookies;
     if(token) {
@@ -150,6 +165,34 @@ const getCompanyProfile = async (req, res) => {
 
 };
 
+const getVacancy = async (req, res) => {
+    try {
+        const vacancy = await Vacancy.find();
+        const vacancyObject = {}; // Initialize an empty object
+
+        vacancy.forEach(vacancy => {
+            vacancyObject[vacancy._id] = vacancy; // Assign each vacancy to its _id key in the object
+        });
+
+        res.json(vacancyObject); // Return the object containing all vacancies
+    } catch (error) {
+        console.log(error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+};
+
+const deleteVacancy = async (req, res) => {
+    const vacancyId = req.params.id;
+
+    try {
+        // Find the vacancy by id and delete it
+        await Vacancy.findByIdAndDelete(vacancyId);
+        res.json({ message: "Vacancy deleted successfully" });
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+};
 
 
 
@@ -157,37 +200,36 @@ const getCompanyProfile = async (req, res) => {
 // post job
 const postJob = async (req, res) => {
     try{
-        const {companyName, jobRole, skills} = req.body;
-        // check is name was entered
-        if(!companyName){
-            return res.json({
-                error: "Company Name is required"
-            })
-        };
-        // check if job role was entered
+        const {companyName, companyEmail, jobRole, jobType, requirements} = req.body;
         if(!jobRole){
             return res.json({
                 error: "Job Role is required"
             })
         }
-        if(!skills){
+        if(!jobType){
             return res.json({
-                error: "Skills are required"
+                error: "Job Type is required"
             })
         }
-        // create vacancy
+        if(!requirements){
+            return res.json({
+                error: "Requirements are required"
+            })
+        }
+        //create vacancy
         const vacancy = await Vacancy.create({
             companyName,
+            companyEmail,
             jobRole,
-            skills
+            jobType,
+            requirements
         });
-
-        return res.json(vacancy)
-
-    }catch (error){
-        console.log(error);
-    }   
-};
+        return res.json (vacancy)
+    }
+    catch (error){
+        console.log(error)
+    }
+}
 
 
 //register company
@@ -273,11 +315,9 @@ const companyLogin = async (req,res)=> {
                 error: "Password Do not match"
             })
         }
-
     }catch(error){
         console.log(error);
     }
-
 }
 
 module.exports = {
@@ -285,10 +325,14 @@ module.exports = {
     registerUser,
     loginUser,
     getProfile,
+    registerCompany,
     postJob,
     registerCompany,
     logOut,
-    companyLogin, 
-    getCompanyProfile
-}
+    companyLogin,
+    getCompanyProfile,
+    getAllUsers,
+    getVacancy,
+    deleteVacancy
+};
 

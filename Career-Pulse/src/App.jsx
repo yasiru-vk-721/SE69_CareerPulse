@@ -10,7 +10,7 @@ import Contact from './pages/Contact'
 import Vacancy from './pages/Vacancy'
 import Profile from './pages/Profile'
 import CVStatus from './pages/CVStatus'
-// import CompanyProfile from './Components/Team_files/Yasiru-FE/CompanyProfileContent/CompanyProfile'
+import CompanyProfile from './Components/Team_files/Yasiru-FE/CompanyProfileContent/CompanyProfile'
 import Login from './pages/Login'
 import CompanySignup from './pages/CompanySignup'
 import Signup from './pages/Signup'
@@ -19,12 +19,10 @@ import { UserContextProvider } from '../context/userContext';
 import { CompanyContextProvider } from '../context/companyContext';
 import JobPosting from './pages/JobPosting';
 import CompanyLogin from './pages/CompanyLogin'
-
 import Notification from './pages/MailNotification';
-
+// import { VacancyContextProvider } from '../context/vacancyContext';
 import CompanyProfile from './pages/CompanyProfile';
 import UserApplication from './pages/UserApplication';
-
 
 axios.defaults.baseURL = 'http://localhost:8000';
 axios.defaults.withCredentials = true; 
@@ -35,6 +33,7 @@ function App() {
   return (
     <UserContextProvider>
       <CompanyContextProvider>
+        {/* <VacancyContextProvider> */}
       <Header />
       <Toaster  position='bottom-right' toastOptions={{duration : 2000}}/>
       <Routes>
@@ -61,13 +60,12 @@ function App() {
         {/* <Body>
           <HomeAni />
           {/* <h3 className='home'>Home</h3> */}
-        {/* </Body> */} */
+        {/* </Body> */} 
         <Footer />
       {/* </div> */}
+      {/* </VacancyContextProvider> */}
       </CompanyContextProvider>
     </UserContextProvider>
-
-    
   )
 }
 

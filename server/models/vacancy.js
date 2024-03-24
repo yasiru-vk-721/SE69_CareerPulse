@@ -3,14 +3,10 @@ const {Schema} = mongoose;
 
 const vacancySchema = new Schema({
     companyName: String,
+    companyEmail: String,
     jobRole: String,
-    // email:{
-    //     type: String,
-    //     unique: true
-    // },
-    skills: String
-    // confirmpassword: String,
-    // jobStatus: String
+    jobType: String,
+    requirements: String
 });
 
 const VacancyModle = mongoose.model('Vacancies', vacancySchema);

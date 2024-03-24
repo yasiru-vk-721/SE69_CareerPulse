@@ -1,12 +1,27 @@
 import "./Profile.css"
 import ProfilePic from '../images/download.jpg'
 import { UserContext } from '../../context/userContext';
-import { useContext } from 'react';
+import { useContext, useEffect, useState } from 'react';
+import { Link } from 'react-router-dom';
 
 function Profile() {
   const {user} = useContext(UserContext);
+  const [loadedUser, setLoadedUser] = useState(false);
+  useEffect(() => {
+    const getUser = async () => {
+    try{
+      if(user){
+        setLoadedUser(true);
+      }
+      }catch(error){
+        console.log(error);
+      }
+    }
+    getUser();
+  });
   return (
     <>
+    {loadedUser ? (
       <div>
       {/* <Navbar /> */}
       <div className="userProfileCont ">
@@ -56,6 +71,19 @@ function Profile() {
         </div>
       </div>
     </div>
+    ) : (
+      <div className="min-h-screen flex flex-col justify-center items-center bg-white">
+      <div className="text-center text-black">
+        <h1 className="text-5xl font-bold mb-4 animate__animated animate__fadeIn text-black">Welcome to Our Website</h1>
+        <p className="text-lg mb-8 animate__animated animate__fadeIn">Discover amazing features and services. Login first</p>
+        <Link to="/login">
+          <button className="bg-gradient-to-r from-green-400 to-blue-500 hover:bg-gradient-to-r hover:from-pink-500 hover:to-yellow-500 text-white font-bold py-3 px-6 rounded-full transition duration-300 ease-in-out transform hover:scale-105 animate__animated animate__fadeInUp">
+            Explore Now
+          </button>
+        </Link>
+      </div>
+    </div>
+    )}
     </>
   )
 }

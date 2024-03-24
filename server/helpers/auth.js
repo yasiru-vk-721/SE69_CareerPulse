@@ -8,9 +8,9 @@ const hashPassword = (password) => {
             }
             bcrypt.hash(password, salt, (err, hash) => {
                 if(err){
-                    reject(err)
+                    reject(err);
                 }
-                resolve(hash)
+                resolve(hash);
             })
         })
     })
@@ -24,9 +24,9 @@ const hashConfirmpassword = (confirmpassword) => {
             }
             bcrypt.hash(confirmpassword, salt, (err, hash) => {
                 if(err){
-                    reject(err)
+                    reject(err);
                 }
-                resolve(hash)
+                resolve(hash);
             })
         })
     })
@@ -48,9 +48,9 @@ const hashCompanyPassword = (companyPassword) => {
             }
             bcrypt.hash(companyPassword, salt, (err, hash) => {
                 if(err){
-                    reject(err)
+                    reject(err);
                 }
-                resolve(hash)
+                resolve(hash);
             })
         })
     })
@@ -61,13 +61,13 @@ const hashCompanyConfirmPassword = (companyConfirmPassword) => {
     return new Promise((resolve, reject) => {
         bcrypt.genSalt(12,(err, salt) => {
             if(err){
-                reject(err)
+                reject(err);
             }
             bcrypt.hash(companyConfirmPassword, salt, (err, hash) => {
                 if(err){
-                    reject(err)
+                    reject(err);
                 }
-                resolve(hash)
+                resolve(hash);
             })
         })
     })
