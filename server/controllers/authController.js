@@ -39,12 +39,12 @@ const registerUser = async (req, res) => {
                 error: "Password is required and must be at least 8 characters long"
             })
         };
-        // const passexits = await User.findOne({password});
-        // if(passexits){
-        //     return res.json({
-        //         error: "Password already exists"
-        //     })
-        // };
+        const passexits = await User.findOne({password});
+        if(passexits){
+            return res.json({
+                error: "Password already exists"
+            })
+        };
         // check if confirm password was entered
         if(!confirmpassword || confirmpassword !== password){
             return res.json({
@@ -180,6 +180,22 @@ const getVacancy = async (req, res) => {
         res.status(500).json({ error: "Internal server error" });
     }
 };
+
+const getPostedVacancy = async (req, res) => {
+    const companyEmail = req.params.email; // Assuming the email is passed as a route parameter
+
+    try {
+        // Find vacancies that match the company's email
+        const vacancies = await Vacancy.find({ companyEmail });
+
+        res.json(vacancies); // Return the vacancies
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+};
+
+
 
 const deleteVacancy = async (req, res) => {
     const vacancyId = req.params.id;
@@ -333,6 +349,7 @@ module.exports = {
     getCompanyProfile,
     getAllUsers,
     getVacancy,
-    deleteVacancy
+    deleteVacancy,
+    getPostedVacancy
 };
 
