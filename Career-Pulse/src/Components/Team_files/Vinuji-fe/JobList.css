@@ -1,36 +1,58 @@
-/* src/JobList.css */
 .job-list-container {
-    margin-top: 25px;
-      display: flex;
-      justify-content: space-evenly; /* Use space-evenly to distribute space around items */
-      align-items: flex-start;
-      flex-wrap: wrap;
-      padding: 0 10px;
-    }
-    
-    .job-card {
-      border: 2px solid #ccc;
-      border-radius: 10px;
-      padding: 10px;
-      margin: 10px 0;
-      width: calc(25% - 20px); 
-      height: auto;
-      box-sizing: border-box;
-      background-color:rgb(41, 51, 68)
-    }
-    
-    .apply-button {
-      margin-top: 20px;
-      background-color:rgb(255, 255, 255);
-      color: rgb(0, 0, 0);
-      border: none;
-      padding: 0 10px 3px 10px;
-      border-radius: 100px;
-      cursor: pointer;
-    }
-    
-    .apply-button:hover {
-      background-color: rgb(0, 0, 0);
-      color: rgb(255, 255, 255);
-    }
-    
+  margin-top: 25px;
+  display: flex;
+  justify-content: space-evenly; /* Use space-evenly to distribute space around items */
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 0 10px;
+}
+
+.job-card {
+  border: 2px solid #ccc;
+  border-radius: 10px;
+  padding: 10px;
+  margin: 5px 10px;  /* Reduce bottom margin to reduce white space */
+  width: calc(25% - 20px); 
+  height: auto;
+  box-sizing: border-box;
+  background-color: rgb(41, 51, 68);
+}
+
+.apply-button {
+  margin-top: 20px; /* Adjust margin-top if needed */
+  background-color: rgb(255, 255, 255);
+  color: rgb(0, 0, 0);
+  border: none;
+  padding: 0 10px 3px 10px;
+  border-radius: 100px;
+  cursor: pointer;
+}
+
+.apply-button:hover {
+  background-color: rgb(0, 0, 0);
+  color: rgb(255, 255, 255);
+}
+
+.floating-button {
+  position: fixed;
+  bottom: 20px;
+  right: 20px;
+  /* font-weight: bold; */
+  font-size: 20px;
+  background-color: #aa9300;
+  color: white;
+  padding: 12px 24px;
+  border-radius: 50px;
+  cursor: pointer;
+  box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.9);
+  transition: transform 0.3s ease;
+}
+
+.floating-button:hover {
+  background-color: #5a12e8;
+  transform: scale(1.1);    
+}
+
+.searchBar{
+  border-radius: 9999px;
+}
