@@ -9,18 +9,20 @@ const CompanyProfile = () => {
   const {company} = useContext(CompanyContext);
 
   useEffect(() => {
-    // Fetch vacancy data from your API or database
-    axios.get('http://localhost:8000/vacancy')
-      .then(response => {
-        const vacancyData = response.data;
-        const vacancyArray = Object.values(vacancyData); // Convert object to array
-        setVacancies(vacancyArray);
-        console.log(vacancyArray)
-      })
-      .catch(err => {
-        console.error('Error fetching vacancy data:', err);
-      });
-  }, []); // Empty dependency array to fetch data only once on component mount
+    if (company && company.companyEmail) { // Check if company and companyEmail are not null or undefined
+      // Fetch vacancies associated with the logged-in company
+      const fetchVacancies = async () => {
+        try {
+          const response = await axios.get(`http://localhost:8000/posted-vacancies/${company.companyEmail}`);
+          setVacancies(response.data);
+        } catch (error) {
+          console.error('Error fetching vacancies:', error);
+        }
+      };
+  
+      fetchVacancies();
+    }
+  }, [company]);// Empty dependency array to fetch data only once on component mount
 
   const handleDeleteVacancy = async (id) => {
     try {
@@ -48,8 +50,8 @@ const CompanyProfile = () => {
           </div>
 
           <Link to="/jobposting" className="floating-button">
-        Upload Vacancy
-      </Link>
+            Upload Vacancy
+          </Link>
         </div>
       ))}
     </div>
