@@ -1,4 +1,4 @@
-import React, { useState, useContext } from 'react';
+import { useState, useContext } from 'react';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import { toast } from 'react-hot-toast';
@@ -85,7 +85,6 @@ function JobPosting() {
                             onChange={(e) => setData({ ...data, requirements: e.target.value })}
                         />
                     </div>
-
                     <div className="text-center">
                         <button className="submit-button w-full bg-black text-white font-bold" type="submit">Submit</button>
                     </div>

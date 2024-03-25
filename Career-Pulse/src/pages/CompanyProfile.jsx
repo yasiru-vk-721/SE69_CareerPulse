@@ -1,5 +1,3 @@
-import React from "react";
-
 import "./Company.css";
 
 import ProfilePic from "../images/download.jpg"

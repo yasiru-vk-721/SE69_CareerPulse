@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import '../Components/Team_files/Vinuji-fe/CVStatusPage.css'
-import './CVStatus.css'
 import { Link } from 'react-router-dom';
 
 
