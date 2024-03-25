@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
-import ProfilePic from '../images/login.jpg';
+import ProfilePic from '../images/profile.jpg';
 
 function Profile() {
   const { user } = useContext(UserContext);
@@ -72,9 +72,9 @@ function Profile() {
         </div>
         </div>
       ) : (
-        <div className="min-h-screen flex flex-col justify-center items-center bg-white">
-          <div className="text-center text-black">
-            <h1 className="text-5xl font-bold mb-4 animate__animated animate__fadeIn text-black">
+        <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-l from-black to-gray-700">
+          <div className="text-center text-white">
+            <h1 className="text-5xl font-bold mb-4 animate__animated animate__fadeIn text-white">
               Welcome to Our Website
             </h1>
             <p className="text-lg mb-8 animate__animated animate__fadeIn">
