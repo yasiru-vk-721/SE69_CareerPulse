@@ -7,6 +7,7 @@ import { useNavigate } from 'react-router-dom';
 import { FaEyeSlash, FaEye } from "react-icons/fa";
 import {toast} from 'react-hot-toast';
 import userImage from '../images/userLogin.jpg';
+import '../Components/Team_files/Vinuji-fe/JobList.css';
 
 function Login() {
   const navigate = useNavigate();
@@ -57,16 +58,16 @@ function Login() {
   return (
     <div>
       {!loadedUser ? (
-      <div className="signup-container min-h-screen flex justify-center items-center mt-10 bg-gradient-to-l from-black to-slate-600">
+      <div className="signup-container min-h-screen flex justify-center items-center bg-gradient-to-l from-black to-slate-600">
         <div className='max-w-screen-xl w-full flex'>
         <div className="w-1/2 bg-gradient-to-l from-black to-slate-600 p-8">
             <img src={userImage} alt="Login Image" className="w-full h-full object-cover rounded-lg shadow-lg" />
           </div>
-          <div className="w-1/2 bg-gradient-to-l from-black to-slate-600 p-8">
-              <form >
+          <div className="w-1/2 bg-gradient-to-l from-black to-slate-600 p-5">
+              <form className='border-zinc-400 border-2 p-3'>
                 <h2 className='text-3xl font-semibold text-center text-white mb-6 '>Login</h2>
 
-                <label htmlFor="email" className='block text-sm font-medium text-white'>Email:</label>
+                <label htmlFor="email" className='block  text-white'>Email:</label>
                 <input
                   type="email"
                   name="email"
@@ -98,19 +99,15 @@ function Login() {
                       
                     )}
                 </div>
-                {/* <div>
-                </div> */}
-
-                  
 
                 <button className="mt-6 w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit" onClick={loginUser}>Login</button>
 
                 <div className="mt-6 text-center">
                 <hr className="border-gray-300" />
-                <p className="inline-block mx-3 text-white">OR</p>
+                <p className="inline-block mx-3 text-gray-500">OR</p>
                 <hr className="border-gray-300" />
               </div>
-                <p className="mt-6 text-center">
+                <p className="mt-6 text-center text-white">
                   If you are a new to Career Pulse, please 
                 </p>
                 <button className='mt-6 w-full bg-black hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline'>
@@ -119,7 +116,12 @@ function Login() {
               </form>
               </div>
           </div>
+          <Link to="/companyLogin" className="fixed bottom-4 right-4 bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded">
+              Company Login
+          </Link>
+
       </div>
+      
       ) : (
         <h2>Loading...</h2>
       )}

@@ -95,7 +95,7 @@ function Links() {
                     onMouseEnter={onMouseEnter}
                     onMouseLeave={onMouseLeave}
                 >
-                    <Link to = '/services' className="navgateLinks" onClick={closeMobileMenu}>
+                    <Link  className="navgateLinks" onClick={closeMobileMenu}>
                         Services <i className='fas fa-caret-down'/>
                     </Link>
                     {dropdown && <Dropdown

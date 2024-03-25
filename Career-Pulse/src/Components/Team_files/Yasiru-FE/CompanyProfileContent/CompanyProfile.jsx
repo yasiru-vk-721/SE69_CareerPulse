@@ -1,4 +1,4 @@
-import React, { useState, useEffect, useContext } from 'react';
+import  { useState, useEffect, useContext } from 'react';
 import axios from 'axios';
 import './JobCard.css'
 import { CompanyContext } from '../../../../../context/companyContext';
@@ -36,7 +36,7 @@ const CompanyProfile = () => {
   };
   return (
     <div>
-      <h1 className='text-6xl mt-12 ml-16 mb-16 '>Your Company's Vacancies...</h1>
+      <h1 className='text-6xl mt-12 ml-16 mb-16 '>Your Company Vacancies...</h1>
       {vacancies.map(vacancyItem => (
         <div key={vacancyItem._id} className="bg-gray-800 shadow-md rounded-lg p-4 mb-8 mt-8 ml-20 mr-20">
           <h3 className=' font-bold text-3xl text-violet-200'>{vacancyItem.jobRole}</h3>

@@ -34,11 +34,12 @@ const CVTable = () => {
   };
 
   return (
+    <div className='bg-gradient-to-l from-black to-slate-600'>
     <div className="cv-status-page">
       <h1>CV Submission Overview</h1> 
-    <div className="hero">
-      <table className='mb-64'>
-        <thead>
+    <div className="text-white">
+      <table>
+        <thead className='text-black'>
           <tr>
             <th>ID</th>
             <th>Name</th>
@@ -52,11 +53,19 @@ const CVTable = () => {
             <tr key={cv.id}>
               <td>{cv.id}</td>
               <td>{cv.name}</td>
-              <td>
+              <td className='text-black'>
                 <select onChange={(e) => handleStatusChange(cv.id, e.target.value)}>
                   <option value="Received">Received</option>
                   <option value="Viewed">Viewed</option>
                   <option value="Rejected">Rejected</option>
+                  <option value="Under Review">Under Review</option>
+                  <option value="Short listed">Short listed</option>
+                  <option value="Interview Scheduled">Interview Scheduled</option>
+                  <option value="Pending Decision">Pending Decision</option>
+                  <option value="Offer Extended">Offer Extended</option>
+                  <option value="Hired">Hired</option>
+                  <option value="Number of vacancies finished">Number of vacancies finished</option>
+
                 </select>
               </td>
               <td>
@@ -84,6 +93,7 @@ const CVTable = () => {
      
     </div>
   </div>  
+  </div>
   );
 };
 

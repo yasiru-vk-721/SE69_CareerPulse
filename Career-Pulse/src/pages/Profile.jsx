@@ -1,7 +1,7 @@
 import { useContext, useEffect, useState } from 'react';
 import { Link } from 'react-router-dom';
 import { UserContext } from '../../context/userContext';
-import ProfilePic from '../images/login.jpg';
+import ProfilePic from '../images/profile.jpg';
 
 function Profile() {
   const { user } = useContext(UserContext);
@@ -23,12 +23,13 @@ function Profile() {
   return (
     <>
       {loadedUser ? (
-        <div className="min-h-screen bg-gray-100 py-12 px-4 sm:px-6 lg:px-8 text-white">
-          <div className="max-w-md mx-auto bg-white rounded-lg overflow-hidden md:max-w-2xl bg-gradient-to-l from-black to-gray-700 ">
+        <div className='bg-gradient-to-l from-black to-gray-700'>
+        <div className="min-h-screen  py-12 px-4 sm:px-6 lg:px-8 text-white">
+          <div className="max-w-md mx-auto bg-black rounded-lg overflow-hidden md:max-w-2xl ">
             <div className="md:flex ">
               <div className="md:flex-shrink-0">
                 <img
-                  className="h-48 w-full object-cover md:w-48"
+                  className="h-48 w-full object-cover md:w-48 border-white border-8"
                   src={ProfilePic}
                   alt="Profile"
                 />
@@ -69,10 +70,11 @@ function Profile() {
             </div>
           </div>
         </div>
+        </div>
       ) : (
-        <div className="min-h-screen flex flex-col justify-center items-center bg-white">
-          <div className="text-center text-black">
-            <h1 className="text-5xl font-bold mb-4 animate__animated animate__fadeIn text-black">
+        <div className="min-h-screen flex flex-col justify-center items-center bg-gradient-to-l from-black to-gray-700">
+          <div className="text-center text-white">
+            <h1 className="text-5xl font-bold mb-4 animate__animated animate__fadeIn text-white">
               Welcome to Our Website
             </h1>
             <p className="text-lg mb-8 animate__animated animate__fadeIn">
