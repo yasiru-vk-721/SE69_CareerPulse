@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
 import axios from "axios";
 import './MailNotification.css';
 import {toast} from 'react-hot-toast';
@@ -33,9 +33,9 @@ function MailNotification() {
       
     };
 
-    const closeForm = () => {
-      setShowForm(false);
-  };
+  //   const closeForm = () => {
+  //     setShowForm(false);
+  // };
 
   return (
     <div className="email-form">

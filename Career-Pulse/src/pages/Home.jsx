@@ -42,8 +42,8 @@ const Home = () => {
           </div>
           <div className="max-w-xs mx-auto mb-8 md:mb-0">
             <img src={jobopportunities} alt="Service 3" className="w-full mb-4 rounded-lg shadow-lg" />
-            <h3 className="text-xl font-bold text-gray-800 mb-2">Resume Building</h3>
-            <p className="text-gray-700">Create impressive resumes that stand out.</p>
+            <h3 className="text-xl font-bold text-gray-800 mb-2">Good Job Opportunities</h3>
+            <p className="text-gray-700">Go through the Website.</p>
           </div>
         </div>
       </section>

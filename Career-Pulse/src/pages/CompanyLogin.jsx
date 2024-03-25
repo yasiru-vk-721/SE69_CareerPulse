@@ -1,5 +1,4 @@
 import  { useState} from 'react';
-// import { UserContext } from '../../context/userContext';
 import './Signup_Login.css';
 import { Link } from 'react-router-dom';
 import axios from "axios";
@@ -10,8 +9,6 @@ import userImage from '../images/userLogin.jpg';
 
 function Login() {
   const navigate = useNavigate();
-//   const {user} = useContext(UserContext);
-//   const [loadedCompany, setLoadedCompany] = useState(false);
   const  [showPassword, setShowPassword] = useState(false);
 
   const [data, setData] = useState({
@@ -40,23 +37,9 @@ function Login() {
       console.log(error)
     }};
 
-    // useEffect(() => {
-    //   const getCompany = async () => {
-    //   try{
-    //     if(company){
-    //       setLoadedCompany(true);
-    //     }
-    //     }catch(error){
-    //       console.log(error);
-    //     }
-    //   }
-    //   getCompany();
-    // });
-  
 
   return (
     <div>
-      {/* {!loadedCompany ? ( */}
       <div className="signup-container min-h-screen flex justify-center items-center bg-gradient-to-l from-black to-slate-600">
         <div className='max-w-screen-xl w-full flex'>
         <div className="w-1/2 bg-gradient-to-l from-black to-slate-600 p-8">
@@ -98,10 +81,6 @@ function Login() {
                       
                     )}
                 </div>
-                {/* <div>
-                </div> */}
-
-                  
 
                 <button className="mt-6 w-full bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded focus:outline-none focus:shadow-outline" type="submit">Login</button>
 
@@ -124,9 +103,6 @@ function Login() {
               User Login
           </Link>
       </div>
-      {/* ) : (
-        <h2>Loading...</h2>
-      )}  */}
     </div>
   )
 }
