@@ -3,6 +3,7 @@ const Company = require('../models/company.js');
 const { hashPassword, hashConfirmpassword,  comparePassword,hashCompanyPassword,
     hashComapnyConfirmPassword,compareCompanyPassword } = require('../helpers/auth.js');
 const Vacancy = require('../models/vacancy.js');
+const Application = require('../models/applicationDetails')
 const jwt = require('jsonwebtoken');
 
 
@@ -247,6 +248,81 @@ const postJob = async (req, res) => {
     }
 }
 
+
+
+const postApplication = async (req, res) => {
+    try{
+        const {email, fullName, jobRole, skills, gender, nationality, institution,  studyFields} = req.body;
+        // if(!fullName){
+        //     return res.json({
+        //         error: "Job Role is required"
+        //     })
+        // }
+        if(!jobRole){
+            return res.json({
+                error: "Job Type is required"
+            })
+        }
+        if(!skills){
+            return res.json({
+                error: "Skills are required"
+            })
+        }
+        if(!gender){
+            return res.json({
+                error: "Gender are required"
+            })
+        }
+        if(!nationality){
+            return res.json({
+                error: "Nationality are required"
+            })
+        }
+        if(!institution){
+            return res.json({
+                error: "Institution are required"
+            })
+        }
+        // if(!studyFields){
+        //     return res.json({
+        //         error: "Study Fields are required"
+        //     })
+        // }
+        //create vacancy
+        const application = await Application.create({
+            email,
+            fullName,
+            jobRole,
+            skills,
+            gender,
+            nationality,
+            institution,
+            studyFields,
+
+        });
+        return res.json (application)
+    }
+    catch (error){
+        console.log(error)
+    }
+}
+
+const getPostedApplication = async (req, res) => {
+    const email = req.params.email; // Assuming the email is passed as a route parameter
+
+    try {
+        // Find vacancies that match the company's email
+        const applications = await Application.find({ email });
+
+        res.json(applications); // Return the vacancies
+    } catch (error) {
+        console.error(error);
+        res.status(500).json({ error: "Internal server error" });
+    }
+};
+
+
+
 //register company
 const registerCompany = async (req, res) => {
     try{
@@ -349,6 +425,8 @@ module.exports = {
     getAllUsers,
     getVacancy,
     deleteVacancy,
-    getPostedVacancy
+    getPostedVacancy,
+    postApplication,
+    getPostedApplication
 };
 
