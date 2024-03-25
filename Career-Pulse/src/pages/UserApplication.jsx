@@ -1,106 +1,163 @@
-import  { useState } from 'react';
-import './Signup_Login.css'
+import { useContext, useState } from 'react';
+import axios from 'axios';
 import { useNavigate } from 'react-router-dom';
+import { toast } from 'react-hot-toast';
+import { UserContext } from '../../context/userContext';
 
 function UserApplication() {
-    const navigate = useNavigate();
+  const navigate = useNavigate();
+  const { user } = useContext(UserContext);
 
-    const [data, setData] = useState({
-        userName: "",
-        jobRole: "",
-        skills: "",
-        education: {
-            highestLevel: '',
-            institution: '',
-            fieldOfStudy: '',
-            graduationYear: ''
-        }
-        
-    });
+  const [data, setData] = useState({
+    fullName: "",
+    jobRole: "",
+    skills: "",
+    gender: "",
+    nationality: "",
+    institution: "",
+    studyFields: ""
+  });
 
+  const postApplication = async (e) => {
+    e.preventDefault();
 
+    const { fullName, jobRole, skills, gender, nationality, institution, studyFields } = data;
+    const { email } = user; // Assuming userEmail is available in user object
 
-return (
-    <div className="signup-container">
-        <form className="signup-form" >
-            <h2 className="text-3xl font-bold mb-4">Job Application Form</h2>
+    try {
+      const response = await axios.post('/applicationPosting', {
+        email, fullName, jobRole, skills, gender, nationality, institution, studyFields
+      });
+      if (response.data.error) {
+        toast.error(response.data.error);
+      } else {
+        setData({
+          fullName: "",
+          jobRole: "",
+          skills: "",
+          gender: "",
+          nationality: "",
+          institution: "",
+          studyFields: ""
+        });
+        console.log("Post Successful");
+        navigate('/vacancy');
+      }
+    } catch (error) {
+      console.error('Error posting application:', error);
+    }
+  };
 
-            <label htmlFor="fullName" className="text -3xl mb-4">Full Name:</label>
-                <input
-                    type="text"
-                    name="fullName"
-                    placeholder="Enter Full Name"
-                    value={data.fullName}
-                    className="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring focus:border-blue-500"
-                />
-            
-            <label htmlFor="jobRole" className="text -3xl mb-4">Job Role:</label>
-                <input
-                    type="text"
-                    name="jobRole"
-                    placeholder="Enter Job Role"
-                    value={data.jobRole}
-                    className="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring focus:border-blue-500"
-                />
-            
-            <label htmlFor="skills" className="text -3xl mb-4">Skills:</label>
-                <input
-                    type="text"
-                    name="skills"
-                    placeholder="Enter Skills"
-                    value={data.skills}
-                    className="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring focus:border-blue-500"
-                />
+  const handleInputChange = (e) => {
+    const { name, value } = e.target;
+    setData(prevData => ({
+      ...prevData,
+      [name]: value
+    }));
+  };
 
-            <label htmlFor="gender" className="text -3xl mb-4">Gender:</label>
-                <select
-                    name="gender"
-                    value={data.gender}
-                    className="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring focus:border-blue-500"
-                >
-                    <option value=""></option>
-                    <option value="male">Male</option>
-                    <option value="female">Female</option>
-                    <option value="other">Other</option>
-                </select>
+  return (
+    <div className="bg-gradient-to-l from-black to-slate-600 min-h-screen flex items-center justify-center">
+      <form className="bg-gradient-to-l from-black to-slate-600 p-8 rounded-lg shadow-md grid grid-cols-1 md:grid-cols-2 gap-4 max-w-4xl w-full" onSubmit={postApplication}>
+        <h2 className="text-3xl font-bold mb-4 col-span-2">Job Application Form</h2>
 
-                <label htmlFor="nationality" className="text -3xl mb-4">Nationality:</label>
-                <select
-                    name="nationality"
-                    value={data.nationality}
-                    className="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring focus:border-blue-500"
-                >
-                    <option value="">Srilankan</option>
-                    <option value="american">American</option>
-                    <option value="british">British</option>
-                    <option value="canadian">Canadian</option>
-                </select>
+        <div className="col-span-1">
+          <label htmlFor="fullName" className="text-xl mb-2">Full Name:</label>
+          <input
+            type="text"
+            name="fullName"
+            placeholder="Enter Full Name"
+            value={data.fullName}
+            onChange={handleInputChange}
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-500"
+          />
+        </div>
 
-               
-                <label htmlFor="institution" className="text -3xl mb-4">Name of Institution:</label>
-                <input
-                    type="text"
-                    name="institution"
-                    placeholder="Enter Name of Institution"
-                    value={data.education.institution}
-                    className="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring focus:border-blue-500"
-                />
+        <div className="col-span-1">
+          <label htmlFor="jobRole" className="text-xl mb-2">Job Role:</label>
+          <input
+            type="text"
+            name="jobRole"
+            placeholder="Enter Job Role"
+            value={data.jobRole}
+            onChange={handleInputChange}
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-500"
+          />
+        </div>
 
-                <label htmlFor="fieldOfStudy" className="block mb-2">Major/Field of Study:</label>
-                <input
-                    type="text"
-                    name="fieldOfStudy"
-                    placeholder="Enter Major/Field of Study"
-                    value={data.education.fieldOfStudy}
-                    className="w-full px-4 py-2 mb-4 border rounded-md focus:outline-none focus:ring focus:border-blue-500"
-                />
+        <div className="col-span-1">
+          <label htmlFor="skills" className="text-xl mb-2">Skills:</label>
+          <input
+            type="text"
+            name="skills"
+            placeholder="Enter Skills"
+            value={data.skills}
+            onChange={handleInputChange}
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-500"
+          />
+        </div>
 
-               
-            
-            <button className="submitbutton" type="submit">Submit</button>
-        </form>
+        <div className="col-span-1">
+          <label htmlFor="gender" className="text-xl mb-2">Gender:</label>
+          <select
+            name="gender"
+            value={data.gender}
+            onChange={handleInputChange}
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-500"
+          >
+            <option value=""></option>
+            <option value="male">Male</option>
+            <option value="female">Female</option>
+            <option value="other">Other</option>
+          </select>
+        </div>
+
+        <div className="col-span-1">
+          <label htmlFor="nationality" className="text-xl mb-2">Nationality:</label>
+          <select
+            name="nationality"
+            value={data.nationality}
+            onChange={handleInputChange}
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-500"
+          >
+            <option value="">Select Nationality</option>
+            <option value="Srilankan">Srilankan</option>
+            <option value="american">American</option>
+            <option value="british">British</option>
+            <option value="canadian">Canadian</option>
+          </select>
+        </div>
+
+        <div className="col-span-1">
+          <label htmlFor="institution" className="text-xl mb-2">Name of Institution:</label>
+          <input
+            type="text"
+            name="institution"
+            placeholder="Enter Name of Institution"
+            value={data.institution}
+            onChange={handleInputChange}
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-500"
+          />
+        </div>
+
+        <div className="col-span-1">
+          <label htmlFor="studyFields" className="text-xl mb-2">Major/Field of Study:</label>
+          <input
+            type="text"
+            name="studyFields"
+            placeholder="Enter Major/Field of Study"
+            value={data.studyFields}
+            onChange={handleInputChange}
+            className="w-full px-4 py-2 border rounded-md focus:outline-none focus:ring focus:border-blue-500"
+          />
+        </div>
+
+        <div className="col-span-2 flex justify-end">
+          <button className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded" type="submit">Submit</button>
+        </div>
+      </form>
     </div>
-)
+  );
 }
 
 export default UserApplication;

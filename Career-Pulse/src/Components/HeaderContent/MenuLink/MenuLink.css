@@ -98,7 +98,7 @@
     }
   
     .navMenu.active {
-      background: #520055;
+      background: linear-gradient(90deg, rgb(59, 59, 59) 0%, rgb(180, 180, 180) 100%);
       left: 0;
       opacity: 1;
       transition: all 0.5s ease;
@@ -113,7 +113,7 @@
     }
   
     .navgateLinks:hover {
-      background-color: rgb(102, 26, 102);
+      background: linear-gradient(90deg, rgb(59, 59, 59) 0%, rgb(180, 180, 180) 100%);
       border-radius: 10px 10px 10px 10px;
       transition: all 0.2s ease-out;
 
@@ -162,7 +162,7 @@
       transition: 250ms;
     }
   
-    .signUpBtn {
+    /* .signUpBtn {
       display: none;
-    }
+    } */
   }

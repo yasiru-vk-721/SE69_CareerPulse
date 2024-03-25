@@ -51,18 +51,17 @@ const Home = () => {
       <section className="py-16 px-4 text-center">
         <h2 className="text-3xl font-bold text-white mb-8">About Us</h2>
         <p className="text-lg text-white mb-8">
-          Career Pulse is dedicated to helping individuals find meaningful and fulfilling careers. 
+          We are dedicated to helping individuals find meaningful and fulfilling careers. 
           Our platform connects talented professionals with top companies, providing a seamless 
           experience for job seekers and employers alike.
         </p>
-        <button className="bg-blue-500 hover:bg-blue-600 text-white font-bold py-2 px-6 rounded-lg shadow-lg transition duration-300">Learn More</button>
       </section>
 
-      <section className="bg-gray-800 py-16 px-4 text-center text-white">
+      <section className=" py-16 px-4 text-center text-white">
         <h2 className="text-3xl font-bold mb-8">Contact Us</h2>
         <p className="text-lg mb-8">Have a question or need assistance? Contact our support team.</p>
         <Link to="/contact"> 
-        <button className="bg-slate-500 text-red hover:bg-blue-600 font-bold py-2 px-6 rounded-lg shadow-lg transition duration-300">Connect With Us</button>
+        <button className="bg-blue-500 text-red hover:bg-blue-600 font-bold py-2 px-6 rounded-lg shadow-lg transition duration-300">Connect With Us</button>
         </Link>
       </section>
     </div>
