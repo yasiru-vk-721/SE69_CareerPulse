@@ -1,6 +1,5 @@
 import { useState } from 'react';
 import { Link } from 'react-router-dom';
-import image from '../images/Google_Icon1.png';
 import axios from "axios";
 import { useNavigate } from 'react-router-dom';
 import toast from 'react-hot-toast';
@@ -27,8 +26,8 @@ function CompanySignup() {
                 toast.error(data.error)
             }else{
                 setData({})
-                toast.success("Login Successfull")
-                navigate('/')
+                toast.success("Successfully Registered! Please login to continue.")
+                navigate('/companyLogin')
             }
         }catch(error){
             console.log(error)
@@ -36,9 +35,9 @@ function CompanySignup() {
     };
 
     return (
-        <div className="min-h-screen bg-gray-100 flex justify-center items-center">
-            <form className="bg-white shadow-md rounded px-8 pt-6 pb-8 mb-4 w-full max-w-lg" onSubmit={registerCompany}>
-                <h2 className="text-2xl mb-4 font-bold text-center">Company Sign Up</h2>
+        <div className="min-h-screen c flex justify-center items-center">
+            <form className="bg-gradient-to-t from-gray-700 to-black shadow-md rounded px-8 pt-6 pb-8 w-full max-w-screen-md" onSubmit={registerCompany}>
+                <h2 className="text-2xl mb-4 font-bold text-center text-white">Company Sign Up</h2>
                 <div className="flex justify-center mb-4">
                     <Link to="/signup">
                         <button type="button" className="mr-4 bg-gray-300 hover:bg-gray-400 text-gray-800 font-bold py-2 px-4 rounded-full focus:outline-none focus:shadow-outline">
@@ -52,7 +51,7 @@ function CompanySignup() {
 
                 <div className="flex flex-wrap -mx-3 mb-6">
                     <div className="w-full md:w-1/2 px-3 mb-6 md:mb-0">
-                        <label htmlFor="companyName" className="block text-gray-700 text-sm font-bold mb-2">Company Name:</label>
+                        <label htmlFor="companyName" className="block text-sm font-bold mb-2 text-white">Company Name:</label>
                         <input
                             type="text"
                             name="companyName"
@@ -62,7 +61,7 @@ function CompanySignup() {
                             className="w-full border rounded-md py-2 px-3 mt-1 mb-3"
                         />
 
-                        <label htmlFor="email" className="block text-gray-700 text-sm font-bold mb-2">Email:</label>
+                        <label htmlFor="email" className="block text-white text-sm font-bold mb-2">Email:</label>
                         <input
                             type="email"
                             name="email"
@@ -72,7 +71,7 @@ function CompanySignup() {
                             className="w-full border rounded-md py-2 px-3 mt-1 mb-3"
                         />
 
-                        <label htmlFor="password" className="block text-gray-700 text-sm font-bold mb-2">Password:</label>
+                        <label htmlFor="password" className="block text-white text-sm font-bold mb-2">Password:</label>
                         <input
                             type="password"
                             name="password"
@@ -83,7 +82,7 @@ function CompanySignup() {
                         />
                     </div>
                     <div className="w-full md:w-1/2 px-3">
-                        <label htmlFor="confirmpassword" className="block text-gray-700 text-sm font-bold mb-2">Confirm Password:</label>
+                        <label htmlFor="confirmpassword" className="block text-white text-sm font-bold mb-2">Confirm Password:</label>
                         <input
                             type="password"
                             name="confirmpassword"
@@ -93,7 +92,7 @@ function CompanySignup() {
                             className="w-full border rounded-md py-2 px-3 mt-1 mb-3"
                         />
 
-                        <label htmlFor="location" className="block text-gray-700 text-sm font-bold mb-2">Location:</label>
+                        <label htmlFor="location" className="block text-white text-sm font-bold mb-2">Location:</label>
                         <input
                             type="text"
                             name="location"
@@ -105,18 +104,11 @@ function CompanySignup() {
                     </div>
                 </div>
 
-                <button className="bg-green-500 hover:bg-green-700 text-white font-bold py-2 px-4 rounded w-full mt-4" type="submit">
+                <button className="bg-zinc-600 hover:bg-black text-white font-bold py-2 px-4 rounded w-full mt-4" type="submit">
                     Sign Up
                 </button>
 
-                <div className="mt-6 text-center">
-                    <button type="button" className="bg-red-500 hover:bg-red-700 text-white font-bold py-2 px-4 rounded">
-                        <img className="h-6 w-6 inline-block mr-2" src={image} alt="Google Icon" />
-                        Sign Up with Google
-                    </button>
-                </div>
-
-                <p className="text-center mt-4">Already have an account?<Link to="/companyLogin  " className="text-blue-500 hover:text-blue-700">Login</Link></p>
+                <p className="text-center mt-4">Already have an account?<Link to="/companyLogin  " className="text-white hover:text-blue-700">Login</Link></p>
             </form>
         </div>
     );

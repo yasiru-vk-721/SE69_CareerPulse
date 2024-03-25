@@ -29,7 +29,7 @@ function Signup() {
             }else{
                 setData({})
                 await axios.post('/testMail', {userEmail: email});
-                toast.success("Login Successfull")
+                toast.success("Successfully Registered! Please login to continue.")
                 navigate('/login')
             }
         }catch(error){
