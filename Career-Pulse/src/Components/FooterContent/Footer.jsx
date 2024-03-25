@@ -5,13 +5,6 @@ function Footer() {
   return (
     <>
     <footer id='footercontent'>
-        {/* <div className="waves">
-            <div className="wave" id="wave1"></div>
-            <div className="wave" id="wave2"></div>
-            <div className="wave" id="wave3"></div>
-            <div className="wave" id="wave4"></div>
-
-        </div> */}
     <div className='abolute top-0 left-0 w-full overflow-hidden line  bg-black'>
     <div className='grid lg:grid-cols-4 md:grid-cols-2 grid-cols-1 gap-8 p-20 text-[18px] font-mono'>
         <div className='flex flex-col'>
@@ -30,8 +23,8 @@ function Footer() {
 
         <div className='flex flex-col'>
           <ul className='text-white'>
-            <li className=' tex-[22px] list-none font-serif  py-2 uppercase'>About us</li>
-            <li className='my-4 list-none font-serif'>Contact Us</li>
+            <li className=' tex-[22px] list-none font-serif  py-2 uppercase'>Products</li>
+            <li className='my-4 list-none font-serif'>Features</li>
             <li className='my-4 list-none font-serif'>About Us</li>
             <li className='my-4 list-none font-serif'></li>
           </ul>
@@ -40,9 +33,9 @@ function Footer() {
         <div className='flex flex-col'>
           <ul className='text-white'>
             <li className=' tex-[22px] list-none font-serif  py-2 uppercase'>Contact us</li>
-            <li className='my-4 list-none '><a href='/contact'>Con</a></li>
-            <li className='my-4 list-none font-serif'>tips and trics</li>
-            <li className='my-4 list-none font-serif'>Bye</li>
+            <li className='my-4 list-none '><a href='/contact'>GDPR</a></li>
+            <li className='my-4 list-none font-serif'>Terms and Conditions</li>
+            <li className='my-4 list-none font-serif'>Privacy Policy</li>
           </ul>
           <div className="flex space-x-4 social_icons">
                         <a href="https://www.facebook.com/" target="_blank" rel="noopener noreferrer" className='text-white'>

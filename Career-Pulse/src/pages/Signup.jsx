@@ -47,9 +47,9 @@ function Signup() {
     // }
 
     return (
-        <div className="signup-container">
+        <div className="signup-container bg-gradient-to-l from-gray-500 to-black">
             <form className="signup-form" onSubmit={registerUser}>
-                <h2>Sign Up</h2>
+                <h2 className='text-white'>Sign Up</h2>
                 <div className="switch-buttons">
                     <button type="button" className="active">
                         User
@@ -59,7 +59,7 @@ function Signup() {
                     </Link>
                 </div>
 
-                <label htmlFor="firstName">First Name:</label>
+                <label htmlFor="firstName" className='text-white'>First Name:</label>
                 <input
                     type="text"
                     name="firstName"
@@ -69,7 +69,7 @@ function Signup() {
                 />
 
 
-                <label htmlFor="lastName">Last Name:</label>
+                <label htmlFor="lastName" className='text-white'>Last Name:</label>
                 <input
                     type="text"
                     name="lastName"
@@ -79,7 +79,7 @@ function Signup() {
                 />
 
 
-                <label htmlFor="email">Email:</label>
+                <label htmlFor="email" className='text-white'>Email:</label>
                 <input
                     type="email"
                     name="email"
@@ -89,7 +89,7 @@ function Signup() {
                 />
 
 
-                <label htmlFor="password">Password:</label>
+                <label htmlFor="password" className='text-white'>Password:</label>
                 <input
                     type="password"
                     name="password"
@@ -99,7 +99,7 @@ function Signup() {
                 />
 
 
-                <label htmlFor="confirmpassword">Confirm Password:</label>
+                <label htmlFor="confirmpassword" className='text-white'>Confirm Password:</label>
                 <input
                     type="password"
                     name="confirmpassword"
@@ -109,7 +109,7 @@ function Signup() {
                 />
 
 
-                <label htmlFor="jobStatus">Job Status:</label>
+                <label htmlFor="jobStatus" className='text-white'>Job Status:</label>
                 <input
                     type="text"
                     name="jobStatus"
@@ -118,7 +118,7 @@ function Signup() {
                     onChange={(e) => setData({ ...data, jobStatus: e.target.value })}
                 />
                 <button className="submitbutton mt-2" type="submit">Sign Up</button>
-                <p>Already have an account?<Link to="/login">Login</Link></p>
+                <p className='text-white'>Already have an account?<Link to="/login" className='text-blue-800'>Login</Link></p>
             </form>
         </div>
     );
