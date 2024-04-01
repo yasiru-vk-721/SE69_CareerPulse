@@ -26,6 +26,10 @@ jobs:
         cache: 'npm'
         cache-dependency-path: "./Career-Pulse/package-lock.json"
 
+    - name: Install dependencies
+      run: npm install
+      working-directory: ./Career-Pulse
+
     - run: npm run build --if-present
       working-directory: ./Career-Pulse
 
