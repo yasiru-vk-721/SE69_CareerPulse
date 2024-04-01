@@ -11,9 +11,7 @@ on:
 
 jobs:
   build:
-
     runs-on: ubuntu-latest
-
     strategy:
       matrix:
         node-version: [18.x]
@@ -29,5 +27,5 @@ jobs:
         cache-dependency-path: "./Career-Pulse/package-lock.json"
 
     - run: npm run build --if-present
-      working-directory: "./Career-Pulse"
+      working-directory: ./Career-Pulse
 
