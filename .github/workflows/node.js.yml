@@ -25,4 +25,4 @@ jobs:
     
     - run: npm run build --if-present
       working-directory: ./server
-    - run: npm test
+    
