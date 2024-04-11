@@ -14,6 +14,7 @@ function Links() {
   const [auth, setAuth] = useState(false);
   const [click, setClick] = useState(false);
   const [dropdown, setDropdown] = useState(false);
+  const [companyLoogedIn, setCompanyLoggedIn] = useState(false);
 
   const handleClick = () => setClick(!click);
   const closeMobileMenu = () => setClick(false);
@@ -36,8 +37,16 @@ function Links() {
 
   useEffect(() => {
     const authStatus = localStorage.getItem('user');
+    const comapanyStatus = localStorage.getItem('company');
+
+    //Check for an emaployee
     if(authStatus === 'true'){
       setAuth(true);
+    }
+
+    //Check for a company
+    if(comapanyStatus === 'true'){
+      setCompanyLoggedIn(true);
     }
   }, []);
 
@@ -50,6 +59,7 @@ function Links() {
       await axios.get('/logout');
       toast.success("Logout Successfull")
       localStorage.removeItem('user');
+      localStorage.removeItem('company');
       navigate('/login');
       window.location.reload();
     }catch(error){
@@ -85,23 +95,31 @@ function Links() {
           <li className="navigateItem">
             <MenuLink className="navgateLinks" onClick={closeMobileMenu} linkname="Contact" url="/contact"/>
           </li>
-          <li className="navigateItem">
-            <MenuLink className="navgateLinks" onClick={closeMobileMenu} linkname="Profile" url="/profile"/>
-          </li>
+
+          {auth ? (
+            <li className="navigateItem">
+              <MenuLink className="navgateLinks" onClick={closeMobileMenu} linkname="Profile" url="/profile"/>
+            </li>
+          ) : (null)}
           {/* <li className="navigateItem">
             <MenuLink className="navgateLinks" onClick={closeMobileMenu} linkname="Company-Profile" url="/company-profile"/>
           </li> */}
-          <li className="navigateItem"
-                    onMouseEnter={onMouseEnter}
-                    onMouseLeave={onMouseLeave}
-                >
-                    <Link  className="navgateLinks" onClick={closeMobileMenu}>
-                        Services <i className='fas fa-caret-down'/>
-                    </Link>
-                    {dropdown && <Dropdown
-                    />}   
-          </li>
-          {auth ? (<>
+
+          {companyLoogedIn ? (
+            <>
+              <li className="navigateItem">
+                <MenuLink className="navgateLinks" onClick={closeMobileMenu} linkname="Post a Job" url="/jobposting"/>
+              </li>
+              <li className="navigateItem" onMouseEnter={onMouseEnter} onMouseLeave={onMouseLeave}>
+                <Link className="navgateLinks" onClick={closeMobileMenu}>
+                  Services <i className='fas fa-caret-down'/>
+                </Link>
+                {dropdown && <Dropdown />}
+              </li>
+            </>
+          ) : null}
+
+          {(auth || companyLoogedIn) ? (<>
             <li className="navgateLinks">
             <button onClick={logOutUser}>LogOut</button>
           </li>
