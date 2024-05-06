@@ -13,7 +13,7 @@ const CompanyProfile = () => {
       // Fetch vacancies associated with the logged-in company
       const fetchVacancies = async () => {
         try {
-          const response = await axios.get(`http://localhost:8000/posted-vacancies/${company.companyEmail}`);
+          const response = await axios.get(`https://se-69-career-pulse-v4i2.vercel.app/posted-vacancies/${company.companyEmail}`);
           setVacancies(response.data);
         } catch (error) {
           console.error('Error fetching vacancies:', error);
@@ -26,7 +26,7 @@ const CompanyProfile = () => {
 
   const handleDeleteVacancy = async (id) => {
     try {
-      await axios.delete(`http://localhost:8000/vacancy/${id}`);
+      await axios.delete(`https://se-69-career-pulse-v4i2.vercel.app/vacancy/${id}`);
       // If successful, remove the deleted vacancy from the state or perform any necessary actions
       setVacancies(prevVacancies => prevVacancies.filter(vacancy => vacancy._id !== id));
     } catch (error) {

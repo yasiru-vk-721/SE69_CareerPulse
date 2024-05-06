@@ -22,7 +22,7 @@ import CompanyLogin from './pages/CompanyLogin'
 import Notification from './pages/MailNotification';
 import UserApplication from './pages/UserApplication';
 
-axios.defaults.baseURL = 'http://localhost:8000';
+axios.defaults.baseURL = 'https://se-69-career-pulse-v4i2.vercel.app/';
 axios.defaults.withCredentials = true; 
 
 function App() {
