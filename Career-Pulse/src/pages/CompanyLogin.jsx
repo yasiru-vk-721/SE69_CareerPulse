@@ -29,7 +29,7 @@ function Login() {
       }else{
         setData({})
         toast.success("Login Successfull")
-        localStorage.setItem('user', true);
+        localStorage.setItem('company', true);
         navigate('/');
         window.location.reload();
       }
